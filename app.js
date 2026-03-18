@@ -12,6 +12,9 @@ function escapeHtml(str = '') {
 function renderKpis(items) {
   return items.map(item => `
     <article class="kpi-card ${escapeHtml(item.variant || '')}">
+      <div class="kpi-motif" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
       <span>${escapeHtml(item.label)}</span>
       <strong>${escapeHtml(item.value)}</strong>
       <em>${escapeHtml(item.note)}</em>

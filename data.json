@@ -5,10 +5,12 @@
     "description": ""
   },
   "kpis": [
-    { "label": "挂榜委托", "value": "31", "note": "新挂上来的单子 7 条", "variant": "active crest-card" },
-    { "label": "催命急单", "value": "05", "note": "2 条等你拍板", "variant": "alert pulse-soft crest-card" },
-    { "label": "今日结单", "value": "14", "note": "赏金到账稳定", "variant": "success crest-card" },
-    { "label": "可冲阶位", "value": "03", "note": "1 人快够资格", "variant": "pending crest-card" }
+    { "label": "S级任务", "value": "05", "note": "高赏金高风险目标仍在挂榜", "variant": "tier-s crest-card" },
+    { "label": "执行中", "value": "31", "note": "多支猎人小队已在外环追猎", "variant": "running crest-card" },
+    { "label": "待审批", "value": "03", "note": "只差最后落印就能放行", "variant": "approval crest-card" },
+    { "label": "已停滞", "value": "05", "note": "情报、资源或链路正在卡单", "variant": "stalled crest-card" },
+    { "label": "待委派", "value": "04", "note": "新单已挂榜，等你点人出手", "variant": "unassigned crest-card" },
+    { "label": "已完成", "value": "14", "note": "今日已经顺利结单并入账", "variant": "done crest-card" }
   ],
   "primeBounty": {
     "ribbon": "SS级头号悬赏",
