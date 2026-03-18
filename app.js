@@ -98,13 +98,18 @@ function renderTasks(items) {
 }
 
 async function init() {
-  const res = await fetch('./data.json?v=20260318-1503', { cache: 'no-store' });
+  const res = await fetch('./data.json?v=20260318-1506', { cache: 'no-store' });
   const data = await res.json();
 
-  byId('hero-eyebrow').textContent = data.hero.eyebrow;
-  byId('hero-title').textContent = data.hero.title;
-  byId('hero-description').textContent = data.hero.description;
-  byId('kpi-row').innerHTML = renderKpis(data.kpis || []);
+  const heroEyebrow = byId('hero-eyebrow');
+  const heroTitle = byId('hero-title');
+  const heroDescription = byId('hero-description');
+  const kpiRow = byId('kpi-row');
+
+  if (heroEyebrow) heroEyebrow.textContent = data.hero?.eyebrow || '';
+  if (heroTitle) heroTitle.textContent = data.hero?.title || '';
+  if (heroDescription) heroDescription.textContent = data.hero?.description || '';
+  if (kpiRow) kpiRow.innerHTML = renderKpis(data.kpis || []);
 
   const bounty = data.primeBounty;
   byId('bounty-ribbon').textContent = bounty.ribbon;
