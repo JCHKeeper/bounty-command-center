@@ -559,14 +559,13 @@ h1, h2, h3, p { margin: 0; }
 
 .mech-hero {
   overflow: hidden;
-  grid-template-columns: minmax(0, 1.15fr) 280px;
-  align-items: center;
-  padding: 34px 32px 30px;
+  grid-template-columns: 1fr;
+  align-items: start;
+  padding: 26px 28px 20px;
+  min-height: 140px;
   background:
-    radial-gradient(circle at 72% 42%, rgba(90,140,255,.14), transparent 0 20%),
-    radial-gradient(circle at 82% 28%, rgba(86,224,255,.10), transparent 0 16%),
     linear-gradient(180deg, rgba(26,38,53,.92), rgba(10,15,24,.94)),
-    linear-gradient(135deg, rgba(199,154,82,.10), transparent 28%, rgba(86,224,255,.06) 62%, transparent 100%);
+    linear-gradient(135deg, rgba(199,154,82,.08), transparent 28%, rgba(86,224,255,.04) 62%, transparent 100%);
 }
 .mech-hero::before {
   background:
@@ -588,6 +587,9 @@ h1, h2, h3, p { margin: 0; }
   clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 18px, 100% 100%, 14px 100%, 0 calc(100% - 16px));
 }
 .mech-hero-copy { position: relative; z-index: 2; max-width: 720px; }
+.hero-copy-minimal {
+  min-height: 0;
+}
 .reactor-chip {
   padding: 10px 16px;
   border-radius: 12px;
@@ -599,58 +601,16 @@ h1, h2, h3, p { margin: 0; }
   letter-spacing: .18em;
   color: #f2dfb8;
 }
-.mech-hero-copy h2 { max-width: 11ch; margin-top: 16px; text-shadow: 0 10px 24px rgba(0,0,0,.35); }
-.mech-hero-copy p { max-width: 56ch; line-height: 1.85; margin-top: 14px; color: #ddd5c6; }
-.mech-kpis { grid-column: 1 / -1; position: relative; z-index: 2; }
-.reactor-core-wrap {
-  position: relative;
-  width: 250px;
-  margin-left: auto;
-  margin-right: 4px;
-  z-index: 2;
+.mech-hero-copy h2,
+.mech-hero-copy p,
+.reactor-core-wrap,
+.reactor-core,
+.reactor-side-tag,
+.reactor-ring,
+.reactor-center {
+  display: none;
 }
-.reactor-side-tag {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 11px;
-  letter-spacing: .22em;
-  color: rgba(243,223,185,.82);
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-.reactor-side-tag-top { top: -8px; }
-.reactor-side-tag-bottom { bottom: -12px; color: rgba(140,231,255,.78); }
-.reactor-core {
-  position: relative;
-  width: 230px;
-  height: 230px;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 2;
-}
-.reactor-core::before,
-.reactor-core::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 148px;
-  border-top: 1px solid rgba(199,154,82,.18);
-  border-bottom: 1px solid rgba(86,224,255,.08);
-  opacity: .8;
-}
-.reactor-core::before {
-  top: 10px;
-  height: 20px;
-  clip-path: polygon(0 100%, 14px 0, calc(100% - 14px) 0, 100% 100%);
-}
-.reactor-core::after {
-  bottom: 10px;
-  height: 20px;
-  clip-path: polygon(0 0, 14px 100%, calc(100% - 14px) 100%, 100% 0);
-}
-.reactor-ring {
+.mech-kpis { grid-column: 1 / -1; position: relative; z-index: 2; margin-top: 8px; }
   position: absolute;
   inset: 0;
   border-radius: 50%;

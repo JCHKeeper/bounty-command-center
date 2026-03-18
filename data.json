@@ -1,8 +1,8 @@
 {
   "hero": {
-    "eyebrow": "界域主核 / 装甲反应炉",
-    "title": "主核已点亮，整座指挥大厅开始运转。",
-    "description": "这块不再只是说明区，而是界域公会真正的中枢反应舱：灵核、装甲、战术回路与战损痕迹同时在线，像一台随时准备出征的机甲心脏。"
+    "eyebrow": "界域-主核",
+    "title": "",
+    "description": ""
   },
   "kpis": [
     { "label": "活跃委托", "value": "31", "note": "重装甲追踪链已接驳", "variant": "active crest-card" },
