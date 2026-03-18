@@ -98,7 +98,7 @@ function renderTasks(items) {
 }
 
 async function init() {
-  const res = await fetch('./data.json?v=20260318-1424', { cache: 'no-store' });
+  const res = await fetch('./data.json?v=20260318-1503', { cache: 'no-store' });
   const data = await res.json();
 
   byId('hero-eyebrow').textContent = data.hero.eyebrow;
