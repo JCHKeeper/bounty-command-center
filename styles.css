@@ -195,34 +195,81 @@ h1, h2, h3, p { margin: 0; }
 }
 .minimal-topbar {
   justify-content: flex-start;
-  padding: 18px 24px;
+  padding: 16px 24px 18px;
+}
+.guild-header-shell {
+  overflow: hidden;
+  min-height: 108px;
+  background:
+    linear-gradient(180deg, rgba(27,36,49,.92), rgba(9,14,22,.96)),
+    linear-gradient(90deg, rgba(199,154,82,.08), transparent 22%, rgba(86,224,255,.05) 72%, transparent 100%);
+}
+.guild-header-shell::before {
+  background:
+    linear-gradient(120deg, rgba(255,255,255,.05), transparent 16%, transparent 60%, rgba(86,224,255,.035) 92%),
+    repeating-linear-gradient(90deg, transparent 0 44px, rgba(255,255,255,.018) 44px 45px);
+}
+.guild-header-accent {
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  width: 120px;
+  border: 1px solid rgba(199,154,82,.15);
+  pointer-events: none;
+  opacity: .9;
+}
+.guild-header-accent-left {
+  left: 10px;
+  clip-path: polygon(0 16px, 18px 0, 100% 0, 100% calc(100% - 22px), calc(100% - 28px) 100%, 0 100%);
+}
+.guild-header-accent-right {
+  right: 10px;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 26px 100%, 0 calc(100% - 20px));
 }
 .guild-brand {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
+}
+.guild-logo-shell {
+  width: 88px;
+  height: 88px;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(180deg, rgba(14,20,30,.94), rgba(8,12,19,.98)),
+    linear-gradient(135deg, rgba(199,154,82,.08), rgba(86,224,255,.05));
+  border: 1px solid rgba(199,154,82,.18);
+  box-shadow: inset 0 0 0 1px rgba(86,224,255,.06), 0 16px 34px rgba(0,0,0,.28);
+  clip-path: polygon(0 14px, 14px 0, calc(100% - 18px) 0, 100% 14px, 100% calc(100% - 12px), calc(100% - 14px) 100%, 0 100%);
 }
 .guild-logo {
-  width: 68px;
-  height: 68px;
+  width: 74px;
+  height: 74px;
   object-fit: contain;
-  filter: drop-shadow(0 10px 28px rgba(86,224,255,.12)) drop-shadow(0 12px 30px rgba(0,0,0,.28));
+  filter: drop-shadow(0 10px 28px rgba(86,224,255,.18)) drop-shadow(0 12px 30px rgba(0,0,0,.32));
 }
 .guild-brand-copy {
   display: grid;
-  gap: 2px;
+  gap: 0;
 }
 .guild-name {
-  font-size: 28px;
+  font-size: 34px;
+  line-height: 1;
   font-weight: 900;
-  letter-spacing: .18em;
+  letter-spacing: .22em;
   color: #f3dfb9;
+  text-shadow: 0 8px 22px rgba(0,0,0,.28);
 }
 .guild-brand-copy h1 {
-  margin: 0;
-  font-size: 18px;
-  letter-spacing: .18em;
-  color: var(--muted);
+  margin: 6px 0 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .36em;
+  color: rgba(183,176,162,.88);
+  text-transform: uppercase;
 }
 
 .dashboard { width: min(1360px, calc(100% - 32px)); margin: 18px auto 32px; }
@@ -723,9 +770,11 @@ h1, h2, h3, p { margin: 0; }
   .focus-summary { max-width: 100%; }
   .bounty-ribbon { position: static; transform: none; width: fit-content; border-radius: 999px; padding: 7px 12px; }
   .hero-frame { display: none; }
-  .guild-logo { width: 56px; height: 56px; }
-  .guild-name { font-size: 22px; letter-spacing: .12em; }
-  .guild-brand-copy h1 { font-size: 15px; }
+  .guild-header-accent { display: none; }
+  .guild-logo-shell { width: 72px; height: 72px; }
+  .guild-logo { width: 58px; height: 58px; }
+  .guild-name { font-size: 24px; letter-spacing: .14em; }
+  .guild-brand-copy h1 { font-size: 13px; letter-spacing: .22em; }
   .compact-task-row:nth-child(2n),
   .compact-task-row:nth-child(3n),
   .armor-shell-warn,
