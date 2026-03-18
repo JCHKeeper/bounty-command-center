@@ -216,36 +216,17 @@ h1, h2, h3, p { margin: 0; }
 }
 .guild-embed-trace {
   position: absolute;
-  left: -10px;
-  top: -8px;
-  width: 360px;
-  height: 118px;
+  left: -8px;
+  top: -6px;
+  width: 300px;
+  height: 98px;
   pointer-events: none;
-  opacity: .75;
+  opacity: .42;
   background:
-    radial-gradient(circle at 38px 40px, rgba(86,224,255,.12), transparent 0 34px),
-    linear-gradient(90deg, rgba(86,224,255,.10), transparent 120px),
-    linear-gradient(90deg, rgba(199,154,82,.12), transparent 76%),
-    linear-gradient(180deg, rgba(255,255,255,.03), transparent 70%);
-  filter: blur(.2px);
-  clip-path: polygon(0 18px, 18px 0, calc(100% - 70px) 0, 100% 30px, 100% calc(100% - 14px), calc(100% - 24px) 100%, 0 100%);
-}
-.guild-embed-trace::before {
-  content: "";
-  position: absolute;
-  inset: 12px 18px 18px 18px;
-  border: 1px solid rgba(255,255,255,.04);
-  clip-path: polygon(0 14px, 14px 0, calc(100% - 52px) 0, 100% 22px, 100% calc(100% - 10px), calc(100% - 16px) 100%, 0 100%);
-}
-.guild-embed-trace::after {
-  content: "";
-  position: absolute;
-  left: 92px;
-  right: 22px;
-  top: 58px;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(86,224,255,.16), rgba(199,154,82,.12), transparent 86%);
-  opacity: .85;
+    radial-gradient(circle at 40px 40px, rgba(86,224,255,.08), transparent 0 30px),
+    linear-gradient(90deg, rgba(86,224,255,.05), transparent 110px),
+    linear-gradient(90deg, rgba(199,154,82,.06), transparent 72%);
+  filter: blur(1px);
 }
 .guild-brand {
   position: relative;
@@ -790,7 +771,7 @@ h1, h2, h3, p { margin: 0; }
   .focus-summary { max-width: 100%; }
   .bounty-ribbon { position: static; transform: none; width: fit-content; border-radius: 999px; padding: 7px 12px; }
   .hero-frame { display: none; }
-  .guild-embed-trace { width: 280px; height: 96px; left: -6px; }
+  .guild-embed-trace { width: 220px; height: 78px; left: -4px; top: -2px; }
   .guild-logo-shell { width: 64px; height: 64px; }
   .guild-logo { width: 64px; height: 64px; }
   .guild-name { font-size: 24px; letter-spacing: .1em; }
