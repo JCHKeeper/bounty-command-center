@@ -1,72 +1,65 @@
 {
   "hero": {
-    "eyebrow": "GUILD BOARD ONLINE",
-    "title": "总览像任务板，行动像指挥台。",
-    "description": "把真正重要的东西放到最前面：当前局势、首要任务、异常提醒、队员勋章与精简任务列表。"
+    "eyebrow": "GUILD CORE / ARMOR REACTOR ONLINE",
+    "title": "像机甲猎人总控舱，而不是普通后台。",
+    "description": "主视觉改成重装甲、战损、公会授印与修炼灵核并存；结构故意不完全对称，像一台经历过高强度任务的未来机甲终端。"
   },
   "kpis": [
-    { "label": "进行中", "value": "31", "note": "7 个今天新开", "variant": "active crest-card" },
-    { "label": "阻塞中", "value": "05", "note": "2 个等你拍板", "variant": "alert pulse-soft crest-card" },
-    { "label": "今日完成", "value": "14", "note": "节奏正常", "variant": "success crest-card" },
-    { "label": "待审批", "value": "03", "note": "高优先级 1 个", "variant": "pending crest-card" }
+    { "label": "活跃委托", "value": "31", "note": "重装甲追踪链已接驳", "variant": "active crest-card" },
+    { "label": "高危告警", "value": "05", "note": "2 项等待战术拍板", "variant": "alert pulse-soft crest-card" },
+    { "label": "今日猎获", "value": "14", "note": "公会战绩稳定", "variant": "success crest-card" },
+    { "label": "突破候选", "value": "03", "note": "1 名接近晋阶阈值", "variant": "pending crest-card" }
   ],
   "primeBounty": {
-    "ribbon": "S 级悬赏令",
-    "seal": "公会悬印",
-    "id": "悬赏编号 #JX-204",
-    "publisher": "发布人：航运同盟 / 第七分部",
-    "title": "追踪失联货运舱 · JX-204",
-    "meta": "当前负责人：Northwind 小队 · 最后更新：8 分钟前 · 区域：外环 C-9",
-    "priority": "高优先级",
-    "summary": "货运舱信号在外环 C-9 断续出现，已有两支小队接近目标。现在最重要的是决定是否追加支援，避免目标再次失联。",
+    "ribbon": "SS 级战术悬赏",
+    "seal": "战术授印",
+    "id": "装甲悬令 #VX-771",
+    "publisher": "发布方：猎人公会外环总会 / 第七远征署",
+    "title": "追猎裂界兽核 · VX-771",
+    "meta": "当前出战：Northwind / Vanta 联队 · 最后同步：6 分钟前 · 区域：陨铁荒带-13",
+    "priority": "极危",
+    "summary": "目标兽核仍在高能脉冲状态，外围装甲层多次被撕裂。当前关键不是继续堆人，而是判断是否切换重装突入编制，并在灵核过载前完成封收。",
     "facts": [
-      { "label": "当前状态", "value": "执行中" },
-      { "label": "下一步", "value": "决定是否增援" },
-      { "label": "完成奖励", "value": "1 枚勋章", "highlight": true }
+      { "label": "作战阶段", "value": "第三阶段封锁" },
+      { "label": "推荐动作", "value": "切换重装突入" },
+      { "label": "突破奖励", "value": "+2 勋章 / 灵核材料", "highlight": true }
     ],
     "rewards": [
-      { "label": "基础悬赏", "value": "¥ 48,000" },
-      { "label": "卓越完成", "value": "+1 枚勋章" },
-      { "label": "任务属性", "value": "追踪 / 回收 / 护送" }
+      { "label": "基础悬赏", "value": "¥ 188,000" },
+      { "label": "核心掉落", "value": "兽核结晶 x3" },
+      { "label": "任务属性", "value": "猎杀 / 封收 / 护送" }
     ],
-    "actions": ["查看悬赏详情", "催更新"]
+    "actions": ["进入战术视图", "申请重装增援"]
   },
   "alerts": [
-    { "title": "灰港护送任务卡住", "text": "通行证审批延迟，等待你确认是否走高价通道。", "time": "现在", "critical": true },
-    { "title": "边境审计 47 分钟未更新", "text": "建议催一次执行人，确认是否需要补人。", "time": "47m" },
-    { "title": "2 个新任务无人认领", "text": "可以直接发布或指定负责人。", "time": "新" },
-    { "title": "Delta 已达到升级条件", "text": "可安排一次硬件或软件升级兑换。", "time": "12m" }
+    { "title": "左翼装甲链路受损", "text": "主悬赏面板接入的外环链路出现 7% 抖动，建议切换备用甲片通道。", "time": "现在", "critical": true },
+    { "title": "Delta 突破阈值触发", "text": "猎人档案已满足晋阶条件，可进入淬炼与模组兑换流程。", "time": "12m" },
+    { "title": "灰港委托仍未授权", "text": "需要你决定是否启用高代价快速通道，否则时限会继续损失。", "time": "18m" },
+    { "title": "两项新悬赏未挂接队员", "text": "建议直接指派拥有重装盔甲天赋的成员接单。", "time": "新" }
   ],
-  "quickActions": ["发布悬赏令", "只看阻塞", "生成作战简报", "查看升级资格"],
-  "medalRule": "完成任务奖励 1 枚勋章；出色完成奖励 2 枚。累计 100 枚勋章后，可按队员要求兑换一次硬件或软件小升级。",
+  "quickActions": ["发布 S 级悬赏", "切入重装视角", "打开灵核修复", "查看晋阶名单"],
+  "medalRule": "完成悬赏奖励 1 枚勋章；高危完封奖励 2 枚。累计 100 枚勋章后，可依猎人战斗路径兑换一次硬件或软件升级，并开启一次突破淬炼资格。",
   "medalSummary": [
     { "label": "本周新增勋章", "value": "+21" },
-    { "label": "最接近升级", "value": "Northwind" },
+    { "label": "最接近突破", "value": "Northwind" },
     { "label": "已可兑换升级", "value": "1 人" }
   ],
   "hunters": [
-    { "name": "Northwind", "role": "先遣队长", "class": "scout", "mark": "侦", "medals": 84, "progress": 84, "status": "距离升级还差 16 枚", "title": "银翼勋章", "weekly": "+6", "champion": true },
-    { "name": "Abyss-3", "role": "深潜回收", "class": "salvage", "mark": "收", "medals": 61, "progress": 61, "status": "稳定完成率很高", "title": "潮痕勋章", "weekly": "+4" },
-    { "name": "Kite", "role": "边境情报", "class": "intel", "mark": "讯", "medals": 37, "progress": 37, "status": "距离升级还差 63 枚", "title": "风切勋章", "weekly": "+2" },
-    { "name": "Delta", "role": "密钥回收", "class": "vault", "mark": "钥", "medals": 102, "progress": 100, "status": "已达升级条件", "title": "可兑换升级", "weekly": "+5", "readyUpgrade": true, "full": true },
-    { "name": "Morrow", "role": "后勤补给", "class": "supply", "mark": "补", "medals": 46, "progress": 46, "status": "最近支援响应很快", "title": "灰炉勋章", "weekly": "+3" },
-    { "name": "Vanta", "role": "夜幕渗透", "class": "shadow", "mark": "潜", "medals": 73, "progress": 73, "status": "高风险任务命中率高", "title": "夜烬勋章", "weekly": "+4" }
+    { "name": "Northwind", "role": "重装先遣 / 风压刀路", "class": "scout", "mark": "锋", "medals": 84, "progress": 84, "status": "距离突破还差 16 枚勋章", "title": "银翼战猎勋章", "weekly": "+6", "champion": true },
+    { "name": "Abyss-3", "role": "深潜回收 / 湮流甲系", "class": "salvage", "mark": "湮", "medals": 61, "progress": 61, "status": "护甲损耗可控，适合继续回收线", "title": "深潮封收勋章", "weekly": "+4" },
+    { "name": "Kite", "role": "边境情报 / 灵感测绘", "class": "intel", "mark": "讯", "medals": 37, "progress": 37, "status": "仍在积累突破前置数据", "title": "风切情报勋章", "weekly": "+2" },
+    { "name": "Delta", "role": "密钥猎取 / 圣柜兵装", "class": "vault", "mark": "柜", "medals": 102, "progress": 100, "status": "已达晋阶条件，可进入模组兑换", "title": "可兑换升级", "weekly": "+5", "readyUpgrade": true, "full": true },
+    { "name": "Morrow", "role": "后勤补给 / 炉心维护", "class": "supply", "mark": "炉", "medals": 46, "progress": 46, "status": "近期补给修复效率明显提升", "title": "灰炉后勤勋章", "weekly": "+3" },
+    { "name": "Vanta", "role": "夜幕渗透 / 影蚀装具", "class": "shadow", "mark": "影", "medals": 73, "progress": 73, "status": "高危猎杀命中率持续上升", "title": "夜烬潜猎勋章", "weekly": "+4" }
   ],
   "tasks": [
-    { "title": "追踪失联货运舱 · JX-204", "meta": "执行中 · Northwind · 8 分钟前更新", "badge": "S 级", "badgeType": "danger" },
-    { "title": "护送情报员进入灰港", "meta": "阻塞中 · 等待审批 · 12 分钟前更新", "badge": "待决策", "badgeType": "warn", "blocked": true },
-    { "title": "回收黑匣子样本 / 海沟信标", "meta": "进行中 · Abyss-3 · 21 分钟前更新", "badge": "B 级", "badgeType": "info" },
-    { "title": "审计边境跳点访问日志", "meta": "待跟进 · Kite · 47 分钟前更新", "badge": "低风险", "badgeType": "success" },
-    { "title": "回收失窃通行密钥", "meta": "已完成 · Delta · 1 小时前结案", "badge": "完成", "badgeType": "success", "done": true },
-    { "title": "整理东线补给清单 / 第 4 批", "meta": "进行中 · Morrow · 15 分钟前更新", "badge": "后勤", "badgeType": "info" },
-    { "title": "夜港监听点静默部署", "meta": "执行中 · Vanta · 18 分钟前更新", "badge": "潜入", "badgeType": "danger" },
-    { "title": "核对舰桥身份签章异常", "meta": "待审批 · 需要你确认策略 · 26 分钟前更新", "badge": "审批", "badgeType": "warn", "blocked": true },
-    { "title": "追查未归档情报包 #A-19", "meta": "进行中 · Kite · 31 分钟前更新", "badge": "情报", "badgeType": "info" },
-    { "title": "清点旧城区安全屋库存", "meta": "待跟进 · Morrow · 39 分钟前更新", "badge": "例行", "badgeType": "success" },
-    { "title": "拦截黑市密钥转运链路", "meta": "高风险执行中 · Delta / Vanta · 42 分钟前更新", "badge": "A 级", "badgeType": "danger" },
-    { "title": "修复外环 C-9 中继塔供电", "meta": "阻塞中 · 缺备用电芯 · 53 分钟前更新", "badge": "阻塞", "badgeType": "warn", "blocked": true },
-    { "title": "回收沉没仓残骸定位标记", "meta": "进行中 · Abyss-3 · 1 小时前更新", "badge": "回收", "badgeType": "info" },
-    { "title": "训练新队员基础指令协议", "meta": "已完成 · Northwind · 1 小时前结案", "badge": "完成", "badgeType": "success", "done": true },
-    { "title": "生成今日公会作战简报", "meta": "待生成 · 系统任务 · 2 小时前建立", "badge": "系统", "badgeType": "info" }
+    { "title": "追猎裂界兽核 · VX-771", "meta": "极危执行中 · Northwind / Vanta · 6 分钟前更新", "badge": "SS 级", "badgeType": "danger" },
+    { "title": "护送情报员穿越灰港封锁", "meta": "阻塞中 · 等待授权 · 12 分钟前更新", "badge": "待拍板", "badgeType": "warn", "blocked": true },
+    { "title": "回收沉舰黑匣子与灵纹样本", "meta": "进行中 · Abyss-3 · 21 分钟前更新", "badge": "回收", "badgeType": "info" },
+    { "title": "审计边境跳点访问装甲日志", "meta": "待跟进 · Kite · 47 分钟前更新", "badge": "情报", "badgeType": "success" },
+    { "title": "回收失窃通行密钥兵装", "meta": "已完成 · Delta · 1 小时前结案", "badge": "完成", "badgeType": "success", "done": true },
+    { "title": "修复外环重装中继塔供能", "meta": "阻塞中 · 缺备用电芯 · 53 分钟前更新", "badge": "阻塞", "badgeType": "warn", "blocked": true },
+    { "title": "夜港监听点无痕部署", "meta": "执行中 · Vanta · 18 分钟前更新", "badge": "潜猎", "badgeType": "danger" },
+    { "title": "生成今日公会战术简报", "meta": "待生成 · 系统任务 · 2 小时前建立", "badge": "系统", "badgeType": "info" }
   ]
 }

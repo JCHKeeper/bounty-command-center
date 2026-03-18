@@ -394,7 +394,9 @@ h1, h2, h3, p { margin: 0; }
   display: grid; gap: 14px;
   position: relative;
   overflow: hidden;
+  clip-path: polygon(0 10px, 12px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 20px) 100%, 0 100%);
 }
+.hunter-card:nth-child(2n) { clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 22px 100%, 0 calc(100% - 18px)); }
 .hunter-card::after {
   content: "";
   position: absolute;
@@ -449,6 +451,177 @@ h1, h2, h3, p { margin: 0; }
   justify-self: start; padding: 7px 10px; border-radius: 999px; background: rgba(140,231,255,.08); color: var(--cyan); font-size: 12px; font-weight: 700;
 }
 
+.mech-dashboard .panel,
+.mech-dashboard .topbar,
+.mech-dashboard .hero,
+.mech-dashboard .focus-card,
+.mech-dashboard .subpanel,
+.mech-dashboard .compact-task-row,
+.mech-dashboard .kpi-card {
+  position: relative;
+}
+
+.armor-shell {
+  clip-path: polygon(0 18px, 22px 0, calc(100% - 36px) 0, 100% 24px, 100% calc(100% - 18px), calc(100% - 22px) 100%, 0 100%);
+  border-color: rgba(199,154,82,.24);
+}
+.armor-shell::after {
+  content: "";
+  position: absolute;
+  inset: 10px 14px 12px 14px;
+  border: 1px solid rgba(86,224,255,.08);
+  clip-path: polygon(0 14px, 18px 0, calc(100% - 28px) 0, 100% 18px, 100% calc(100% - 14px), calc(100% - 16px) 100%, 0 100%);
+  pointer-events: none;
+}
+.armor-shell-warn { transform: translateY(8px); }
+.armor-shell-side { transform: translateX(-6px); }
+.armor-shell-wide { transform: translateX(4px); }
+.offset-shell { transform: translateX(-10px); }
+
+.mech-hero {
+  overflow: hidden;
+  grid-template-columns: minmax(0, 1.15fr) 280px;
+  align-items: center;
+  padding: 34px 32px 30px;
+  background:
+    radial-gradient(circle at 72% 42%, rgba(90,140,255,.14), transparent 0 20%),
+    radial-gradient(circle at 82% 28%, rgba(86,224,255,.10), transparent 0 16%),
+    linear-gradient(180deg, rgba(26,38,53,.92), rgba(10,15,24,.94)),
+    linear-gradient(135deg, rgba(199,154,82,.10), transparent 28%, rgba(86,224,255,.06) 62%, transparent 100%);
+}
+.mech-hero::before {
+  background:
+    linear-gradient(120deg, rgba(255,255,255,.05), transparent 16%, transparent 58%, rgba(86,224,255,.04) 86%),
+    repeating-linear-gradient(90deg, transparent 0 38px, rgba(255,255,255,.015) 38px 39px);
+}
+.hero-frame {
+  position: absolute;
+  pointer-events: none;
+  border: 1px solid rgba(199,154,82,.18);
+  opacity: .9;
+}
+.hero-frame-left {
+  left: 12px; top: 18px; bottom: 38px; width: 28%;
+  clip-path: polygon(0 16px, 20px 0, 100% 0, 100% calc(100% - 28px), calc(100% - 32px) 100%, 0 100%);
+}
+.hero-frame-right {
+  right: 14px; top: 26px; bottom: 12px; width: 22%;
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 18px, 100% 100%, 14px 100%, 0 calc(100% - 16px));
+}
+.mech-hero-copy { position: relative; z-index: 2; max-width: 720px; }
+.mech-hero-copy h2 { max-width: 13ch; text-shadow: 0 10px 24px rgba(0,0,0,.35); }
+.mech-hero-copy p { max-width: 58ch; line-height: 1.8; margin-top: 12px; }
+.mech-kpis { grid-column: 1 / -1; position: relative; z-index: 2; }
+.reactor-core {
+  position: relative;
+  width: 230px;
+  height: 230px;
+  margin-left: auto;
+  margin-right: 6px;
+  z-index: 2;
+}
+.reactor-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(86,224,255,.16);
+}
+.reactor-ring-outer {
+  box-shadow: 0 0 42px rgba(86,224,255,.08), inset 0 0 34px rgba(86,224,255,.04);
+  animation: spinSlow 18s linear infinite;
+}
+.reactor-ring-mid {
+  inset: 24px;
+  border-color: rgba(199,154,82,.24);
+  animation: spinReverse 12s linear infinite;
+}
+.reactor-ring-inner {
+  inset: 54px;
+  border-color: rgba(124,103,255,.24);
+  box-shadow: 0 0 34px rgba(124,103,255,.16);
+}
+.reactor-ring-outer::before,
+.reactor-ring-mid::before,
+.reactor-ring-inner::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: inherit;
+  clip-path: polygon(0 0, 44% 0, 44% 14%, 100% 14%, 100% 56%, 86% 56%, 86% 100%, 22% 100%, 22% 82%, 0 82%);
+}
+.reactor-center {
+  position: absolute;
+  inset: 74px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(255,255,255,.65), rgba(86,224,255,.78) 0 18%, rgba(90,140,255,.56) 38%, rgba(8,16,24,.18) 58%, transparent 72%),
+    radial-gradient(circle, rgba(124,103,255,.24), transparent 70%);
+  box-shadow: 0 0 42px rgba(86,224,255,.34), 0 0 100px rgba(86,224,255,.14);
+  animation: reactorPulse 3.6s ease-in-out infinite;
+}
+
+.kpi-card {
+  clip-path: polygon(0 14px, 16px 0, calc(100% - 18px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+.kpi-card:nth-child(2n) {
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 16px, 100% calc(100% - 12px), calc(100% - 14px) 100%, 0 100%);
+}
+.kpi-card::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(199,154,82,.8), transparent);
+}
+.bounty-card {
+  clip-path: polygon(0 20px, 24px 0, calc(100% - 42px) 0, 100% 26px, 100% calc(100% - 22px), calc(100% - 18px) 100%, 0 100%);
+}
+.bounty-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(135deg, rgba(255,255,255,.07), transparent 60%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.wanted-header {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.32), rgba(0,0,0,.18)),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0 22px, transparent 22px 44px);
+}
+.reward-cell,
+.focus-meta-item,
+.alert-item,
+.compact-task-row,
+.summary-pill {
+  clip-path: polygon(0 10px, 12px 0, calc(100% - 14px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.action-stack button,
+.primary-btn,
+.ghost-btn {
+  border-radius: 12px;
+}
+.action-stack button {
+  background:
+    linear-gradient(180deg, rgba(19,28,40,.96), rgba(11,16,24,.96)),
+    linear-gradient(90deg, rgba(199,154,82,.08), transparent 30%, rgba(86,224,255,.06));
+  border-color: rgba(199,154,82,.18);
+  clip-path: polygon(0 8px, 10px 0, calc(100% - 16px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.compact-task-row:nth-child(2n) {
+  transform: translateX(8px);
+}
+.compact-task-row:nth-child(3n) {
+  transform: translateX(-6px);
+}
+.compact-task-row:hover { transform: translateY(-2px) translateX(0); }
+
 .pulse-soft { box-shadow: 0 0 0 0 rgba(255,126,134,.22); animation: pulseSoft 2.6s infinite; }
 .pulse-border::after {
   content: ""; position: absolute; inset: -1px; border-radius: inherit; border: 1px solid rgba(216,164,74,.22); pointer-events: none;
@@ -482,6 +655,21 @@ h1, h2, h3, p { margin: 0; }
   50% { transform: translate3d(12px, -10px, 0) scale(1.03); }
 }
 
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes reactorPulse {
+  0%, 100% { transform: scale(1); opacity: .9; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
 @media (max-width: 1180px) {
   .roster-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -489,6 +677,8 @@ h1, h2, h3, p { margin: 0; }
 @media (max-width: 1024px) {
   .login-shell, .hero, .layout-grid, .focus-grid { grid-template-columns: 1fr; }
   .hero-metrics, .kpi-row, .focus-meta-grid, .bounty-reward-strip { grid-template-columns: 1fr 1fr; }
+  .reactor-core { margin: 10px auto 0; }
+  .mech-hero { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px) {
@@ -501,4 +691,11 @@ h1, h2, h3, p { margin: 0; }
   .command-grid, .kpi-row, .focus-meta-grid, .roster-grid, .bounty-reward-strip { grid-template-columns: 1fr; }
   .focus-summary { max-width: 100%; }
   .bounty-ribbon { position: static; transform: none; width: fit-content; border-radius: 999px; padding: 7px 12px; }
+  .hero-frame { display: none; }
+  .compact-task-row:nth-child(2n),
+  .compact-task-row:nth-child(3n),
+  .armor-shell-warn,
+  .armor-shell-side,
+  .armor-shell-wide,
+  .offset-shell { transform: none; }
 }

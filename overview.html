@@ -24,14 +24,22 @@
     </div>
   </header>
 
-  <main class="dashboard simplified-dashboard hunter-dashboard">
-    <section class="hero glass panel simplified-hero bounty-hero">
-      <div class="hero-copy">
+  <main class="dashboard simplified-dashboard hunter-dashboard mech-dashboard">
+    <section class="hero glass panel simplified-hero bounty-hero mech-hero armor-shell">
+      <div class="hero-frame hero-frame-left"></div>
+      <div class="hero-frame hero-frame-right"></div>
+      <div class="hero-copy mech-hero-copy">
         <div class="chip chip-live" id="hero-eyebrow"></div>
         <h2 id="hero-title"></h2>
         <p class="muted" id="hero-description"></p>
       </div>
-      <div class="kpi-row" id="kpi-row"></div>
+      <div class="reactor-core" aria-hidden="true">
+        <div class="reactor-ring reactor-ring-outer"></div>
+        <div class="reactor-ring reactor-ring-mid"></div>
+        <div class="reactor-ring reactor-ring-inner"></div>
+        <div class="reactor-center"></div>
+      </div>
+      <div class="kpi-row mech-kpis" id="kpi-row"></div>
     </section>
 
     <section class="focus-grid hunter-focus-grid">
@@ -66,7 +74,7 @@
       </section>
 
       <section class="side-rail">
-        <section class="panel glass subpanel alerts-panel parchment-panel">
+        <section class="panel glass subpanel alerts-panel parchment-panel armor-shell armor-shell-warn">
           <div class="panel-head">
             <h3>异常 / 待决策</h3>
             <span class="panel-tag">FIELD ALERTS</span>
@@ -74,7 +82,7 @@
           <div class="alert-list" id="alerts-list"></div>
         </section>
 
-        <section class="panel glass subpanel action-panel parchment-panel">
+        <section class="panel glass subpanel action-panel parchment-panel armor-shell armor-shell-side">
           <div class="panel-head">
             <h3>快速入口</h3>
             <span class="panel-tag">GUILD ACTIONS</span>
@@ -84,7 +92,7 @@
       </section>
     </section>
 
-    <section class="panel glass medal-roster-panel">
+    <section class="panel glass medal-roster-panel armor-shell armor-shell-wide">
       <div class="panel-head">
         <h3>队员勋章榜</h3>
         <span class="panel-tag">HUNTER MEDALS</span>
@@ -94,7 +102,7 @@
       <div class="roster-grid" id="roster-grid"></div>
     </section>
 
-    <section class="panel glass compact-list-panel parchment-panel">
+    <section class="panel glass compact-list-panel parchment-panel armor-shell armor-shell-wide offset-shell">
       <div class="panel-head list-head-with-tabs">
         <h3>悬赏任务列表</h3>
         <div class="filter-tabs">
