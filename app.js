@@ -16,8 +16,7 @@ function renderKpis(items) {
         <span></span><span></span><span></span>
       </div>
       <span>${escapeHtml(item.label)}</span>
-      <strong>${escapeHtml(item.value)}</strong>
-      <em>${escapeHtml(item.note)}</em>
+      <strong>${escapeHtml(item.value)}<small>任务</small></strong>
     </article>
   `).join('');
 }
