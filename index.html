@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>指挥中心登录</title>
+  <link rel="stylesheet" href="./styles.css?v=2" />
+</head>
+<body class="login-body">
+  <div class="grid-bg"></div>
+  <main class="login-shell">
+    <section class="login-card glass">
+      <div class="eyebrow">GUILD ASCENSION / ACCESS GATE</div>
+      <h1>未来猎人公会 · 修炼指挥台</h1>
+      <p class="muted">这版先把世界观气质立起来：像悬赏公会终端，也像修炼者的进阶中枢。暂不接真实鉴权。</p>
+
+      <div class="status-inline">
+        <span class="dot"></span>
+        <span>灵脉节点在线 · 7</span>
+        <span>未结悬赏 · 31</span>
+        <span>待晋升队员 · 2</span>
+      </div>
+
+      <form class="login-form" action="./overview.html">
+        <label>
+          <span>账号</span>
+          <input type="text" placeholder="commander@guild.local" value="commander@guild.local" />
+        </label>
+        <label>
+          <span>口令</span>
+          <input type="password" placeholder="••••••••" value="hunter-2049" />
+        </label>
+        <label>
+          <span>访问级别</span>
+          <select>
+            <option>总指挥 / Commander</option>
+            <option>情报分析 / Intel</option>
+            <option>调度专员 / Dispatch</option>
+          </select>
+        </label>
+
+        <div class="login-actions">
+          <button type="submit" class="primary-btn">进入指挥中心</button>
+          <a class="ghost-btn" href="./overview.html">跳过登录查看原型</a>
+        </div>
+      </form>
+
+      <div class="demo-tip">
+        <strong>演示说明：</strong> 当前为静态页，输入任意内容都不会校验；点击按钮即进入总览页。
+      </div>
+    </section>
+
+    <aside class="login-side glass">
+      <div class="side-block">
+        <div class="side-title">气质关键词</div>
+        <ul>
+          <li>未来猎人公会</li>
+          <li>灵能修炼终端</li>
+          <li>悬赏委托板</li>
+          <li>轻微呼吸式动态</li>
+        </ul>
+      </div>
+      <div class="side-block">
+        <div class="side-title">这版重点</div>
+        <ul>
+          <li>更有世界观的主视觉</li>
+          <li>更灵动的面板层次</li>
+          <li>任务与成长并存</li>
+          <li>公会而非企业后台</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>
