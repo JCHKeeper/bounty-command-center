@@ -97,7 +97,7 @@ function renderTasks(items) {
 }
 
 async function init() {
-  const res = await fetch('./data.json?v=20260318-1506', { cache: 'no-store' });
+  const res = await fetch('./data.json?v=20260318-1513', { cache: 'no-store' });
   const data = await res.json();
 
   const heroEyebrow = byId('hero-eyebrow');
@@ -105,10 +105,10 @@ async function init() {
   const heroDescription = byId('hero-description');
   const kpiRow = byId('kpi-row');
 
-  if (heroEyebrow) heroEyebrow.textContent = data.hero?.eyebrow || '';
-  if (heroTitle) heroTitle.textContent = data.hero?.title || '';
-  if (heroDescription) heroDescription.textContent = data.hero?.description || '';
-  if (kpiRow) kpiRow.innerHTML = renderKpis(data.kpis || []);
+  if (heroEyebrow && !heroEyebrow.textContent.trim()) heroEyebrow.textContent = data.hero?.eyebrow || '';
+  if (heroTitle && !heroTitle.textContent.trim()) heroTitle.textContent = data.hero?.title || '';
+  if (heroDescription && !heroDescription.textContent.trim()) heroDescription.textContent = data.hero?.description || '';
+  if (kpiRow && !kpiRow.children.length) kpiRow.innerHTML = renderKpis(data.kpis || []);
 
   const bounty = data.primeBounty;
   byId('bounty-ribbon').textContent = bounty.ribbon;
