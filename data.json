@@ -1,8 +1,8 @@
 {
   "hero": {
-    "eyebrow": "GUILD CORE / ARMOR REACTOR ONLINE",
-    "title": "像机甲猎人总控舱，而不是普通后台。",
-    "description": "主视觉改成重装甲、战损、公会授印与修炼灵核并存；结构故意不完全对称，像一台经历过高强度任务的未来机甲终端。"
+    "eyebrow": "界域主核 / 装甲反应炉",
+    "title": "主核已点亮，整座指挥大厅开始运转。",
+    "description": "这块不再只是说明区，而是界域公会真正的中枢反应舱：灵核、装甲、战术回路与战损痕迹同时在线，像一台随时准备出征的机甲心脏。"
   },
   "kpis": [
     { "label": "活跃委托", "value": "31", "note": "重装甲追踪链已接驳", "variant": "active crest-card" },
