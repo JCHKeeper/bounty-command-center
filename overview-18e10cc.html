@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>指挥中心总览界面</title>
+  <link rel="stylesheet" href="./styles.css?v=20260318-1513" />
+</head>
+<body class="hunter-theme">
+  <div class="grid-bg"></div>
+  <div class="halo halo-a"></div>
+  <div class="halo halo-b"></div>
+  <div class="grain-overlay"></div>
+
+  <header class="topbar compact-topbar minimal-topbar guild-header-shell embedded-header">
+    <div class="guild-embed-trace" aria-hidden="true"></div>
+    <div class="guild-brand">
+      <div class="guild-logo-shell">
+        <img class="guild-logo" src="./assets/jieyu-guild-logo-placeholder.svg" alt="界域公会Logo" />
+      </div>
+      <div class="guild-brand-copy">
+        <div class="guild-name">界域</div>
+        <h1>指挥大厅</h1>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard simplified-dashboard hunter-dashboard mech-dashboard">
+    <section class="hero glass panel simplified-hero bounty-hero mech-hero armor-shell">
+      <div class="hero-frame hero-frame-left"></div>
+      <div class="hero-frame hero-frame-right"></div>
+      <div class="hero-copy mech-hero-copy hero-copy-minimal">
+        <div class="chip chip-live reactor-chip" id="hero-eyebrow">界域-核心</div>
+      </div>
+      <div class="kpi-row mech-kpis" id="kpi-row">
+        <article class="kpi-card tier-s crest-card">
+          <div class="kpi-motif" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span>S级任务</span>
+          <strong>05<small>任务</small></strong>
+        </article>
+        <article class="kpi-card running crest-card">
+          <div class="kpi-motif" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span>执行中</span>
+          <strong>31<small>任务</small></strong>
+        </article>
+        <article class="kpi-card stalled crest-card">
+          <div class="kpi-motif" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span>停滞中</span>
+          <strong>05<small>任务</small></strong>
+        </article>
+        <article class="kpi-card unassigned crest-card">
+          <div class="kpi-motif" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span>待委派</span>
+          <strong>04<small>任务</small></strong>
+        </article>
+        <article class="kpi-card approval crest-card">
+          <div class="kpi-motif" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span>待审批</span>
+          <strong>03<small>任务</small></strong>
+        </article>
+        <article class="kpi-card done crest-card">
+          <div class="kpi-motif" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span>已完成</span>
+          <strong>14<small>任务</small></strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="focus-grid hunter-focus-grid">
+      <section class="panel glass primary-focus bounty-board">
+        <div class="panel-head">
+          <h3>头号悬赏令</h3>
+          <span class="panel-tag">TOP BOUNTY</span>
+        </div>
+
+        <article class="focus-card pulse-border bounty-card">
+          <div class="bounty-ribbon" id="bounty-ribbon"></div>
+
+          <div class="wanted-header">
+            <div class="wanted-seal" id="wanted-seal"></div>
+            <div class="wanted-id" id="wanted-id"></div>
+            <div class="wanted-publisher" id="wanted-publisher"></div>
+          </div>
+
+          <div class="focus-head">
+            <div>
+              <div class="task-title big" id="bounty-title"></div>
+              <div class="task-meta" id="bounty-meta"></div>
+            </div>
+            <span class="badge danger" id="bounty-priority"></span>
+          </div>
+
+          <p class="focus-summary" id="bounty-summary"></p>
+          <div class="focus-meta-grid" id="bounty-facts"></div>
+          <div class="bounty-reward-strip" id="bounty-rewards"></div>
+          <div class="focus-actions" id="bounty-actions"></div>
+        </article>
+      </section>
+
+      <section class="side-rail">
+        <section class="panel glass subpanel alerts-panel parchment-panel armor-shell armor-shell-warn">
+          <div class="panel-head">
+            <h3>催命榜 / 待拍板</h3>
+            <span class="panel-tag">HOT CONTRACTS</span>
+          </div>
+          <div class="alert-list" id="alerts-list"></div>
+        </section>
+
+        <section class="panel glass subpanel action-panel parchment-panel armor-shell armor-shell-side">
+          <div class="panel-head">
+            <h3>猎人动作</h3>
+            <span class="panel-tag">HUNTER ACTIONS</span>
+          </div>
+          <div class="action-stack" id="quick-actions"></div>
+        </section>
+      </section>
+    </section>
+
+    <section class="panel glass medal-roster-panel armor-shell armor-shell-wide">
+      <div class="panel-head">
+        <h3>猎人悬赏榜</h3>
+        <span class="panel-tag">BOUNTY HUNTERS</span>
+      </div>
+      <p class="muted medal-rule" id="medal-rule"></p>
+      <div class="medal-summary-strip" id="medal-summary"></div>
+      <div class="roster-grid" id="roster-grid"></div>
+    </section>
+
+    <section class="panel glass compact-list-panel parchment-panel armor-shell armor-shell-wide offset-shell">
+      <div class="panel-head list-head-with-tabs">
+        <h3>委托榜单</h3>
+        <div class="filter-tabs">
+          <button class="tab active">全榜</button>
+          <button class="tab">追猎中</button>
+          <button class="tab">卡单</button>
+          <button class="tab">已结单</button>
+        </div>
+      </div>
+      <div class="compact-task-list" id="task-list"></div>
+    </section>
+  </main>
+
+  <script src="./app.js?v=20260318-1513"></script>
+</body>
+</html>
