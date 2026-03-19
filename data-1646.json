@@ -3,12 +3,42 @@
     "eyebrow": "界域-核心"
   },
   "kpis": [
-    { "label": "S级任务", "value": "05", "unit": "任务", "variant": "tier-s crest-card" },
-    { "label": "执行中", "value": "31", "unit": "任务", "variant": "running crest-card" },
-    { "label": "停滞中", "value": "05", "unit": "任务", "variant": "stalled crest-card" },
-    { "label": "待委派", "value": "04", "unit": "任务", "variant": "unassigned crest-card" },
-    { "label": "待审批", "value": "03", "unit": "任务", "variant": "approval crest-card" },
-    { "label": "已完成", "value": "14", "unit": "任务", "variant": "done crest-card" }
+    {
+      "label": "S级任务",
+      "value": "05",
+      "unit": "任务",
+      "variant": "tier-s crest-card"
+    },
+    {
+      "label": "执行中",
+      "value": "31",
+      "unit": "任务",
+      "variant": "running crest-card"
+    },
+    {
+      "label": "停滞中",
+      "value": "05",
+      "unit": "任务",
+      "variant": "stalled crest-card"
+    },
+    {
+      "label": "待委派",
+      "value": "04",
+      "unit": "任务",
+      "variant": "unassigned crest-card"
+    },
+    {
+      "label": "待审批",
+      "value": "03",
+      "unit": "任务",
+      "variant": "approval crest-card"
+    },
+    {
+      "label": "已完成",
+      "value": "14",
+      "unit": "任务",
+      "variant": "done crest-card"
+    }
   ],
   "primeBounty": {
     "ribbon": "SS级头号悬赏",
@@ -20,37 +50,114 @@
     "priority": "天价急单",
     "summary": "这头东西还在暴走，外层装甲已经撕开好几道口子。现在不是继续堆人，而是要不要直接上重装猎手，一口气把兽核封回来。",
     "facts": [
-      { "label": "当前单况", "value": "第三阶段封锁" },
-      { "label": "建议出手", "value": "改派重装突入" },
-      { "label": "额外赏金", "value": "+2 勋章 / 灵核材料", "highlight": true }
+      {
+        "label": "当前单况",
+        "value": "第三阶段封锁"
+      },
+      {
+        "label": "建议出手",
+        "value": "改派重装突入"
+      },
+      {
+        "label": "额外赏金",
+        "value": "+2 勋章 / 灵核材料",
+        "highlight": true
+      }
     ],
     "rewards": [
-      { "label": "基础赏金", "value": "¥ 188,000" },
-      { "label": "封回掉落", "value": "兽核结晶 x3" },
-      { "label": "单子类型", "value": "猎杀 / 封收 / 护送" }
+      {
+        "label": "基础赏金",
+        "value": "¥ 188,000"
+      },
+      {
+        "label": "封回掉落",
+        "value": "兽核结晶 x3"
+      },
+      {
+        "label": "单子类型",
+        "value": "猎杀 / 封收 / 护送"
+      }
     ],
-    "actions": ["查看悬赏令", "加派猎手"]
+    "actions": [
+      "查看悬赏令",
+      "加派猎手"
+    ]
   },
   "alerts": [
-    { "title": "灰港护送单等待拍板", "text": "要不要走高价通道，你得现在拍板，再拖就要掉时限。", "time": "18m", "critical": true },
-    { "title": "两条新单还没人接", "text": "建议直接点名让重装系猎手上，避免继续挂榜。", "time": "新" },
-    { "title": "外环重装中继塔缺备用电芯", "text": "补给不到位，修复单会继续卡住。", "time": "27m" },
-    { "title": "Delta 已够冲阶位", "text": "这名猎人的赏绩已经够数，可以开淬炼、换模组。", "time": "12m" }
+    {
+      "title": "灰港护送单等待拍板",
+      "text": "要不要走高价通道，你得现在拍板，再拖就要掉时限。",
+      "time": "18m",
+      "critical": true
+    },
+    {
+      "title": "两条新单还没人接",
+      "text": "建议直接点名让重装系猎手上，避免继续挂榜。",
+      "time": "新"
+    },
+    {
+      "title": "外环重装中继塔缺备用电芯",
+      "text": "补给不到位，修复单会继续卡住。",
+      "time": "27m"
+    },
+    {
+      "title": "Delta 已够冲阶位",
+      "text": "这名猎人的赏绩已经够数，可以开淬炼、换模组。",
+      "time": "12m"
+    }
   ],
   "timeline": [
-    { "time": "10:41", "title": "Northwind 接取 VX-771", "text": "已从普通追猎转入重装突入方案。", "level": "info" },
-    { "time": "10:36", "title": "Kite 请求补充边境日志", "text": "情报链缺两段访问信息，当前未能完成审计。", "level": "warn" },
-    { "time": "10:28", "title": "Delta 完成密钥回收单", "text": "已结单并回传战利品，等待冲阶许可。", "level": "success" },
-    { "time": "10:19", "title": "灰港护送单转入待审批", "text": "需要你决定是否启用高价通道。", "level": "critical" }
+    {
+      "time": "10:41",
+      "title": "Northwind 接取 VX-771",
+      "text": "已从普通追猎转入重装突入方案。",
+      "level": "info"
+    },
+    {
+      "time": "10:36",
+      "title": "Kite 请求补充边境日志",
+      "text": "情报链缺两段访问信息，当前未能完成审计。",
+      "level": "warn"
+    },
+    {
+      "time": "10:28",
+      "title": "Delta 完成密钥回收单",
+      "text": "已结单并回传战利品，等待冲阶许可。",
+      "level": "success"
+    },
+    {
+      "time": "10:19",
+      "title": "灰港护送单转入待审批",
+      "text": "需要你决定是否启用高价通道。",
+      "level": "critical"
+    }
   ],
   "taskBoard": {
     "tabs": [
-      { "key": "all", "label": "全部" },
-      { "key": "s", "label": "S级" },
-      { "key": "a", "label": "A级" },
-      { "key": "b", "label": "B级" },
-      { "key": "c", "label": "C级" },
-      { "key": "d", "label": "D级" }
+      {
+        "key": "all",
+        "label": "全部"
+      },
+      {
+        "key": "s",
+        "label": "S级"
+      },
+      {
+        "key": "a",
+        "label": "A级"
+      },
+      {
+        "key": "b",
+        "label": "B级"
+      },
+      {
+        "key": "c",
+        "label": "C级"
+      },
+      {
+        "key": "d",
+        "label": "D级"
+      }
     ],
     "items": [
       {
@@ -70,11 +177,32 @@
         "currentIssue": "若继续围猎，Token 与时间都会继续放大。",
         "doneWhen": "兽核封回、外环失压停止、任务正式结单。",
         "log": [
-          { "time": "10:41", "title": "Northwind 回报最新态势", "text": "外围封锁已稳，但需要决定是否上重装。", "level": "info" },
-          { "time": "10:35", "title": "Vanta 提交风险评估", "text": "继续拉扯将明显抬高消耗。", "level": "warn" },
-          { "time": "10:22", "title": "任务进入第三阶段封锁", "text": "已具备收束条件。", "level": "success" }
+          {
+            "time": "10:41",
+            "title": "Northwind 回报最新态势",
+            "text": "外围封锁已稳，但需要决定是否上重装。",
+            "level": "info"
+          },
+          {
+            "time": "10:35",
+            "title": "Vanta 提交风险评估",
+            "text": "继续拉扯将明显抬高消耗。",
+            "level": "warn"
+          },
+          {
+            "time": "10:22",
+            "title": "任务进入第三阶段封锁",
+            "text": "已具备收束条件。",
+            "level": "success"
+          }
         ],
-        "actions": ["标记完成", "改为停滞", "改为待审批", "更换猎人", "打开原始记录"],
+        "actions": [
+          "标记完成",
+          "改为停滞",
+          "改为待审批",
+          "更换猎人",
+          "打开原始记录"
+        ],
         "hunter": "Northwind / Vanta",
         "deadline": "1h 20m",
         "tokens": "186k",
@@ -85,7 +213,8 @@
         "focus": true,
         "needsAction": true,
         "highCost": true,
-        "deadlineRisk": true
+        "deadlineRisk": true,
+        "progress": 70
       },
       {
         "title": "护送情报员穿越灰港封锁",
@@ -104,10 +233,25 @@
         "currentIssue": "等待是否启用高价安全通道。",
         "doneWhen": "情报员安全抵达接应点并确认资料完整。",
         "log": [
-          { "time": "10:19", "title": "任务转入待审批", "text": "只差放行高价通道。", "level": "critical" },
-          { "time": "10:14", "title": "护送方案已齐", "text": "执行队列已经就位。", "level": "success" }
+          {
+            "time": "10:19",
+            "title": "任务转入待审批",
+            "text": "只差放行高价通道。",
+            "level": "critical"
+          },
+          {
+            "time": "10:14",
+            "title": "护送方案已齐",
+            "text": "执行队列已经就位。",
+            "level": "success"
+          }
         ],
-        "actions": ["批准放行", "驳回方案", "改为停滞", "更换猎人"],
+        "actions": [
+          "批准放行",
+          "驳回方案",
+          "改为停滞",
+          "更换猎人"
+        ],
         "hunter": "待委派",
         "deadline": "34m",
         "tokens": "28k",
@@ -118,7 +262,8 @@
         "focus": true,
         "needsAction": true,
         "highCost": false,
-        "deadlineRisk": true
+        "deadlineRisk": true,
+        "progress": 70
       },
       {
         "title": "回收沉舰黑匣子与灵纹样本",
@@ -137,9 +282,18 @@
         "currentIssue": "暂无硬阻塞，主要关注成本效率。",
         "doneWhen": "黑匣子回收完成且样本通过完整性校验。",
         "log": [
-          { "time": "10:12", "title": "Abyss-3 完成第一阶段打捞", "text": "样本已进入稳定回收流程。", "level": "success" }
+          {
+            "time": "10:12",
+            "title": "Abyss-3 完成第一阶段打捞",
+            "text": "样本已进入稳定回收流程。",
+            "level": "success"
+          }
         ],
-        "actions": ["标记完成", "改为停滞", "更换猎人"],
+        "actions": [
+          "标记完成",
+          "改为停滞",
+          "更换猎人"
+        ],
         "hunter": "Abyss-3",
         "deadline": "4h 10m",
         "tokens": "94k",
@@ -150,7 +304,8 @@
         "focus": false,
         "needsAction": false,
         "highCost": true,
-        "deadlineRisk": false
+        "deadlineRisk": false,
+        "progress": 70
       },
       {
         "title": "审计边境跳点访问装甲日志",
@@ -169,10 +324,24 @@
         "currentIssue": "上下文缺失，继续重跑没有意义。",
         "doneWhen": "日志链补全并输出明确审计结论。",
         "log": [
-          { "time": "10:36", "title": "Kite 请求补充日志", "text": "缺口不补无法继续判断。", "level": "warn" },
-          { "time": "10:20", "title": "系统重跑失败", "text": "原因仍是上下文缺失。", "level": "critical" }
+          {
+            "time": "10:36",
+            "title": "Kite 请求补充日志",
+            "text": "缺口不补无法继续判断。",
+            "level": "warn"
+          },
+          {
+            "time": "10:20",
+            "title": "系统重跑失败",
+            "text": "原因仍是上下文缺失。",
+            "level": "critical"
+          }
         ],
-        "actions": ["补上下文", "改为待审批", "更换猎人"],
+        "actions": [
+          "补上下文",
+          "改为待审批",
+          "更换猎人"
+        ],
         "hunter": "Kite",
         "deadline": "今天内",
         "tokens": "61k",
@@ -183,7 +352,8 @@
         "focus": true,
         "needsAction": true,
         "highCost": false,
-        "deadlineRisk": false
+        "deadlineRisk": false,
+        "progress": 70
       },
       {
         "title": "修复外环重装中继塔供能",
@@ -202,9 +372,18 @@
         "currentIssue": "缺备用电芯。",
         "doneWhen": "供能恢复稳定，连续监控通过。",
         "log": [
-          { "time": "10:05", "title": "Morrow 确认缺件", "text": "需要备用电芯才能继续。", "level": "warn" }
+          {
+            "time": "10:05",
+            "title": "Morrow 确认缺件",
+            "text": "需要备用电芯才能继续。",
+            "level": "warn"
+          }
         ],
-        "actions": ["补给放行", "改为待审批", "更换猎人"],
+        "actions": [
+          "补给放行",
+          "改为待审批",
+          "更换猎人"
+        ],
         "hunter": "Morrow",
         "deadline": "2h 05m",
         "tokens": "22k",
@@ -215,7 +394,8 @@
         "focus": false,
         "needsAction": true,
         "highCost": false,
-        "deadlineRisk": true
+        "deadlineRisk": true,
+        "progress": 70
       },
       {
         "title": "夜港监听点无痕部署",
@@ -234,9 +414,18 @@
         "currentIssue": "暂无硬阻塞，需注意成本上限。",
         "doneWhen": "监听点稳定运行且未触发异常暴露。",
         "log": [
-          { "time": "10:24", "title": "Vanta 完成首轮布控", "text": "进入隐蔽性复核阶段。", "level": "success" }
+          {
+            "time": "10:24",
+            "title": "Vanta 完成首轮布控",
+            "text": "进入隐蔽性复核阶段。",
+            "level": "success"
+          }
         ],
-        "actions": ["标记完成", "设置成本上限", "更换猎人"],
+        "actions": [
+          "标记完成",
+          "设置成本上限",
+          "更换猎人"
+        ],
         "hunter": "Vanta",
         "deadline": "今晚前",
         "tokens": "133k",
@@ -247,7 +436,8 @@
         "focus": true,
         "needsAction": false,
         "highCost": true,
-        "deadlineRisk": false
+        "deadlineRisk": false,
+        "progress": 70
       },
       {
         "title": "生成今日公会战术简报",
@@ -261,15 +451,24 @@
         "summary": "适合分配给低成本总结型猎人，不必占用高阶战斗位。",
         "description": "目标是生成当日公会战术简报，供总览页与调度层快速回看。该任务不需要高阶猎人。",
         "latestProgress": "任务已建立，等待分配。",
-        "progress": 10,
+        "progress": 70,
         "publishedAt": "今天 07:30",
         "updatedAt": "2 小时前",
         "currentIssue": "尚未指派。",
         "doneWhen": "简报生成并完成归档。",
         "log": [
-          { "time": "09:30", "title": "系统挂单生成", "text": "等待调度分配。", "level": "info" }
+          {
+            "time": "09:30",
+            "title": "系统挂单生成",
+            "text": "等待调度分配。",
+            "level": "info"
+          }
         ],
-        "actions": ["指派猎人", "标记完成", "改为停滞"],
+        "actions": [
+          "指派猎人",
+          "标记完成",
+          "改为停滞"
+        ],
         "hunter": "未指派",
         "deadline": "今天 18:00",
         "tokens": "0",
@@ -285,33 +484,207 @@
     ]
   },
   "hunterSummary": [
-    { "label": "已注册猎人", "value": "06", "note": "当前可调度", "variant": "current" },
-    { "label": "空闲可接单", "value": "02", "note": "适合立即派单", "variant": "success" },
-    { "label": "高性价比", "value": "03", "note": "低均耗高完成", "variant": "violet" },
-    { "label": "待冲阶", "value": "01", "note": "建议安排升级", "variant": "warn" }
+    {
+      "label": "已注册猎人",
+      "value": "06",
+      "note": "当前可调度",
+      "variant": "current"
+    },
+    {
+      "label": "空闲可接单",
+      "value": "02",
+      "note": "适合立即派单",
+      "variant": "success"
+    },
+    {
+      "label": "高性价比",
+      "value": "03",
+      "note": "低均耗高完成",
+      "variant": "violet"
+    },
+    {
+      "label": "待冲阶",
+      "value": "01",
+      "note": "建议安排升级",
+      "variant": "warn"
+    }
   ],
   "hunters": [
-    { "name": "Northwind", "role": "重装先遣 / 风压刀路", "class": "scout", "mark": "锋", "medals": 84, "progress": 84, "status": "高压作战中", "title": "银翼战猎", "weekly": "+6", "champion": true, "model": "gpt-5.4", "load": "2 / 3", "successRate": "91%", "avgTokens": "38k", "tags": ["高危突入", "多阶段执行", "重装决策"] },
-    { "name": "Abyss-3", "role": "深潜回收 / 湮流甲系", "class": "salvage", "mark": "湮", "medals": 61, "progress": 61, "status": "回收线稳定", "title": "深潮封收手", "weekly": "+4", "model": "claude-sonnet", "load": "1 / 2", "successRate": "94%", "avgTokens": "29k", "tags": ["回收", "样本比对", "中成本"] },
-    { "name": "Kite", "role": "边境情报 / 灵感测绘", "class": "intel", "mark": "讯", "medals": 37, "progress": 37, "status": "等待补充上下文", "title": "风切探报人", "weekly": "+2", "model": "gemini-2.5-pro", "load": "1 / 3", "successRate": "87%", "avgTokens": "17k", "tags": ["检索", "情报", "低成本"] },
-    { "name": "Delta", "role": "密钥猎取 / 圣柜兵装", "class": "vault", "mark": "柜", "medals": 102, "progress": 100, "status": "已够数可换模组", "title": "可换升级", "weekly": "+5", "readyUpgrade": true, "full": true, "model": "gpt-4.1", "load": "0 / 2", "successRate": "96%", "avgTokens": "22k", "tags": ["密钥", "精密操作", "高成功率"] },
-    { "name": "Morrow", "role": "后勤补给 / 炉心维护", "class": "supply", "mark": "炉", "medals": 46, "progress": 46, "status": "补给链待放行", "title": "灰炉后勤手", "weekly": "+3", "model": "gpt-4o-mini", "load": "1 / 4", "successRate": "89%", "avgTokens": "8k", "tags": ["后勤", "修复", "超低成本"] },
-    { "name": "Vanta", "role": "夜幕渗透 / 影蚀装具", "class": "shadow", "mark": "影", "medals": 73, "progress": 73, "status": "高价值潜猎中", "title": "夜烬潜猎手", "weekly": "+4", "model": "o3", "load": "2 / 2", "successRate": "90%", "avgTokens": "41k", "tags": ["潜猎", "布控", "高成本高收益"] }
+    {
+      "name": "Northwind",
+      "role": "重装先遣 / 风压刀路",
+      "class": "scout",
+      "mark": "锋",
+      "medals": 84,
+      "progress": 84,
+      "status": "高压作战中",
+      "title": "银翼战猎",
+      "weekly": "+6",
+      "champion": true,
+      "model": "gpt-5.4",
+      "load": "2 / 3",
+      "successRate": "91%",
+      "avgTokens": "38k",
+      "tags": [
+        "高危突入",
+        "多阶段执行",
+        "重装决策"
+      ]
+    },
+    {
+      "name": "Abyss-3",
+      "role": "深潜回收 / 湮流甲系",
+      "class": "salvage",
+      "mark": "湮",
+      "medals": 61,
+      "progress": 61,
+      "status": "回收线稳定",
+      "title": "深潮封收手",
+      "weekly": "+4",
+      "model": "claude-sonnet",
+      "load": "1 / 2",
+      "successRate": "94%",
+      "avgTokens": "29k",
+      "tags": [
+        "回收",
+        "样本比对",
+        "中成本"
+      ]
+    },
+    {
+      "name": "Kite",
+      "role": "边境情报 / 灵感测绘",
+      "class": "intel",
+      "mark": "讯",
+      "medals": 37,
+      "progress": 37,
+      "status": "等待补充上下文",
+      "title": "风切探报人",
+      "weekly": "+2",
+      "model": "gemini-2.5-pro",
+      "load": "1 / 3",
+      "successRate": "87%",
+      "avgTokens": "17k",
+      "tags": [
+        "检索",
+        "情报",
+        "低成本"
+      ]
+    },
+    {
+      "name": "Delta",
+      "role": "密钥猎取 / 圣柜兵装",
+      "class": "vault",
+      "mark": "柜",
+      "medals": 102,
+      "progress": 100,
+      "status": "已够数可换模组",
+      "title": "可换升级",
+      "weekly": "+5",
+      "readyUpgrade": true,
+      "full": true,
+      "model": "gpt-4.1",
+      "load": "0 / 2",
+      "successRate": "96%",
+      "avgTokens": "22k",
+      "tags": [
+        "密钥",
+        "精密操作",
+        "高成功率"
+      ]
+    },
+    {
+      "name": "Morrow",
+      "role": "后勤补给 / 炉心维护",
+      "class": "supply",
+      "mark": "炉",
+      "medals": 46,
+      "progress": 46,
+      "status": "补给链待放行",
+      "title": "灰炉后勤手",
+      "weekly": "+3",
+      "model": "gpt-4o-mini",
+      "load": "1 / 4",
+      "successRate": "89%",
+      "avgTokens": "8k",
+      "tags": [
+        "后勤",
+        "修复",
+        "超低成本"
+      ]
+    },
+    {
+      "name": "Vanta",
+      "role": "夜幕渗透 / 影蚀装具",
+      "class": "shadow",
+      "mark": "影",
+      "medals": 73,
+      "progress": 73,
+      "status": "高价值潜猎中",
+      "title": "夜烬潜猎手",
+      "weekly": "+4",
+      "model": "o3",
+      "load": "2 / 2",
+      "successRate": "90%",
+      "avgTokens": "41k",
+      "tags": [
+        "潜猎",
+        "布控",
+        "高成本高收益"
+      ]
+    }
   ],
   "resources": {
     "kpis": [
-      { "label": "今日 Token", "value": "524k", "note": "+12%", "variant": "violet" },
-      { "label": "今日成本", "value": "¥146.8", "note": "S级为主", "variant": "warn" },
-      { "label": "产出比", "value": "78%", "note": "无需重跑", "variant": "success" }
+      {
+        "label": "今日 Token",
+        "value": "524k",
+        "note": "+12%",
+        "variant": "violet"
+      },
+      {
+        "label": "今日成本",
+        "value": "¥146.8",
+        "note": "S级为主",
+        "variant": "warn"
+      },
+      {
+        "label": "产出比",
+        "value": "78%",
+        "note": "无需重跑",
+        "variant": "success"
+      }
     ],
     "models": [
-      { "name": "gpt-5.4", "tokens": "148k", "cost": "¥46.2", "percent": 148 },
-      { "name": "claude-sonnet", "tokens": "96k", "cost": "¥24.6", "percent": 96 },
-      { "name": "gemini-2.5-pro", "tokens": "71k", "cost": "¥15.3", "percent": 71 }
+      {
+        "name": "gpt-5.4",
+        "tokens": "148k",
+        "cost": "¥46.2",
+        "percent": 148
+      },
+      {
+        "name": "claude-sonnet",
+        "tokens": "96k",
+        "cost": "¥24.6",
+        "percent": 96
+      },
+      {
+        "name": "gemini-2.5-pro",
+        "tokens": "71k",
+        "cost": "¥15.3",
+        "percent": 71
+      }
     ],
     "alerts": [
-      { "title": "VX-771 已烧 186k", "meta": "切重装突入", "critical": true },
-      { "title": "Kite 审计重跑 3 次", "meta": "先补日志" }
+      {
+        "title": "VX-771 已烧 186k",
+        "meta": "切重装突入",
+        "critical": true
+      },
+      {
+        "title": "Kite 审计重跑 3 次",
+        "meta": "先补日志"
+      }
     ]
   }
 }
