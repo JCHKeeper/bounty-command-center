@@ -1327,8 +1327,9 @@ h1, h2, h3, p { margin: 0; }
   .resource-kpis,
   .compact-facts,
   .model-bars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bounty-list,
   .resource-grid,
-  .detail-grid { grid-template-columns: 1fr; }
+  .detail-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .dossier-grid,
   .compact-timeline-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -1373,6 +1374,12 @@ set-shell { transform: none; }
 }
 }
 rm: none; }
+}
+set-shell { transform: none; }
+}
+}
+
+m: none; }
 }
 set-shell { transform: none; }
 }
