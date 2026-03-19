@@ -1083,6 +1083,10 @@ h1, h2, h3, p { margin: 0; }
   display: grid;
   gap: 12px;
 }
+.model-bars {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
 .timeline-item,
 .spend-alert,
 .resource-kpi,
@@ -1091,6 +1095,10 @@ h1, h2, h3, p { margin: 0; }
   border-radius: 16px;
   background: rgba(255,255,255,.03);
   border: 1px solid rgba(255,255,255,.06);
+}
+.model-bar-item {
+  padding: 10px 11px;
+  border-radius: 14px;
 }
 .timeline-item {
   display: grid;
@@ -1191,17 +1199,18 @@ h1, h2, h3, p { margin: 0; }
 .model-bar-top {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 6px;
   flex-wrap: wrap;
+  align-items: baseline;
 }
 .model-bar-top strong,
 .model-bar-top span {
-  font-size: 13px;
+  font-size: 12px;
 }
 .model-bar-track {
-  margin: 8px 0 0;
+  margin: 6px 0 0;
   width: 100%;
-  height: 8px;
+  height: 7px;
   border-radius: 999px;
   background: rgba(255,255,255,.06);
   overflow: hidden;
@@ -1279,7 +1288,8 @@ h1, h2, h3, p { margin: 0; }
   .roster-grid,
   .summary-strip,
   .resource-kpis,
-  .compact-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .compact-facts,
+  .model-bars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .resource-grid,
   .detail-grid { grid-template-columns: 1fr; }
   .dossier-grid,
@@ -1305,7 +1315,7 @@ h1, h2, h3, p { margin: 0; }
   .dashboard { width: calc(100% - 20px); }
   .task-row, .topbar, .topbar-right, .focus-head, .compact-task-row, .hunter-head, .hunter-foot, .wanted-header { align-items: stretch; }
   .task-row, .topbar, .focus-head, .compact-task-row, .hunter-foot, .wanted-header { flex-direction: column; }
-  .command-grid, .kpi-row, .focus-meta-grid, .roster-grid, .bounty-reward-strip, .compact-facts, .compact-timeline-list, .dossier-grid, .resource-kpis, .summary-strip { grid-template-columns: 1fr; }
+  .command-grid, .kpi-row, .focus-meta-grid, .roster-grid, .bounty-reward-strip, .compact-facts, .compact-timeline-list, .dossier-grid, .resource-kpis, .summary-strip, .model-bars { grid-template-columns: 1fr; }
   .mech-kpis { grid-template-columns: 1fr; }
   .focus-summary { max-width: 100%; }
   .bounty-ribbon { position: static; transform: none; width: fit-content; border-radius: 999px; padding: 7px 12px; }
