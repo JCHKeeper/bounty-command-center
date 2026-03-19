@@ -224,7 +224,6 @@ async function init() {
   if (heroEyebrow && !heroEyebrow.textContent.trim()) heroEyebrow.textContent = data.hero?.eyebrow || '';
   if (kpiRow) kpiRow.innerHTML = renderKpis(data.kpis || []);
 
-  byId('alerts-list').innerHTML = renderAlerts(data.alerts || []);
   byId('timeline-list').innerHTML = renderTimeline(data.timeline || []);
   byId('hunter-summary').innerHTML = renderSummaryStrip(data.hunterSummary || []);
   byId('roster-grid').innerHTML = renderHunters(data.hunters || []);

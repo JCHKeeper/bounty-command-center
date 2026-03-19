@@ -905,11 +905,11 @@ h1, h2, h3, p { margin: 0; }
 .publish-task-btn {
   white-space: nowrap;
 }
-.overview-side-rail {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
+.compact-action-panel {
   margin-top: 22px;
+}
+.compact-timeline-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .search-shell {
   display: grid;
@@ -1223,8 +1223,8 @@ h1, h2, h3, p { margin: 0; }
 }
 
 @media (max-width: 1024px) {
-  .login-shell, .hero, .layout-grid, .focus-grid, .overview-side-rail { grid-template-columns: 1fr; }
-  .hero-metrics, .kpi-row, .focus-meta-grid, .bounty-reward-strip { grid-template-columns: 1fr 1fr; }
+  .login-shell, .hero, .layout-grid, .focus-grid { grid-template-columns: 1fr; }
+  .hero-metrics, .kpi-row, .focus-meta-grid, .bounty-reward-strip, .compact-timeline-list { grid-template-columns: 1fr 1fr; }
   .reactor-core { margin: 10px auto 0; }
   .mech-hero { grid-template-columns: 1fr; }
   .mech-kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -1237,7 +1237,7 @@ h1, h2, h3, p { margin: 0; }
   .dashboard { width: calc(100% - 20px); }
   .task-row, .topbar, .topbar-right, .focus-head, .compact-task-row, .hunter-head, .hunter-foot, .wanted-header { align-items: stretch; }
   .task-row, .topbar, .focus-head, .compact-task-row, .hunter-foot, .wanted-header { flex-direction: column; }
-  .command-grid, .kpi-row, .focus-meta-grid, .roster-grid, .bounty-reward-strip, .compact-facts { grid-template-columns: 1fr; }
+  .command-grid, .kpi-row, .focus-meta-grid, .roster-grid, .bounty-reward-strip, .compact-facts, .compact-timeline-list { grid-template-columns: 1fr; }
   .mech-kpis { grid-template-columns: 1fr; }
   .focus-summary { max-width: 100%; }
   .bounty-ribbon { position: static; transform: none; width: fit-content; border-radius: 999px; padding: 7px 12px; }
