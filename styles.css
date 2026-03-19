@@ -890,11 +890,13 @@ h1, h2, h3, p { margin: 0; }
 }
 .task-bounty-panel {
   grid-area: tasks;
-  margin-top: -20px;
+  position: relative;
+  top: -36px;
 }
 .dossier-panel {
   grid-area: dossier;
-  margin-top: -8px;
+  position: relative;
+  top: -8px;
 }
 .action-panel {
   grid-area: timeline;
@@ -1284,7 +1286,7 @@ h1, h2, h3, p { margin: 0; }
   .hero,
   .resource-panel { min-height: 0; }
   .task-bounty-panel,
-  .dossier-panel { margin-top: 0; }
+  .dossier-panel { top: 0; }
   .roster-grid,
   .summary-strip,
   .resource-kpis,
