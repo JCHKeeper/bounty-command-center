@@ -171,27 +171,17 @@ function renderSpendAlerts(items) {
 function attachTaskBoardInteractions(data) {
   const tabs = data.taskBoard?.tabs || [];
   const allTasks = data.taskBoard?.items || [];
-  const summary = byId('task-summary');
   const board = byId('task-board');
-  const note = byId('task-view-note');
-  const searchInput = byId('task-search');
   const tabsRoot = byId('task-tabs');
   let activeTab = tabs[0]?.key || 'all';
 
   function filteredTasks() {
-    const query = (searchInput?.value || '').trim().toLowerCase();
-    return allTasks.filter(task => {
-      const tabMatch = activeTab === 'all' || task.tierKey === activeTab;
-      const searchMatch = !query || [task.title, task.hunter, task.status, task.latestProgress, task.type].join(' ').toLowerCase().includes(query);
-      return tabMatch && searchMatch;
-    });
+    return allTasks.filter(task => activeTab === 'all' || task.tierKey === activeTab);
   }
 
   function render() {
     const current = filteredTasks();
-    const activeLabel = tabs.find(tab => tab.key === activeTab)?.label || '全榜';
     if (board) board.innerHTML = renderTaskBoard(current);
-    if (note) note.innerHTML = `当前视角：${activeLabel}${searchInput?.value ? ` · 检索“${escapeHtml(searchInput.value)}”` : ''} · <a href="./task-detail.html">进入任务详情页骨架</a>`;
     if (tabsRoot) tabsRoot.innerHTML = renderTaskTabs(tabs, activeTab);
     tabsRoot?.querySelectorAll('[data-task-tab]').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -205,7 +195,7 @@ function attachTaskBoardInteractions(data) {
 }
 
 async function init() {
-  const res = await fetch('./data.json?v=20260319-1626', { cache: 'no-store' });
+  const res = await fetch('./data.json?v=20260319-1631', { cache: 'no-store' });
   const data = await res.json();
 
   const heroEyebrow = byId('hero-eyebrow');
