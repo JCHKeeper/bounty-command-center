@@ -563,7 +563,7 @@ h1, h2, h3, p { margin: 0; }
   align-items: start;
   justify-content: start;
   padding: 14px 18px 12px;
-  min-height: 136px;
+  min-height: 0;
   background:
     linear-gradient(180deg, rgba(26,38,53,.92), rgba(10,15,24,.94)),
     linear-gradient(135deg, rgba(199,154,82,.08), transparent 28%, rgba(86,224,255,.04) 62%, transparent 100%);
@@ -876,15 +876,17 @@ h1, h2, h3, p { margin: 0; }
     "timeline timeline";
   grid-template-rows: minmax(0, auto) minmax(0, auto) auto;
   gap: 16px;
-  align-items: stretch;
+  align-items: start;
 }
 .hero {
   grid-area: hero;
-  min-height: 148px;
+  min-height: 0;
+  align-self: start;
 }
 .resource-panel {
   grid-area: resource;
   min-height: 148px;
+  align-self: start;
 }
 .task-bounty-panel {
   grid-area: tasks;
