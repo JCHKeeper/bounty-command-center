@@ -94,11 +94,11 @@ function renderTaskBoard(items) {
           </div>
           <a href="./task-detail.html?id=${encodeURIComponent(slugify(task.title))}" class="ghost-btn row-link">查看详情</a>
         </div>
-        <div class="bounty-row-facts compact-facts">
-          <span>发布时间：<strong>${escapeHtml(task.publishedAt || task.updatedAt || '-')}</strong></span>
-          <span>负责猎人：<strong>${escapeHtml(task.hunter)}</strong></span>
-          <span>状态：<strong>${escapeHtml(task.status)}</strong></span>
-          <span>进度：<strong>${escapeHtml(task.latestProgress || task.summary || '-')}</strong></span>
+        <div class="bounty-row-facts compact-facts task-card-facts">
+          <span class="fact-status">任务状态：<strong>${escapeHtml(task.status)}</strong></span>
+          <span class="fact-hunter">委托猎人：<strong>${escapeHtml(task.hunter)}</strong></span>
+          <span class="fact-progress">任务进度：<strong>${escapeHtml(task.latestProgress || task.summary || '-')}</strong></span>
+          <span class="fact-time">委托时间：<strong>${escapeHtml(task.publishedAt || task.updatedAt || '-')}</strong></span>
         </div>
       </div>
     </article>
