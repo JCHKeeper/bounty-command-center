@@ -869,14 +869,14 @@ h1, h2, h3, p { margin: 0; }
 .usage-ready-dashboard {
   padding: 8px 0 36px;
   display: grid;
-  grid-template-columns: minmax(0, 2.2fr) minmax(210px, .38fr);
+  grid-template-columns: minmax(0, 1.46fr) minmax(280px, .74fr);
   grid-template-areas:
     "hero resource"
     "tasks resource"
     "tasks dossier"
     "timeline timeline";
   grid-template-rows: auto auto auto auto;
-  gap: 14px;
+  gap: 16px;
   align-items: start;
 }
 .hero {
