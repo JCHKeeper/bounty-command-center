@@ -872,9 +872,10 @@ h1, h2, h3, p { margin: 0; }
   grid-template-columns: minmax(0, 1.46fr) minmax(280px, .74fr);
   grid-template-areas:
     "hero resource"
+    "tasks resource"
     "tasks dossier"
     "timeline timeline";
-  grid-template-rows: minmax(0, auto) minmax(0, auto) auto;
+  grid-template-rows: auto auto auto auto;
   gap: 16px;
   align-items: start;
 }
@@ -890,20 +891,16 @@ h1, h2, h3, p { margin: 0; }
 }
 .task-bounty-panel {
   grid-area: tasks;
-  position: relative;
-  top: -36px;
+  position: static;
+  align-self: start;
 }
 .dossier-panel {
   grid-area: dossier;
-  position: relative;
-  top: -8px;
+  position: static;
+  align-self: start;
 }
 .action-panel {
   grid-area: timeline;
-}
-.task-bounty-panel,
-.dossier-panel {
-  align-self: stretch;
 }
 .board-desc {
   margin-top: 4px;
@@ -1286,7 +1283,7 @@ h1, h2, h3, p { margin: 0; }
   .hero,
   .resource-panel { min-height: 0; }
   .task-bounty-panel,
-  .dossier-panel { top: 0; }
+  .dossier-panel { position: static; top: auto; }
   .roster-grid,
   .summary-strip,
   .resource-kpis,
