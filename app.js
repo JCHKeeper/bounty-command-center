@@ -214,7 +214,7 @@ function attachTaskBoardInteractions(data) {
 }
 
 async function init() {
-  const res = await fetch('./data.json?v=20260319-1608', { cache: 'no-store' });
+  const res = await fetch('./data.json?v=20260319-1610', { cache: 'no-store' });
   const data = await res.json();
 
   const heroEyebrow = byId('hero-eyebrow');
@@ -229,8 +229,6 @@ async function init() {
   byId('model-bars').innerHTML = renderModelBars(data.resources?.models || []);
   byId('spend-alerts').innerHTML = renderSpendAlerts(data.resources?.alerts || []);
 
-  const resourcePanelTag = document.querySelector('.resource-panel .panel-tag');
-  if (resourcePanelTag) resourcePanelTag.innerHTML = `<a href="./resource-detail.html">TOKEN / COST</a>`;
   const dossierPanelTag = document.querySelector('.dossier-panel .panel-tag');
   if (dossierPanelTag) dossierPanelTag.innerHTML = `<a href="./hunter-detail.html">HUNTER DOSSIERS</a>`;
 
