@@ -913,7 +913,7 @@ h1, h2, h3, p { margin: 0; }
 }
 .summary-strip {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 8px;
   margin-bottom: 14px;
 }
@@ -923,6 +923,7 @@ h1, h2, h3, p { margin: 0; }
   padding: 12px 14px;
 }
 .summary-pill em {
+  display: none;
   color: var(--muted);
   font-style: normal;
   font-size: 12px;

@@ -192,10 +192,11 @@ function attachTaskBoardInteractions(data) {
     const activeLabel = tabs.find(tab => tab.key === activeTab)?.label || '全榜';
     if (summary) {
       summary.innerHTML = renderSummaryStrip([
-        { label: '当前视角', value: activeLabel, note: `${current.length} 条任务`, variant: 'current' },
-        { label: '执行中', value: current.filter(task => task.status === '执行中').length, note: '当前正在推进', variant: 'success' },
-        { label: '待审批', value: current.filter(task => task.status === '待审批').length, note: '等你拍板', variant: 'warn' },
-        { label: '卡单', value: current.filter(task => task.status === '卡单').length, note: '需要排障', variant: 'danger' }
+        { label: '任务总数', value: current.length, variant: 'current' },
+        { label: '执行中', value: current.filter(task => task.status === '执行中').length, variant: 'success' },
+        { label: '停滞中', value: current.filter(task => task.status === '卡单').length, variant: 'danger' },
+        { label: '待审批', value: current.filter(task => task.status === '待审批').length, variant: 'warn' },
+        { label: '已完成', value: current.filter(task => task.status === '已完成').length, variant: 'violet' }
       ]);
     }
     if (board) board.innerHTML = renderTaskBoard(current);
@@ -213,7 +214,7 @@ function attachTaskBoardInteractions(data) {
 }
 
 async function init() {
-  const res = await fetch('./data.json?v=20260319-1622', { cache: 'no-store' });
+  const res = await fetch('./data.json?v=20260319-1626', { cache: 'no-store' });
   const data = await res.json();
 
   const heroEyebrow = byId('hero-eyebrow');
