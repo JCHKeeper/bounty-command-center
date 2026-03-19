@@ -224,19 +224,6 @@ async function init() {
   if (heroEyebrow && !heroEyebrow.textContent.trim()) heroEyebrow.textContent = data.hero?.eyebrow || '';
   if (kpiRow) kpiRow.innerHTML = renderKpis(data.kpis || []);
 
-  const bounty = data.primeBounty || {};
-  byId('bounty-ribbon').textContent = bounty.ribbon || '';
-  byId('wanted-seal').textContent = bounty.seal || '';
-  byId('wanted-id').textContent = bounty.id || '';
-  byId('wanted-publisher').textContent = bounty.publisher || '';
-  byId('bounty-title').textContent = bounty.title || '';
-  byId('bounty-meta').textContent = bounty.meta || '';
-  byId('bounty-priority').textContent = bounty.priority || '';
-  byId('bounty-summary').textContent = bounty.summary || '';
-  byId('bounty-facts').innerHTML = renderFacts(bounty.facts || []);
-  byId('bounty-rewards').innerHTML = renderRewards(bounty.rewards || []);
-  byId('bounty-actions').innerHTML = (bounty.actions || []).map((label, i) => `<a class="${i === 0 ? 'primary-btn bounty-btn' : 'ghost-btn'}" href="./task-detail.html?id=${encodeURIComponent(slugify(bounty.title || ''))}">${escapeHtml(label)}</a>`).join('');
-
   byId('alerts-list').innerHTML = renderAlerts(data.alerts || []);
   byId('timeline-list').innerHTML = renderTimeline(data.timeline || []);
   byId('hunter-summary').innerHTML = renderSummaryStrip(data.hunterSummary || []);

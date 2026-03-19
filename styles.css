@@ -905,6 +905,12 @@ h1, h2, h3, p { margin: 0; }
 .publish-task-btn {
   white-space: nowrap;
 }
+.overview-side-rail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 22px;
+}
 .search-shell {
   display: grid;
   gap: 8px;
@@ -1217,7 +1223,7 @@ h1, h2, h3, p { margin: 0; }
 }
 
 @media (max-width: 1024px) {
-  .login-shell, .hero, .layout-grid, .focus-grid { grid-template-columns: 1fr; }
+  .login-shell, .hero, .layout-grid, .focus-grid, .overview-side-rail { grid-template-columns: 1fr; }
   .hero-metrics, .kpi-row, .focus-meta-grid, .bounty-reward-strip { grid-template-columns: 1fr 1fr; }
   .reactor-core { margin: 10px auto 0; }
   .mech-hero { grid-template-columns: 1fr; }
