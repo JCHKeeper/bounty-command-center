@@ -315,16 +315,16 @@ h1, h2, h3, p { margin: 0; }
 }
 
 .layout-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 22px; margin-top: 22px; }
-.panel { padding: 24px; }
-.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
-.panel-head h3 { font-size: 22px; }
-.panel-tag { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+.panel { padding: 20px; }
+.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.panel-head h3 { font-size: 18px; line-height: 1.2; }
+.panel-tag { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
 .tasks-panel { display: grid; gap: 14px; }
 .task-row {
   display: flex; justify-content: space-between; gap: 16px; align-items: center;
   padding: 18px; border-radius: 18px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.05);
 }
-.task-title { font-size: 18px; margin-bottom: 8px; }
+.task-title { font-size: 16px; margin-bottom: 6px; }
 .task-title.big { font-size: clamp(30px, 3vw, 38px); line-height: 1.04; }
 .task-side { display: grid; gap: 8px; justify-items: end; white-space: nowrap; }
 .badge {
@@ -463,17 +463,17 @@ h1, h2, h3, p { margin: 0; }
 .summary-pill strong { color: var(--gold-soft); }
 .roster-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .hunter-card {
-  padding: 20px; border-radius: 24px;
+  padding: 18px; border-radius: 20px;
   background:
     radial-gradient(circle at top right, rgba(140,231,255,.08), transparent 22%),
     linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)),
     linear-gradient(135deg, rgba(216,164,74,.06), rgba(140,231,255,.03));
   border: 1px solid rgba(216,164,74,.16);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
-  display: grid; gap: 14px;
+  display: grid; gap: 12px;
   position: relative;
   overflow: hidden;
-  clip-path: polygon(0 10px, 12px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 20px) 100%, 0 100%);
+  clip-path: polygon(0 8px, 10px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 14px) 100%, 0 100%);
 }
 .hunter-card:nth-child(2n) { clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 22px 100%, 0 calc(100% - 18px)); }
 .hunter-card::after {
@@ -506,8 +506,8 @@ h1, h2, h3, p { margin: 0; }
 .class-mark.vault { background: linear-gradient(135deg, #9ff3cd, #36a87f); }
 .class-mark.supply { background: linear-gradient(135deg, #ffd6a0, #d17944); }
 .class-mark.shadow { background: linear-gradient(135deg, #cab9ff, #5841c9); color: #fff; }
-.hunter-name { font-size: 20px; font-weight: 800; }
-.hunter-role { color: var(--muted); font-size: 13px; margin-top: 4px; }
+.hunter-name { font-size: 18px; font-weight: 800; }
+.hunter-role { color: var(--muted); font-size: 12px; margin-top: 4px; }
 .medal-count {
   min-width: 56px; height: 56px; border-radius: 999px; display: grid; place-items: center;
   background: radial-gradient(circle at 30% 30%, #f5ddb2, #b5782c); color: #251707; font-weight: 900; font-size: 18px;
@@ -541,28 +541,28 @@ h1, h2, h3, p { margin: 0; }
 }
 
 .armor-shell {
-  clip-path: polygon(0 18px, 22px 0, calc(100% - 36px) 0, 100% 24px, 100% calc(100% - 18px), calc(100% - 22px) 100%, 0 100%);
+  clip-path: polygon(0 14px, 18px 0, calc(100% - 26px) 0, 100% 18px, 100% calc(100% - 14px), calc(100% - 18px) 100%, 0 100%);
   border-color: rgba(199,154,82,.24);
 }
 .armor-shell::after {
   content: "";
   position: absolute;
-  inset: 10px 14px 12px 14px;
+  inset: 9px 11px 10px 11px;
   border: 1px solid rgba(86,224,255,.08);
-  clip-path: polygon(0 14px, 18px 0, calc(100% - 28px) 0, 100% 18px, 100% calc(100% - 14px), calc(100% - 16px) 100%, 0 100%);
+  clip-path: polygon(0 10px, 14px 0, calc(100% - 20px) 0, 100% 14px, 100% calc(100% - 10px), calc(100% - 12px) 100%, 0 100%);
   pointer-events: none;
 }
-.armor-shell-warn { transform: translateY(8px); }
-.armor-shell-side { transform: translateX(-6px); }
-.armor-shell-wide { transform: translateX(4px); }
-.offset-shell { transform: translateX(-10px); }
+.armor-shell-warn,
+.armor-shell-side,
+.armor-shell-wide,
+.offset-shell { transform: none; }
 
 .mech-hero {
   overflow: hidden;
   grid-template-columns: 1fr;
   align-items: start;
-  padding: 26px 28px 20px;
-  min-height: 140px;
+  padding: 22px 24px 18px;
+  min-height: 132px;
   background:
     linear-gradient(180deg, rgba(26,38,53,.92), rgba(10,15,24,.94)),
     linear-gradient(135deg, rgba(199,154,82,.08), transparent 28%, rgba(86,224,255,.04) 62%, transparent 100%);
@@ -591,15 +591,15 @@ h1, h2, h3, p { margin: 0; }
   min-height: 0;
 }
 .reactor-chip {
-  padding: 8px 0;
+  padding: 6px 0;
   border: 0;
   background: transparent;
   box-shadow: none;
-  letter-spacing: .08em;
+  letter-spacing: .06em;
   color: #f2dfb8;
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 900;
-  line-height: 1;
+  line-height: 1.02;
 }
 .mech-hero-copy h2,
 .mech-hero-copy p,
@@ -614,16 +614,16 @@ h1, h2, h3, p { margin: 0; }
   grid-column: 1 / -1;
   position: relative;
   z-index: 2;
-  margin-top: 14px;
+  margin-top: 12px;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 10px;
+  gap: 8px;
 }
 
 .kpi-card {
-  min-height: 112px;
-  padding: 14px 14px 12px;
-  clip-path: polygon(0 14px, 16px 0, calc(100% - 18px) 0, 100% 14px, 100% 100%, 0 100%);
+  min-height: 98px;
+  padding: 12px 12px 10px;
+  clip-path: polygon(0 10px, 12px 0, calc(100% - 14px) 0, 100% 10px, 100% 100%, 0 100%);
 }
 .kpi-card:nth-child(2n) {
   clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 16px, 100% calc(100% - 12px), calc(100% - 14px) 100%, 0 100%);
@@ -642,16 +642,16 @@ h1, h2, h3, p { margin: 0; }
   position: relative;
   z-index: 2;
 }
-.kpi-card > span { font-size: 13px; letter-spacing: .04em; line-height: 1.2; }
+.kpi-card > span { font-size: 12px; letter-spacing: .03em; line-height: 1.2; }
 .kpi-card > strong {
-  font-size: 30px;
-  margin-top: 28px;
+  font-size: 24px;
+  margin-top: 24px;
   display: flex;
   align-items: baseline;
   gap: 4px;
 }
 .kpi-card > strong small {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   color: var(--muted);
 }
@@ -865,12 +865,36 @@ h1, h2, h3, p { margin: 0; }
 
 
 .usage-ready-dashboard {
-  padding-bottom: 36px;
+  padding: 6px 0 40px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.42fr) minmax(300px, .82fr);
+  grid-template-areas:
+    "hero resource"
+    "tasks dossier"
+    "timeline timeline";
+  gap: 18px;
+  align-items: start;
+}
+.hero {
+  grid-area: hero;
+}
+.resource-panel {
+  grid-area: resource;
+}
+.task-bounty-panel {
+  grid-area: tasks;
+}
+.dossier-panel {
+  grid-area: dossier;
+}
+.action-panel {
+  grid-area: timeline;
 }
 .board-desc {
-  margin-top: 6px;
-  max-width: 64ch;
-  line-height: 1.6;
+  margin-top: 4px;
+  max-width: 56ch;
+  line-height: 1.52;
+  font-size: 13px;
 }
 .task-board-head {
   align-items: flex-start;
@@ -878,8 +902,8 @@ h1, h2, h3, p { margin: 0; }
 .summary-strip {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  margin-bottom: 18px;
+  gap: 10px;
+  margin-bottom: 16px;
 }
 .summary-pill {
   display: grid;
@@ -948,14 +972,14 @@ h1, h2, h3, p { margin: 0; }
 .bounty-row {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 18px;
-  padding: 18px;
-  border-radius: 22px;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 18px;
   background:
     linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)),
     linear-gradient(135deg, rgba(216,164,74,.05), transparent 44%, rgba(140,231,255,.04));
   border: 1px solid rgba(255,255,255,.06);
-  clip-path: polygon(0 14px, 16px 0, calc(100% - 24px) 0, 100% 16px, 100% 100%, 0 100%);
+  clip-path: polygon(0 10px, 12px 0, calc(100% - 18px) 0, 100% 12px, 100% 100%, 0 100%);
 }
 .compact-bounty-row {
   grid-template-columns: 1fr;
@@ -1115,7 +1139,7 @@ h1, h2, h3, p { margin: 0; }
   margin-bottom: 18px;
 }
 .resource-kpi strong {
-  font-size: 28px;
+  font-size: 24px;
 }
 .resource-grid {
   display: grid;
@@ -1210,6 +1234,15 @@ h1, h2, h3, p { margin: 0; }
 }
 
 @media (max-width: 1180px) {
+  .usage-ready-dashboard {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "hero"
+      "resource"
+      "tasks"
+      "dossier"
+      "timeline";
+  }
   .roster-grid,
   .summary-strip,
   .resource-kpis,
