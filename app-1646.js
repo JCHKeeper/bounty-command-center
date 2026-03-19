@@ -190,14 +190,6 @@ function attachTaskBoardInteractions(data) {
   function render() {
     const current = filteredTasks();
     const activeLabel = tabs.find(tab => tab.key === activeTab)?.label || '全榜';
-    if (summary) {
-      summary.innerHTML = renderSummaryStrip([
-        { label: '当前视角', value: activeLabel, note: `${current.length} 条任务`, variant: 'current' },
-        { label: '执行中', value: current.filter(task => task.status === '执行中').length, note: '当前正在推进', variant: 'success' },
-        { label: '待审批', value: current.filter(task => task.status === '待审批').length, note: '等你拍板', variant: 'warn' },
-        { label: '卡单', value: current.filter(task => task.status === '卡单').length, note: '需要排障', variant: 'danger' }
-      ]);
-    }
     if (board) board.innerHTML = renderTaskBoard(current);
     if (note) note.innerHTML = `当前视角：${activeLabel}${searchInput?.value ? ` · 检索“${escapeHtml(searchInput.value)}”` : ''} · <a href="./task-detail.html">进入任务详情页骨架</a>`;
     if (tabsRoot) tabsRoot.innerHTML = renderTaskTabs(tabs, activeTab);
