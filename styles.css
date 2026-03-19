@@ -890,7 +890,7 @@ h1, h2, h3, p { margin: 0; }
 }
 .task-bounty-panel {
   grid-area: tasks;
-  margin-top: -8px;
+  margin-top: -20px;
 }
 .dossier-panel {
   grid-area: dossier;
