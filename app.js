@@ -190,15 +190,6 @@ function attachTaskBoardInteractions(data) {
   function render() {
     const current = filteredTasks();
     const activeLabel = tabs.find(tab => tab.key === activeTab)?.label || '全榜';
-    if (summary) {
-      summary.innerHTML = renderSummaryStrip([
-        { label: '任务总数', value: current.length, variant: 'current' },
-        { label: '执行中', value: current.filter(task => task.status === '执行中').length, variant: 'success' },
-        { label: '停滞中', value: current.filter(task => task.status === '卡单').length, variant: 'danger' },
-        { label: '待审批', value: current.filter(task => task.status === '待审批').length, variant: 'warn' },
-        { label: '已完成', value: current.filter(task => task.status === '已完成').length, variant: 'violet' }
-      ]);
-    }
     if (board) board.innerHTML = renderTaskBoard(current);
     if (note) note.innerHTML = `当前视角：${activeLabel}${searchInput?.value ? ` · 检索“${escapeHtml(searchInput.value)}”` : ''} · <a href="./task-detail.html">进入任务详情页骨架</a>`;
     if (tabsRoot) tabsRoot.innerHTML = renderTaskTabs(tabs, activeTab);
@@ -224,6 +215,21 @@ async function init() {
 
   byId('timeline-list').innerHTML = renderTimeline(data.timeline || []);
   byId('hunter-summary').innerHTML = renderSummaryStrip(data.hunterSummary || []);
+  byId('roster-grid').innerHTML = renderHunters(data.hunters || []);
+  byId('resource-kpis').innerHTML = renderResourceKpis(data.resources?.kpis || []);
+  byId('model-bars').innerHTML = renderModelBars(data.resources?.models || []);
+  byId('spend-alerts').innerHTML = renderSpendAlerts(data.resources?.alerts || []);
+
+  const dossierPanelTag = document.querySelector('.dossier-panel .panel-tag');
+  if (dossierPanelTag) dossierPanelTag.innerHTML = `<a href="./hunter-detail.html">HUNTER DOSSIERS</a>`;
+
+  attachTaskBoardInteractions(data);
+}
+
+init().catch(err => {
+  console.error('Failed to load dashboard data', err);
+});
+);
   byId('roster-grid').innerHTML = renderHunters(data.hunters || []);
   byId('resource-kpis').innerHTML = renderResourceKpis(data.resources?.kpis || []);
   byId('model-bars').innerHTML = renderModelBars(data.resources?.models || []);
