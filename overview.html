@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>指挥中心总览界面</title>
-  <link rel="stylesheet" href="./styles.css?v=20260318-1513" />
+  <link rel="stylesheet" href="./styles.css?v=20260319-1102" />
 </head>
 <body class="hunter-theme">
   <div class="grid-bg"></div>
@@ -25,45 +25,14 @@
     </div>
   </header>
 
-  <main class="dashboard simplified-dashboard hunter-dashboard mech-dashboard">
+  <main class="dashboard simplified-dashboard hunter-dashboard mech-dashboard usage-ready-dashboard">
     <section class="hero glass panel simplified-hero bounty-hero mech-hero armor-shell">
       <div class="hero-frame hero-frame-left"></div>
       <div class="hero-frame hero-frame-right"></div>
       <div class="hero-copy mech-hero-copy hero-copy-minimal">
         <div class="chip chip-live reactor-chip" id="hero-eyebrow">界域-核心</div>
       </div>
-      <div class="kpi-row mech-kpis" id="kpi-row">
-        <article class="kpi-card tier-s crest-card">
-          <div class="kpi-motif" aria-hidden="true"><span></span><span></span><span></span></div>
-          <span>S级任务</span>
-          <strong>05<small>任务</small></strong>
-        </article>
-        <article class="kpi-card running crest-card">
-          <div class="kpi-motif" aria-hidden="true"><span></span><span></span><span></span></div>
-          <span>执行中</span>
-          <strong>31<small>任务</small></strong>
-        </article>
-        <article class="kpi-card stalled crest-card">
-          <div class="kpi-motif" aria-hidden="true"><span></span><span></span><span></span></div>
-          <span>停滞中</span>
-          <strong>05<small>任务</small></strong>
-        </article>
-        <article class="kpi-card unassigned crest-card">
-          <div class="kpi-motif" aria-hidden="true"><span></span><span></span><span></span></div>
-          <span>待委派</span>
-          <strong>04<small>任务</small></strong>
-        </article>
-        <article class="kpi-card approval crest-card">
-          <div class="kpi-motif" aria-hidden="true"><span></span><span></span><span></span></div>
-          <span>待审批</span>
-          <strong>03<small>任务</small></strong>
-        </article>
-        <article class="kpi-card done crest-card">
-          <div class="kpi-motif" aria-hidden="true"><span></span><span></span><span></span></div>
-          <span>已完成</span>
-          <strong>14<small>任务</small></strong>
-        </article>
-      </div>
+      <div class="kpi-row mech-kpis" id="kpi-row"></div>
     </section>
 
     <section class="focus-grid hunter-focus-grid">
@@ -108,38 +77,73 @@
 
         <section class="panel glass subpanel action-panel parchment-panel armor-shell armor-shell-side">
           <div class="panel-head">
-            <h3>猎人动作</h3>
+            <h3>猎人动作 / 调度日志</h3>
             <span class="panel-tag">HUNTER ACTIONS</span>
           </div>
-          <div class="action-stack" id="quick-actions"></div>
+          <div class="timeline-list" id="timeline-list"></div>
         </section>
       </section>
     </section>
 
-    <section class="panel glass medal-roster-panel armor-shell armor-shell-wide">
-      <div class="panel-head">
-        <h3>猎人悬赏榜</h3>
-        <span class="panel-tag">BOUNTY HUNTERS</span>
+    <section class="panel glass task-bounty-panel armor-shell armor-shell-wide offset-shell">
+      <div class="panel-head list-head-with-tabs task-board-head">
+        <div>
+          <h3>任务悬赏榜</h3>
+          <p class="muted board-desc">全任务主榜。先在这里筛选、排序、挑重点，再点进各自详细页处理。</p>
+        </div>
+        <div class="filter-tabs" id="task-tabs"></div>
       </div>
-      <p class="muted medal-rule" id="medal-rule"></p>
-      <div class="medal-summary-strip" id="medal-summary"></div>
-      <div class="roster-grid" id="roster-grid"></div>
+      <div class="summary-strip" id="task-summary"></div>
+      <div class="board-toolbar">
+        <label class="search-shell">
+          <span>任务检索</span>
+          <input id="task-search" type="search" placeholder="搜索任务名、负责人、任务类型…" />
+        </label>
+        <div class="view-note" id="task-view-note"></div>
+      </div>
+      <div class="bounty-list" id="task-board"></div>
     </section>
 
-    <section class="panel glass compact-list-panel parchment-panel armor-shell armor-shell-wide offset-shell">
-      <div class="panel-head list-head-with-tabs">
-        <h3>委托榜单</h3>
-        <div class="filter-tabs">
-          <button class="tab active">全榜</button>
-          <button class="tab">追猎中</button>
-          <button class="tab">卡单</button>
-          <button class="tab">已结单</button>
+    <section class="panel glass dossier-panel armor-shell armor-shell-wide">
+      <div class="panel-head">
+        <div>
+          <h3>猎人名鉴</h3>
+          <p class="muted board-desc">所有 Agents 的档案面板。看专长、状态、承载量和性价比，用来决定派谁出手。</p>
         </div>
+        <span class="panel-tag">HUNTER DOSSIERS</span>
       </div>
-      <div class="compact-task-list" id="task-list"></div>
+      <div class="summary-strip" id="hunter-summary"></div>
+      <div class="roster-grid dossier-grid" id="roster-grid"></div>
+    </section>
+
+    <section class="panel glass resource-panel parchment-panel armor-shell armor-shell-wide">
+      <div class="panel-head">
+        <div>
+          <h3>资源消耗</h3>
+          <p class="muted board-desc">先看今日消耗，再按任务 / 猎人 / 模型追责。不是只看烧了多少，而是看值不值。</p>
+        </div>
+        <span class="panel-tag">TOKEN / COST</span>
+      </div>
+      <div class="resource-kpis" id="resource-kpis"></div>
+      <div class="resource-grid">
+        <section class="resource-block">
+          <div class="resource-block-head">
+            <h4>模型消耗排行</h4>
+            <span>按今日 Token</span>
+          </div>
+          <div class="model-bars" id="model-bars"></div>
+        </section>
+        <section class="resource-block">
+          <div class="resource-block-head">
+            <h4>异常消耗提醒</h4>
+            <span>优先处理浪费点</span>
+          </div>
+          <div class="spend-alerts" id="spend-alerts"></div>
+        </section>
+      </div>
     </section>
   </main>
 
-  <script src="./app.js?v=20260318-1506"></script>
+  <script src="./app.js?v=20260319-1102"></script>
 </body>
 </html>

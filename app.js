@@ -9,6 +9,10 @@ function escapeHtml(str = '') {
     .replace(/'/g, '&#39;');
 }
 
+function slugify(str = '') {
+  return String(str).toLowerCase().trim().replace(/[^a-z0-9\u4e00-\u9fa5]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
 function renderKpis(items) {
   return items.map(item => `
     <article class="kpi-card ${escapeHtml(item.variant || '')}">
@@ -16,7 +20,7 @@ function renderKpis(items) {
         <span></span><span></span><span></span>
       </div>
       <span>${escapeHtml(item.label)}</span>
-      <strong>${escapeHtml(item.value)}<small>任务</small></strong>
+      <strong>${escapeHtml(item.value)}<small>${escapeHtml(item.unit || '任务')}</small></strong>
     </article>
   `).join('');
 }
@@ -51,19 +55,67 @@ function renderAlerts(items) {
   `).join('');
 }
 
-function renderQuickActions(items) {
-  return items.map(label => `<button>${escapeHtml(label)}</button>`).join('');
+function renderTimeline(items) {
+  return items.map(item => `
+    <article class="timeline-item ${escapeHtml(item.level || '')}">
+      <div class="timeline-time">${escapeHtml(item.time)}</div>
+      <div class="timeline-body">
+        <strong>${escapeHtml(item.title)}</strong>
+        <p>${escapeHtml(item.text)}</p>
+      </div>
+    </article>
+  `).join('');
 }
 
-function renderMedalSummary(items) {
+function renderSummaryStrip(items) {
   return items.map(item => `
-    <div class="summary-pill"><span>${escapeHtml(item.label)}</span><strong>${escapeHtml(item.value)}</strong></div>
+    <article class="summary-pill ${escapeHtml(item.variant || '')}">
+      <span>${escapeHtml(item.label)}</span>
+      <strong>${escapeHtml(item.value)}</strong>
+      ${item.note ? `<em>${escapeHtml(item.note)}</em>` : ''}
+    </article>
+  `).join('');
+}
+
+function renderTaskTabs(items, active) {
+  return items.map(item => `
+    <button class="tab ${item.key === active ? 'active' : ''}" data-task-tab="${escapeHtml(item.key)}">${escapeHtml(item.label)}</button>
+  `).join('');
+}
+
+function renderTaskBoard(items) {
+  return items.map(task => `
+    <article class="bounty-row ${escapeHtml(task.tierClass || '')} ${task.statusKey === 'blocked' ? 'blocked' : ''} ${task.statusKey === 'approval' ? 'approval' : ''}">
+      <div class="bounty-row-main">
+        <div class="bounty-row-head">
+          <div>
+            <div class="task-title">${escapeHtml(task.title)}</div>
+            <div class="task-meta">${escapeHtml(task.meta)}</div>
+          </div>
+          <div class="bounty-badges">
+            <span class="badge ${escapeHtml(task.badgeType || 'info')}">${escapeHtml(task.badge)}</span>
+            <span class="badge ghost-badge">${escapeHtml(task.status)}</span>
+          </div>
+        </div>
+        <p class="bounty-row-summary">${escapeHtml(task.summary || '')}</p>
+        <div class="bounty-row-facts">
+          <span>猎人：<strong>${escapeHtml(task.hunter)}</strong></span>
+          <span>截止：<strong>${escapeHtml(task.deadline)}</strong></span>
+          <span>Token：<strong>${escapeHtml(task.tokens)}</strong></span>
+          <span>赏格：<strong>${escapeHtml(task.reward)}</strong></span>
+        </div>
+      </div>
+      <div class="bounty-row-side">
+        <div class="row-risk ${escapeHtml(task.riskLevel || '')}">${escapeHtml(task.risk)}</div>
+        <a href="./task-detail.html?id=${encodeURIComponent(slugify(task.title))}" class="ghost-btn row-link">查看详情</a>
+      </div>
+    </article>
   `).join('');
 }
 
 function renderHunters(items) {
   return items.map(h => `
-    <article class="hunter-card ${h.champion ? 'champion' : ''} ${h.readyUpgrade ? 'ready-upgrade' : ''}">
+    <article class="hunter-card dossier-card ${h.champion ? 'champion' : ''} ${h.readyUpgrade ? 'ready-upgrade' : ''}">
       <div class="hunter-head">
         <div class="hunter-ident">
           <span class="class-mark ${escapeHtml(h.class || '')}">${escapeHtml(h.mark || '')}</span>
@@ -80,55 +132,133 @@ function renderHunters(items) {
         <strong>${escapeHtml(h.title)}</strong>
       </div>
       <div class="hunter-weekly">本周 ${escapeHtml(h.weekly)}</div>
+      <div class="dossier-metrics">
+        <span>模型：<strong>${escapeHtml(h.model)}</strong></span>
+        <span>当前承载：<strong>${escapeHtml(h.load)}</strong></span>
+        <span>成功率：<strong>${escapeHtml(h.successRate)}</strong></span>
+        <span>均耗：<strong>${escapeHtml(h.avgTokens)}</strong></span>
+      </div>
+      <div class="dossier-tags">${(h.tags || []).map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
+      <div class="dossier-actions"><a class="ghost-btn row-link" href="./hunter-detail.html?id=${encodeURIComponent(slugify(h.name))}">查看档案</a></div>
     </article>
   `).join('');
 }
 
-function renderTasks(items) {
-  return items.map(task => `
-    <article class="compact-task-row ${task.blocked ? 'blocked' : ''} ${task.done ? 'done' : ''}">
-      <div>
-        <div class="task-title">${escapeHtml(task.title)}</div>
-        <div class="task-meta">${escapeHtml(task.meta)}</div>
-      </div>
-      <span class="badge ${escapeHtml(task.badgeType || 'info')}">${escapeHtml(task.badge)}</span>
+function renderResourceKpis(items) {
+  return items.map(item => `
+    <article class="resource-kpi ${escapeHtml(item.variant || '')}">
+      <span>${escapeHtml(item.label)}</span>
+      <strong>${escapeHtml(item.value)}</strong>
+      <p>${escapeHtml(item.note || '')}</p>
     </article>
   `).join('');
+}
+
+function renderModelBars(items) {
+  const max = Math.max(...items.map(item => Number(item.percent) || 0), 1);
+  return items.map(item => `
+    <article class="model-bar-item">
+      <div class="model-bar-top">
+        <strong>${escapeHtml(item.name)}</strong>
+        <span>${escapeHtml(item.tokens)} · ${escapeHtml(item.cost)}</span>
+      </div>
+      <div class="model-bar-track"><span style="width:${(Number(item.percent) || 0) / max * 100}%"></span></div>
+      <div class="model-bar-meta">${escapeHtml(item.note || '')}</div>
+    </article>
+  `).join('');
+}
+
+function renderSpendAlerts(items) {
+  return items.map(item => `
+    <article class="spend-alert ${item.critical ? 'critical' : ''}">
+      <strong>${escapeHtml(item.title)}</strong>
+      <p>${escapeHtml(item.text)}</p>
+      <span>${escapeHtml(item.meta)}</span>
+    </article>
+  `).join('');
+}
+
+function attachTaskBoardInteractions(data) {
+  const tabs = data.taskBoard?.tabs || [];
+  const allTasks = data.taskBoard?.items || [];
+  const summary = byId('task-summary');
+  const board = byId('task-board');
+  const note = byId('task-view-note');
+  const searchInput = byId('task-search');
+  const tabsRoot = byId('task-tabs');
+  let activeTab = tabs[0]?.key || 'all';
+
+  function filteredTasks() {
+    const query = (searchInput?.value || '').trim().toLowerCase();
+    return allTasks.filter(task => {
+      const tabMatch = activeTab === 'all' || task.statusKey === activeTab || task.tierKey === activeTab || (activeTab === 'focus' && task.focus);
+      const searchMatch = !query || [task.title, task.meta, task.hunter, task.summary, task.type].join(' ').toLowerCase().includes(query);
+      return tabMatch && searchMatch;
+    });
+  }
+
+  function render() {
+    const current = filteredTasks();
+    const activeLabel = tabs.find(tab => tab.key === activeTab)?.label || '全榜';
+    if (summary) {
+      summary.innerHTML = renderSummaryStrip([
+        { label: '当前视角', value: activeLabel, note: `${current.length} 条任务`, variant: 'current' },
+        { label: '待你介入', value: current.filter(task => task.needsAction).length, note: '待委派 / 待审批 / 卡单', variant: 'warn' },
+        { label: '高消耗', value: current.filter(task => task.highCost).length, note: 'Token 高于阈值', variant: 'violet' },
+        { label: '临近时限', value: current.filter(task => task.deadlineRisk).length, note: '优先向上浮', variant: 'danger' }
+      ]);
+    }
+    if (board) board.innerHTML = renderTaskBoard(current);
+    if (note) note.innerHTML = `当前视角：${activeLabel}${searchInput?.value ? ` · 检索“${escapeHtml(searchInput.value)}”` : ''} · <a href="./task-detail.html">进入任务详情页骨架</a>`;
+    if (tabsRoot) tabsRoot.innerHTML = renderTaskTabs(tabs, activeTab);
+    tabsRoot?.querySelectorAll('[data-task-tab]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeTab = btn.getAttribute('data-task-tab') || 'all';
+        render();
+      });
+    });
+  }
+
+  searchInput?.addEventListener('input', render);
+  render();
 }
 
 async function init() {
-  const res = await fetch('./data.json?v=20260318-1513', { cache: 'no-store' });
+  const res = await fetch('./data.json?v=20260319-1114', { cache: 'no-store' });
   const data = await res.json();
 
   const heroEyebrow = byId('hero-eyebrow');
-  const heroTitle = byId('hero-title');
-  const heroDescription = byId('hero-description');
   const kpiRow = byId('kpi-row');
-
   if (heroEyebrow && !heroEyebrow.textContent.trim()) heroEyebrow.textContent = data.hero?.eyebrow || '';
-  if (heroTitle && !heroTitle.textContent.trim()) heroTitle.textContent = data.hero?.title || '';
-  if (heroDescription && !heroDescription.textContent.trim()) heroDescription.textContent = data.hero?.description || '';
-  if (kpiRow && !kpiRow.children.length) kpiRow.innerHTML = renderKpis(data.kpis || []);
+  if (kpiRow) kpiRow.innerHTML = renderKpis(data.kpis || []);
 
-  const bounty = data.primeBounty;
-  byId('bounty-ribbon').textContent = bounty.ribbon;
-  byId('wanted-seal').textContent = bounty.seal;
-  byId('wanted-id').textContent = bounty.id;
-  byId('wanted-publisher').textContent = bounty.publisher;
-  byId('bounty-title').textContent = bounty.title;
-  byId('bounty-meta').textContent = bounty.meta;
-  byId('bounty-priority').textContent = bounty.priority;
-  byId('bounty-summary').textContent = bounty.summary;
+  const bounty = data.primeBounty || {};
+  byId('bounty-ribbon').textContent = bounty.ribbon || '';
+  byId('wanted-seal').textContent = bounty.seal || '';
+  byId('wanted-id').textContent = bounty.id || '';
+  byId('wanted-publisher').textContent = bounty.publisher || '';
+  byId('bounty-title').textContent = bounty.title || '';
+  byId('bounty-meta').textContent = bounty.meta || '';
+  byId('bounty-priority').textContent = bounty.priority || '';
+  byId('bounty-summary').textContent = bounty.summary || '';
   byId('bounty-facts').innerHTML = renderFacts(bounty.facts || []);
   byId('bounty-rewards').innerHTML = renderRewards(bounty.rewards || []);
-  byId('bounty-actions').innerHTML = (bounty.actions || []).map((label, i) => `<a class="${i === 0 ? 'primary-btn bounty-btn' : 'ghost-btn'}" href="#">${escapeHtml(label)}</a>`).join('');
+  byId('bounty-actions').innerHTML = (bounty.actions || []).map((label, i) => `<a class="${i === 0 ? 'primary-btn bounty-btn' : 'ghost-btn'}" href="./task-detail.html?id=${encodeURIComponent(slugify(bounty.title || ''))}">${escapeHtml(label)}</a>`).join('');
 
   byId('alerts-list').innerHTML = renderAlerts(data.alerts || []);
-  byId('quick-actions').innerHTML = renderQuickActions(data.quickActions || []);
-  byId('medal-rule').innerHTML = `${escapeHtml(data.medalRule).replace('100', '<strong>100</strong>')}`;
-  byId('medal-summary').innerHTML = renderMedalSummary(data.medalSummary || []);
+  byId('timeline-list').innerHTML = renderTimeline(data.timeline || []);
+  byId('hunter-summary').innerHTML = renderSummaryStrip(data.hunterSummary || []);
   byId('roster-grid').innerHTML = renderHunters(data.hunters || []);
-  byId('task-list').innerHTML = renderTasks(data.tasks || []);
+  byId('resource-kpis').innerHTML = renderResourceKpis(data.resources?.kpis || []);
+  byId('model-bars').innerHTML = renderModelBars(data.resources?.models || []);
+  byId('spend-alerts').innerHTML = renderSpendAlerts(data.resources?.alerts || []);
+
+  const resourcePanelTag = document.querySelector('.resource-panel .panel-tag');
+  if (resourcePanelTag) resourcePanelTag.innerHTML = `<a href="./resource-detail.html">TOKEN / COST</a>`;
+  const dossierPanelTag = document.querySelector('.dossier-panel .panel-tag');
+  if (dossierPanelTag) dossierPanelTag.innerHTML = `<a href="./hunter-detail.html">HUNTER DOSSIERS</a>`;
+
+  attachTaskBoardInteractions(data);
 }
 
 init().catch(err => {

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>任务详情</title>
+  <link rel="stylesheet" href="./styles.css?v=20260319-1138" />
+</head>
+<body class="hunter-theme" data-page="task">
+  <div class="grid-bg"></div><div class="halo halo-a"></div><div class="grain-overlay"></div>
+  <main class="dashboard usage-ready-dashboard detail-page-shell simple-task-page">
+    <header class="panel glass detail-hero armor-shell">
+      <a class="ghost-btn" href="./overview.html">返回总览</a>
+      <div class="chip chip-live" id="detail-chip">任务详情</div>
+      <h1 id="detail-title">任务详情</h1>
+      <p class="muted" id="detail-subtitle"></p>
+    </header>
+
+    <section class="panel glass armor-shell">
+      <div class="panel-head"><h3>头部总览</h3><span class="panel-tag">MISSION SNAPSHOT</span></div>
+      <div class="summary-strip" id="detail-stats"></div>
+    </section>
+
+    <section class="detail-grid simple-task-grid">
+      <section class="task-main-stack">
+        <section class="panel glass armor-shell">
+          <div class="panel-head"><h3>任务说明</h3><span class="panel-tag">BRIEF</span></div>
+          <p class="focus-summary detail-copy" id="detail-summary"></p>
+        </section>
+
+        <section class="panel glass armor-shell">
+          <div class="panel-head"><h3>当前进展</h3><span class="panel-tag">CURRENT STATUS</span></div>
+          <div class="summary-strip detail-side-strip" id="detail-progress"></div>
+        </section>
+
+        <section class="panel glass parchment-panel armor-shell">
+          <div class="panel-head"><h3>动作记录</h3><span class="panel-tag">ACTION LOG</span></div>
+          <div class="timeline-list" id="detail-log"></div>
+        </section>
+      </section>
+
+      <aside class="task-side-stack">
+        <section class="panel glass parchment-panel armor-shell">
+          <div class="panel-head"><h3>操作区</h3><span class="panel-tag">CONTROL</span></div>
+          <div class="action-stack" id="detail-actions"></div>
+        </section>
+      </aside>
+    </section>
+  </main>
+  <script src="./details.js?v=20260319-1138"></script>
+</body>
+</html>
