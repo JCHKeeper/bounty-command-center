@@ -307,8 +307,7 @@
       { "name": "o3", "tokens": "163k", "cost": "¥54.0", "percent": 163 },
       { "name": "gpt-5.4", "tokens": "148k", "cost": "¥46.2", "percent": 148 },
       { "name": "claude-sonnet", "tokens": "96k", "cost": "¥24.6", "percent": 96 },
-      { "name": "gemini-2.5-pro", "tokens": "71k", "cost": "¥15.3", "percent": 71 },
-      { "name": "gpt-4o-mini", "tokens": "46k", "cost": "¥6.7", "percent": 46 }
+      { "name": "gemini-2.5-pro", "tokens": "71k", "cost": "¥15.3", "percent": 71 }
     ],
     "alerts": [
       { "title": "VX-771 已烧 186k", "meta": "切重装突入", "critical": true },
