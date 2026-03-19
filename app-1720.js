@@ -85,33 +85,34 @@ function renderTaskTabs(items, active) {
 
 function renderTaskBoard(items) {
   return items.map(task => `
-    <article class="bounty-row compact-bounty-row task-card-compact ${escapeHtml(task.tierClass || '')} ${task.statusKey === 'blocked' ? 'blocked' : ''} ${task.statusKey === 'approval' ? 'approval' : ''}">
-      <div class="bounty-row-main">
-        <div class="bounty-row-head compact-bounty-head compact-card-head">
-          <span class="badge ${escapeHtml(task.badgeType || 'info')}">${escapeHtml(task.badge)}</span>
-          <a href="./task-detail.html?id=${encodeURIComponent(slugify(task.title))}" class="ghost-btn row-link compact-row-link">详情</a>
+    <a href="./task-detail.html?id=${encodeURIComponent(slugify(task.title))}" class="task-card-link">
+      <article class="bounty-row compact-bounty-row task-card-compact ${escapeHtml(task.tierClass || '')} ${task.statusKey === 'blocked' ? 'blocked' : ''} ${task.statusKey === 'approval' ? 'approval' : ''}">
+        <div class="bounty-row-main">
+          <div class="bounty-row-head compact-bounty-head compact-card-head">
+            <span class="badge ${escapeHtml(task.badgeType || 'info')}">${escapeHtml(task.badge)}</span>
+          </div>
+          <div class="task-title compact-task-title">${escapeHtml(task.title)}</div>
+          <div class="task-meta-grid compact-task-meta-grid">
+            <div class="task-meta-row">
+              <span class="task-meta-label">任务状态</span>
+              <strong>${escapeHtml(task.status)}</strong>
+            </div>
+            <div class="task-meta-row">
+              <span class="task-meta-label">委托猎人</span>
+              <strong>${escapeHtml(task.hunter)}</strong>
+            </div>
+            <div class="task-meta-row">
+              <span class="task-meta-label">任务进度</span>
+              <strong>${Number(task.progress) || 0}%</strong>
+            </div>
+            <div class="task-meta-row">
+              <span class="task-meta-label">委托时间</span>
+              <strong>${escapeHtml(task.publishedAt || task.updatedAt || '-')}</strong>
+            </div>
+          </div>
         </div>
-        <div class="task-title compact-task-title">${escapeHtml(task.title)}</div>
-        <div class="task-meta-grid compact-task-meta-grid">
-          <div class="task-meta-row">
-            <span class="task-meta-label">任务状态</span>
-            <strong>${escapeHtml(task.status)}</strong>
-          </div>
-          <div class="task-meta-row">
-            <span class="task-meta-label">委托猎人</span>
-            <strong>${escapeHtml(task.hunter)}</strong>
-          </div>
-          <div class="task-meta-row">
-            <span class="task-meta-label">任务进度</span>
-            <strong>${Number(task.progress) || 0}%</strong>
-          </div>
-          <div class="task-meta-row">
-            <span class="task-meta-label">委托时间</span>
-            <strong>${escapeHtml(task.publishedAt || task.updatedAt || '-')}</strong>
-          </div>
-        </div>
-      </div>
-    </article>
+      </article>
+    </a>
   `).join('');
 }
 
