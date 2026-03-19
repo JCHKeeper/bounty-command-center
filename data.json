@@ -304,7 +304,6 @@
       { "label": "产出比", "value": "78%", "note": "无需重跑", "variant": "success" }
     ],
     "models": [
-      { "name": "o3", "tokens": "163k", "cost": "¥54.0", "percent": 163 },
       { "name": "gpt-5.4", "tokens": "148k", "cost": "¥46.2", "percent": 148 },
       { "name": "claude-sonnet", "tokens": "96k", "cost": "¥24.6", "percent": 96 },
       { "name": "gemini-2.5-pro", "tokens": "71k", "cost": "¥15.3", "percent": 71 }
