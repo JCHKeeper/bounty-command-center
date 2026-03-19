@@ -85,30 +85,28 @@ function renderTaskTabs(items, active) {
 
 function renderTaskBoard(items) {
   return items.map(task => `
-    <article class="bounty-row compact-bounty-row ${escapeHtml(task.tierClass || '')} ${task.statusKey === 'blocked' ? 'blocked' : ''} ${task.statusKey === 'approval' ? 'approval' : ''}">
+    <article class="bounty-row compact-bounty-row task-card-compact ${escapeHtml(task.tierClass || '')} ${task.statusKey === 'blocked' ? 'blocked' : ''} ${task.statusKey === 'approval' ? 'approval' : ''}">
       <div class="bounty-row-main">
-        <div class="bounty-row-head compact-bounty-head">
-          <div class="bounty-main-ident">
-            <span class="badge ${escapeHtml(task.badgeType || 'info')}">${escapeHtml(task.badge)}</span>
-            <div class="task-title">${escapeHtml(task.title)}</div>
-          </div>
-          <a href="./task-detail.html?id=${encodeURIComponent(slugify(task.title))}" class="ghost-btn row-link">查看详情</a>
+        <div class="bounty-row-head compact-bounty-head compact-card-head">
+          <span class="badge ${escapeHtml(task.badgeType || 'info')}">${escapeHtml(task.badge)}</span>
+          <a href="./task-detail.html?id=${encodeURIComponent(slugify(task.title))}" class="ghost-btn row-link compact-row-link">详情</a>
         </div>
-        <div class="bounty-row-facts compact-facts task-card-facts">
-          <div class="task-fact fact-status">
-            <span class="task-fact-label">任务状态</span>
+        <div class="task-title compact-task-title">${escapeHtml(task.title)}</div>
+        <div class="task-meta-grid compact-task-meta-grid">
+          <div class="task-meta-row">
+            <span class="task-meta-label">任务状态</span>
             <strong>${escapeHtml(task.status)}</strong>
           </div>
-          <div class="task-fact fact-hunter">
-            <span class="task-fact-label">委托猎人</span>
+          <div class="task-meta-row">
+            <span class="task-meta-label">委托猎人</span>
             <strong>${escapeHtml(task.hunter)}</strong>
           </div>
-          <div class="task-fact fact-progress">
-            <span class="task-fact-label">任务进度</span>
+          <div class="task-meta-row">
+            <span class="task-meta-label">任务进度</span>
             <strong>${Number(task.progress) || 0}%</strong>
           </div>
-          <div class="task-fact fact-time">
-            <span class="task-fact-label">委托时间</span>
+          <div class="task-meta-row">
+            <span class="task-meta-label">委托时间</span>
             <strong>${escapeHtml(task.publishedAt || task.updatedAt || '-')}</strong>
           </div>
         </div>

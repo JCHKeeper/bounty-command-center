@@ -1016,13 +1016,27 @@ h1, h2, h3, p { margin: 0; }
 }
 .compact-bounty-head {
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+}
+.compact-card-head {
+  justify-content: space-between;
 }
 .bounty-main-ident {
   display: flex;
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
+}
+.compact-task-title {
+  font-size: 15px;
+  line-height: 1.35;
+  min-height: 40px;
+  margin-bottom: 10px;
+}
+.compact-row-link {
+  min-width: 0;
+  padding: 7px 10px;
+  font-size: 12px;
 }
 .bounty-row-summary {
   margin: 12px 0;
@@ -1032,39 +1046,28 @@ h1, h2, h3, p { margin: 0; }
 .compact-facts {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px 18px;
+  gap: 10px 14px;
 }
-.task-card-facts {
+.compact-task-meta-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px 18px;
-  align-items: start;
+  gap: 10px 14px;
 }
-.task-fact {
+.task-meta-row {
   display: grid;
-  gap: 4px;
+  gap: 3px;
   min-width: 0;
 }
-.task-fact-label {
+.task-meta-label {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.1;
 }
-.task-fact strong {
+.task-meta-row strong {
   color: var(--text);
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.35;
   font-weight: 700;
-}
-.task-card-facts .fact-status,
-.task-card-facts .fact-progress {
-  text-align: left;
-  justify-self: start;
-}
-.task-card-facts .fact-hunter,
-.task-card-facts .fact-time {
-  text-align: right;
-  justify-self: end;
 }
 .bounty-row-facts span,
 .dossier-metrics span {
@@ -1363,4 +1366,6 @@ h1, h2, h3, p { margin: 0; }
   .armor-shell-side,
   .armor-shell-wide,
   .offset-shell { transform: none; }
+}
+set-shell { transform: none; }
 }
