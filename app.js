@@ -216,7 +216,7 @@ function attachTaskBoardInteractions(data) {
 }
 
 async function init() {
-  const res = await fetch('./data.json?v=20260319-1114', { cache: 'no-store' });
+  const res = await fetch('./data.json?v=20260319-1526', { cache: 'no-store' });
   const data = await res.json();
 
   const heroEyebrow = byId('hero-eyebrow');
