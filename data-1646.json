@@ -261,6 +261,7 @@
         "summary": "适合分配给低成本总结型猎人，不必占用高阶战斗位。",
         "description": "目标是生成当日公会战术简报，供总览页与调度层快速回看。该任务不需要高阶猎人。",
         "latestProgress": "任务已建立，等待分配。",
+        "progress": 10,
         "publishedAt": "今天 07:30",
         "updatedAt": "2 小时前",
         "currentIssue": "尚未指派。",

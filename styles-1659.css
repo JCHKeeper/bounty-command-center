@@ -1039,8 +1039,33 @@ h1, h2, h3, p { margin: 0; }
 }
 .task-card-facts .fact-status { grid-column: 1; grid-row: 1; }
 .task-card-facts .fact-hunter { grid-column: 2; grid-row: 1; justify-self: end; text-align: right; }
-.task-card-facts .fact-progress { grid-column: 1 / -1; grid-row: 2; }
+.task-card-facts .fact-progress {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
 .task-card-facts .fact-time { grid-column: 2; grid-row: 3; justify-self: end; text-align: right; }
+.task-card-facts .progress-label {
+  color: var(--muted);
+  font-size: 13px;
+}
+.task-progress-line {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.05);
+}
+.task-progress-line span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
+}
 .bounty-row-facts span,
 .dossier-metrics span {
   color: var(--muted);

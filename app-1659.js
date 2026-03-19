@@ -97,7 +97,11 @@ function renderTaskBoard(items) {
         <div class="bounty-row-facts compact-facts task-card-facts">
           <span class="fact-status">任务状态：<strong>${escapeHtml(task.status)}</strong></span>
           <span class="fact-hunter">委托猎人：<strong>${escapeHtml(task.hunter)}</strong></span>
-          <span class="fact-progress">任务进度：<strong>${escapeHtml(task.latestProgress || task.summary || '-')}</strong></span>
+          <div class="fact-progress">
+            <span class="progress-label">任务进度</span>
+            <div class="task-progress-line"><span style="width:${Number(task.progress) || 0}%"></span></div>
+            <strong>${Number(task.progress) || 0}%</strong>
+          </div>
           <span class="fact-time">委托时间：<strong>${escapeHtml(task.publishedAt || task.updatedAt || '-')}</strong></span>
         </div>
       </div>
