@@ -899,6 +899,12 @@ h1, h2, h3, p { margin: 0; }
   margin-bottom: 18px;
   flex-wrap: wrap;
 }
+.board-toolbar-top {
+  align-items: center;
+}
+.publish-task-btn {
+  white-space: nowrap;
+}
 .search-shell {
   display: grid;
   gap: 8px;
@@ -945,6 +951,9 @@ h1, h2, h3, p { margin: 0; }
   border: 1px solid rgba(255,255,255,.06);
   clip-path: polygon(0 14px, 16px 0, calc(100% - 24px) 0, 100% 16px, 100% 100%, 0 100%);
 }
+.compact-bounty-row {
+  grid-template-columns: 1fr;
+}
 .bounty-row.blocked {
   border-color: rgba(255,138,71,.24);
 }
@@ -962,10 +971,25 @@ h1, h2, h3, p { margin: 0; }
   justify-content: space-between;
   align-items: start;
 }
+.compact-bounty-head {
+  align-items: center;
+  margin-bottom: 12px;
+}
+.bounty-main-ident {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 .bounty-row-summary {
   margin: 12px 0;
   color: #eadfcb;
   line-height: 1.6;
+}
+.compact-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 18px;
 }
 .bounty-row-facts span,
 .dossier-metrics span {
@@ -1182,7 +1206,8 @@ h1, h2, h3, p { margin: 0; }
 @media (max-width: 1180px) {
   .roster-grid,
   .summary-strip,
-  .resource-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .resource-kpis,
+  .compact-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .resource-grid,
   .detail-grid { grid-template-columns: 1fr; }
 }
@@ -1206,7 +1231,7 @@ h1, h2, h3, p { margin: 0; }
   .dashboard { width: calc(100% - 20px); }
   .task-row, .topbar, .topbar-right, .focus-head, .compact-task-row, .hunter-head, .hunter-foot, .wanted-header { align-items: stretch; }
   .task-row, .topbar, .focus-head, .compact-task-row, .hunter-foot, .wanted-header { flex-direction: column; }
-  .command-grid, .kpi-row, .focus-meta-grid, .roster-grid, .bounty-reward-strip { grid-template-columns: 1fr; }
+  .command-grid, .kpi-row, .focus-meta-grid, .roster-grid, .bounty-reward-strip, .compact-facts { grid-template-columns: 1fr; }
   .mech-kpis { grid-template-columns: 1fr; }
   .focus-summary { max-width: 100%; }
   .bounty-ribbon { position: static; transform: none; width: fit-content; border-radius: 999px; padding: 7px 12px; }

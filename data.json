@@ -45,11 +45,12 @@
   ],
   "taskBoard": {
     "tabs": [
-      { "key": "all", "label": "全榜" },
-      { "key": "doing", "label": "执行中" },
-      { "key": "blocked", "label": "卡单" },
-      { "key": "approval", "label": "待审批" },
-      { "key": "focus", "label": "重点关注" }
+      { "key": "all", "label": "全部" },
+      { "key": "s", "label": "S级" },
+      { "key": "a", "label": "A级" },
+      { "key": "b", "label": "B级" },
+      { "key": "c", "label": "C级" },
+      { "key": "d", "label": "D级" }
     ],
     "items": [
       {
@@ -64,6 +65,7 @@
         "summary": "当前建议从持续围猎改为重装突入，避免继续拉高外环耗损。",
         "description": "目标是封回裂界兽核并控制外环损耗，不追求无意义拉锯。当前最关键的是及时切换方案，用更强执行位快速收束战线。",
         "latestProgress": "外围封锁已经完成，正在评估是否直接切换重装突入。",
+        "publishedAt": "今天 09:12",
         "updatedAt": "6 分钟前",
         "currentIssue": "若继续围猎，Token 与时间都会继续放大。",
         "doneWhen": "兽核封回、外环失压停止、任务正式结单。",
@@ -97,6 +99,7 @@
         "summary": "方案已经齐了，只差是否启用高价安全通道。",
         "description": "目标是安全护送情报员穿越灰港封锁区。现有两套方案均可执行，但高价通道需要你拍板才能放行。",
         "latestProgress": "路线、掩护与接应都已准备完毕。",
+        "publishedAt": "今天 09:48",
         "updatedAt": "12 分钟前",
         "currentIssue": "等待是否启用高价安全通道。",
         "doneWhen": "情报员安全抵达接应点并确认资料完整。",
@@ -129,6 +132,7 @@
         "summary": "回收路线稳定，当前主要消耗集中在深潜扫描与样本比对。",
         "description": "目标是完整回收黑匣子与灵纹样本，保证样本不被二次污染。当前执行稳定，主要是扫描与比对的成本需要盯住。",
         "latestProgress": "回收路径已锁定，样本正在回收与比对。",
+        "publishedAt": "今天 08:55",
         "updatedAt": "21 分钟前",
         "currentIssue": "暂无硬阻塞，主要关注成本效率。",
         "doneWhen": "黑匣子回收完成且样本通过完整性校验。",
@@ -160,6 +164,7 @@
         "summary": "缺失两段关键日志，当前不补上下文就只能反复重跑。",
         "description": "目标是确认边境跳点访问是否存在异常进入。当前不是分析能力不够，而是日志上下文不全。",
         "latestProgress": "已定位问题区间，但缺两段关键日志。",
+        "publishedAt": "今天 08:20",
         "updatedAt": "47 分钟前",
         "currentIssue": "上下文缺失，继续重跑没有意义。",
         "doneWhen": "日志链补全并输出明确审计结论。",
@@ -192,6 +197,7 @@
         "summary": "流程没问题，但补给不到位，继续执行只会徒增排查消耗。",
         "description": "目标是恢复外环重装中继塔供能。当前故障范围已明，但缺关键补给件，继续查不会有实质进展。",
         "latestProgress": "问题定位完成，等待备用电芯。",
+        "publishedAt": "今天 08:03",
         "updatedAt": "53 分钟前",
         "currentIssue": "缺备用电芯。",
         "doneWhen": "供能恢复稳定，连续监控通过。",
@@ -223,6 +229,7 @@
         "summary": "执行质量高，但模型切换较贵，适合继续监看成本曲线。",
         "description": "目标是在夜港完成无痕监听点部署，优先确保隐蔽性与长期稳定。当前执行良好，但成本较高。",
         "latestProgress": "监听点已完成首轮部署，正在做稳定性校验。",
+        "publishedAt": "今天 09:05",
         "updatedAt": "18 分钟前",
         "currentIssue": "暂无硬阻塞，需注意成本上限。",
         "doneWhen": "监听点稳定运行且未触发异常暴露。",
@@ -254,6 +261,7 @@
         "summary": "适合分配给低成本总结型猎人，不必占用高阶战斗位。",
         "description": "目标是生成当日公会战术简报，供总览页与调度层快速回看。该任务不需要高阶猎人。",
         "latestProgress": "任务已建立，等待分配。",
+        "publishedAt": "今天 07:30",
         "updatedAt": "2 小时前",
         "currentIssue": "尚未指派。",
         "doneWhen": "简报生成并完成归档。",

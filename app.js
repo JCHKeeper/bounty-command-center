@@ -85,29 +85,21 @@ function renderTaskTabs(items, active) {
 
 function renderTaskBoard(items) {
   return items.map(task => `
-    <article class="bounty-row ${escapeHtml(task.tierClass || '')} ${task.statusKey === 'blocked' ? 'blocked' : ''} ${task.statusKey === 'approval' ? 'approval' : ''}">
+    <article class="bounty-row compact-bounty-row ${escapeHtml(task.tierClass || '')} ${task.statusKey === 'blocked' ? 'blocked' : ''} ${task.statusKey === 'approval' ? 'approval' : ''}">
       <div class="bounty-row-main">
-        <div class="bounty-row-head">
-          <div>
-            <div class="task-title">${escapeHtml(task.title)}</div>
-            <div class="task-meta">${escapeHtml(task.meta)}</div>
-          </div>
-          <div class="bounty-badges">
+        <div class="bounty-row-head compact-bounty-head">
+          <div class="bounty-main-ident">
             <span class="badge ${escapeHtml(task.badgeType || 'info')}">${escapeHtml(task.badge)}</span>
-            <span class="badge ghost-badge">${escapeHtml(task.status)}</span>
+            <div class="task-title">${escapeHtml(task.title)}</div>
           </div>
+          <a href="./task-detail.html?id=${encodeURIComponent(slugify(task.title))}" class="ghost-btn row-link">查看详情</a>
         </div>
-        <p class="bounty-row-summary">${escapeHtml(task.summary || '')}</p>
-        <div class="bounty-row-facts">
-          <span>猎人：<strong>${escapeHtml(task.hunter)}</strong></span>
-          <span>截止：<strong>${escapeHtml(task.deadline)}</strong></span>
-          <span>Token：<strong>${escapeHtml(task.tokens)}</strong></span>
-          <span>赏格：<strong>${escapeHtml(task.reward)}</strong></span>
+        <div class="bounty-row-facts compact-facts">
+          <span>发布时间：<strong>${escapeHtml(task.publishedAt || task.updatedAt || '-')}</strong></span>
+          <span>负责猎人：<strong>${escapeHtml(task.hunter)}</strong></span>
+          <span>状态：<strong>${escapeHtml(task.status)}</strong></span>
+          <span>进度：<strong>${escapeHtml(task.latestProgress || task.summary || '-')}</strong></span>
         </div>
-      </div>
-      <div class="bounty-row-side">
-        <div class="row-risk ${escapeHtml(task.riskLevel || '')}">${escapeHtml(task.risk)}</div>
-        <a href="./task-detail.html?id=${encodeURIComponent(slugify(task.title))}" class="ghost-btn row-link">查看详情</a>
       </div>
     </article>
   `).join('');
@@ -191,8 +183,8 @@ function attachTaskBoardInteractions(data) {
   function filteredTasks() {
     const query = (searchInput?.value || '').trim().toLowerCase();
     return allTasks.filter(task => {
-      const tabMatch = activeTab === 'all' || task.statusKey === activeTab || task.tierKey === activeTab || (activeTab === 'focus' && task.focus);
-      const searchMatch = !query || [task.title, task.meta, task.hunter, task.summary, task.type].join(' ').toLowerCase().includes(query);
+      const tabMatch = activeTab === 'all' || task.tierKey === activeTab;
+      const searchMatch = !query || [task.title, task.hunter, task.status, task.latestProgress, task.type].join(' ').toLowerCase().includes(query);
       return tabMatch && searchMatch;
     });
   }
@@ -203,9 +195,9 @@ function attachTaskBoardInteractions(data) {
     if (summary) {
       summary.innerHTML = renderSummaryStrip([
         { label: '当前视角', value: activeLabel, note: `${current.length} 条任务`, variant: 'current' },
-        { label: '待你介入', value: current.filter(task => task.needsAction).length, note: '待委派 / 待审批 / 卡单', variant: 'warn' },
-        { label: '高消耗', value: current.filter(task => task.highCost).length, note: 'Token 高于阈值', variant: 'violet' },
-        { label: '临近时限', value: current.filter(task => task.deadlineRisk).length, note: '优先向上浮', variant: 'danger' }
+        { label: '执行中', value: current.filter(task => task.status === '执行中').length, note: '当前正在推进', variant: 'success' },
+        { label: '待审批', value: current.filter(task => task.status === '待审批').length, note: '等你拍板', variant: 'warn' },
+        { label: '卡单', value: current.filter(task => task.status === '卡单').length, note: '需要排障', variant: 'danger' }
       ]);
     }
     if (board) board.innerHTML = renderTaskBoard(current);
