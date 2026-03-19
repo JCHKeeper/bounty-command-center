@@ -171,7 +171,6 @@ function renderSpendAlerts(items) {
 function attachTaskBoardInteractions(data) {
   const tabs = data.taskBoard?.tabs || [];
   const allTasks = data.taskBoard?.items || [];
-  const summary = byId('task-summary');
   const board = byId('task-board');
   const note = byId('task-view-note');
   const searchInput = byId('task-search');
