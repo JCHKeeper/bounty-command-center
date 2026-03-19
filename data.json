@@ -299,21 +299,20 @@
   ],
   "resources": {
     "kpis": [
-      { "label": "今日 Token", "value": "524k", "note": "较昨日 +12%", "variant": "violet" },
-      { "label": "今日成本", "value": "¥ 146.8", "note": "主要集中在 S 级追猎", "variant": "warn" },
-      { "label": "有效产出比", "value": "78%", "note": "有结果且无需重跑的占比", "variant": "success" }
+      { "label": "今日 Token", "value": "524k", "note": "+12%", "variant": "violet" },
+      { "label": "今日成本", "value": "¥146.8", "note": "S级为主", "variant": "warn" },
+      { "label": "产出比", "value": "78%", "note": "无需重跑", "variant": "success" }
     ],
     "models": [
-      { "name": "o3", "tokens": "163k", "cost": "¥54.0", "percent": 163, "note": "潜猎与复杂判断单主要由 Vanta 使用" },
-      { "name": "gpt-5.4", "tokens": "148k", "cost": "¥46.2", "percent": 148, "note": "Northwind 的高危重装单占比高" },
-      { "name": "claude-sonnet", "tokens": "96k", "cost": "¥24.6", "percent": 96, "note": "回收单稳定、性价比不错" },
-      { "name": "gemini-2.5-pro", "tokens": "71k", "cost": "¥15.3", "percent": 71, "note": "情报检索低成本，但存在重跑浪费" },
-      { "name": "gpt-4o-mini", "tokens": "46k", "cost": "¥6.7", "percent": 46, "note": "适合总结、后勤、系统挂单" }
+      { "name": "o3", "tokens": "163k", "cost": "¥54.0", "percent": 163 },
+      { "name": "gpt-5.4", "tokens": "148k", "cost": "¥46.2", "percent": 148 },
+      { "name": "claude-sonnet", "tokens": "96k", "cost": "¥24.6", "percent": 96 },
+      { "name": "gemini-2.5-pro", "tokens": "71k", "cost": "¥15.3", "percent": 71 },
+      { "name": "gpt-4o-mini", "tokens": "46k", "cost": "¥6.7", "percent": 46 }
     ],
     "alerts": [
-      { "title": "VX-771 今日已烧 186k Token", "text": "当前仍在可接受范围，但若继续围猎而不切方案，晚些会明显失衡。", "meta": "建议：直接切重装突入", "critical": true },
-      { "title": "Kite 的日志审计单重跑 3 次", "text": "问题不在模型，而在缺上下文。再跑只会继续浪费。", "meta": "建议：先补两段缺失日志" },
-      { "title": "Vanta 单人均耗偏高", "text": "高价值潜猎本来就贵，但适合设置上限提醒，避免低价值任务误用。", "meta": "建议：仅在 S 级 / 重点关注任务启用" }
+      { "title": "VX-771 已烧 186k", "meta": "切重装突入", "critical": true },
+      { "title": "Kite 审计重跑 3 次", "meta": "先补日志" }
     ]
   }
 }

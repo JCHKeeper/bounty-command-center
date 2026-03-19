@@ -155,7 +155,6 @@ function renderModelBars(items) {
         <span>${escapeHtml(item.tokens)} · ${escapeHtml(item.cost)}</span>
       </div>
       <div class="model-bar-track"><span style="width:${(Number(item.percent) || 0) / max * 100}%"></span></div>
-      <div class="model-bar-meta">${escapeHtml(item.note || '')}</div>
     </article>
   `).join('');
 }
@@ -164,7 +163,6 @@ function renderSpendAlerts(items) {
   return items.map(item => `
     <article class="spend-alert ${item.critical ? 'critical' : ''}">
       <strong>${escapeHtml(item.title)}</strong>
-      <p>${escapeHtml(item.text)}</p>
       <span>${escapeHtml(item.meta)}</span>
     </article>
   `).join('');
@@ -216,7 +214,7 @@ function attachTaskBoardInteractions(data) {
 }
 
 async function init() {
-  const res = await fetch('./data.json?v=20260319-1526', { cache: 'no-store' });
+  const res = await fetch('./data.json?v=20260319-1553', { cache: 'no-store' });
   const data = await res.json();
 
   const heroEyebrow = byId('hero-eyebrow');
