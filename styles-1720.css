@@ -888,7 +888,6 @@ h1, h2, h3, p { margin: 0; }
   grid-area: resource;
   min-height: 148px;
   align-self: start;
-  max-width: 100%;
 }
 .task-bounty-panel {
   grid-area: tasks;
@@ -1050,7 +1049,7 @@ h1, h2, h3, p { margin: 0; }
 .compact-task-meta-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 4px 8px;
+  gap: 5px 8px;
 }
 .task-meta-row {
   display: grid;
@@ -1060,16 +1059,13 @@ h1, h2, h3, p { margin: 0; }
 .task-meta-label {
   color: var(--muted);
   font-size: 8px;
-  line-height: 1;
+  line-height: 1.02;
 }
 .task-meta-row strong {
   color: var(--text);
   font-size: 10px;
-  line-height: 1.15;
+  line-height: 1.2;
   font-weight: 700;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .bounty-row-facts span,
 .dossier-metrics span {
@@ -1372,9 +1368,3 @@ h1, h2, h3, p { margin: 0; }
 set-shell { transform: none; }
 }
 }
-rm: none; }
-}
-set-shell { transform: none; }
-}
-}
-
