@@ -301,7 +301,6 @@
     "kpis": [
       { "label": "今日 Token", "value": "524k", "note": "较昨日 +12%", "variant": "violet" },
       { "label": "今日成本", "value": "¥ 146.8", "note": "主要集中在 S 级追猎", "variant": "warn" },
-      { "label": "单任务均耗", "value": "24.9k", "note": "剔除系统单后统计", "variant": "current" },
       { "label": "有效产出比", "value": "78%", "note": "有结果且无需重跑的占比", "variant": "success" }
     ],
     "models": [

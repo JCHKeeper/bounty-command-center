@@ -60,8 +60,7 @@
       <div class="summary-strip" id="task-summary"></div>
       <div class="board-toolbar">
         <label class="search-shell">
-          <span>任务检索</span>
-          <input id="task-search" type="search" placeholder="搜索任务名、负责猎人、状态、进度…" />
+          <input id="task-search" type="search" placeholder="搜索任务" />
         </label>
         <div class="view-note" id="task-view-note"></div>
       </div>
@@ -84,7 +83,6 @@
       <div class="panel-head">
         <div>
           <h3>资源消耗</h3>
-          <p class="muted board-desc">先看今日消耗，再按任务 / 猎人 / 模型追责。不是只看烧了多少，而是看值不值。</p>
         </div>
         <span class="panel-tag">TOKEN / COST</span>
       </div>
@@ -93,14 +91,12 @@
         <section class="resource-block">
           <div class="resource-block-head">
             <h4>模型消耗排行</h4>
-            <span>按今日 Token</span>
           </div>
           <div class="model-bars" id="model-bars"></div>
         </section>
         <section class="resource-block">
           <div class="resource-block-head">
             <h4>异常消耗提醒</h4>
-            <span>优先处理浪费点</span>
           </div>
           <div class="spend-alerts" id="spend-alerts"></div>
         </section>
