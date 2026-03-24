@@ -512,126 +512,95 @@
   "hunters": [
     {
       "name": "Northwind",
-      "role": "重装先遣 / 风压刀路",
-      "class": "scout",
-      "mark": "锋",
-      "medals": 84,
-      "progress": 84,
-      "status": "高压作战中",
-      "title": "银翼战猎",
-      "weekly": "+6",
-      "champion": true,
-      "model": "gpt-5.4",
-      "load": "2 / 3",
-      "successRate": "91%",
-      "avgTokens": "38k",
-      "tags": [
+      "grade": "S",
+      "skills": [
         "高危突入",
         "多阶段执行",
         "重装决策"
-      ]
+      ],
+      "class": "scout",
+      "mark": "锋",
+      "status": "高压执行中",
+      "champion": true,
+      "successRate": "91%",
+      "avgTokens": "38k",
+      "spendBand": "高耗"
     },
     {
       "name": "Abyss-3",
-      "role": "深潜回收 / 湮流甲系",
-      "class": "salvage",
-      "mark": "湮",
-      "medals": 61,
-      "progress": 61,
-      "status": "回收线稳定",
-      "title": "深潮封收手",
-      "weekly": "+4",
-      "model": "claude-sonnet",
-      "load": "1 / 2",
-      "successRate": "94%",
-      "avgTokens": "29k",
-      "tags": [
+      "grade": "A",
+      "skills": [
         "回收",
         "样本比对",
-        "中成本"
-      ]
+        "深潜作业"
+      ],
+      "class": "salvage",
+      "mark": "湮",
+      "status": "回收线稳定",
+      "successRate": "94%",
+      "avgTokens": "29k",
+      "spendBand": "中耗"
     },
     {
       "name": "Kite",
-      "role": "边境情报 / 灵感测绘",
+      "grade": "B",
+      "skills": [
+        "检索",
+        "情报审计",
+        "低耗分析"
+      ],
       "class": "intel",
       "mark": "讯",
-      "medals": 37,
-      "progress": 37,
       "status": "等待补充上下文",
-      "title": "风切探报人",
-      "weekly": "+2",
-      "model": "gemini-2.5-pro",
-      "load": "1 / 3",
       "successRate": "87%",
       "avgTokens": "17k",
-      "tags": [
-        "检索",
-        "情报",
-        "低成本"
-      ]
+      "spendBand": "低耗"
     },
     {
       "name": "Delta",
-      "role": "密钥猎取 / 圣柜兵装",
+      "grade": "S",
+      "skills": [
+        "密钥猎取",
+        "精密操作",
+        "模组升级"
+      ],
       "class": "vault",
       "mark": "柜",
-      "medals": 102,
-      "progress": 100,
-      "status": "已够数可换模组",
-      "title": "可换升级",
-      "weekly": "+5",
+      "status": "可安排升级",
       "readyUpgrade": true,
-      "full": true,
-      "model": "gpt-4.1",
-      "load": "0 / 2",
       "successRate": "96%",
       "avgTokens": "22k",
-      "tags": [
-        "密钥",
-        "精密操作",
-        "高成功率"
-      ]
+      "spendBand": "中耗"
     },
     {
       "name": "Morrow",
-      "role": "后勤补给 / 炉心维护",
+      "grade": "A",
+      "skills": [
+        "后勤修复",
+        "补给协调",
+        "快速排障"
+      ],
       "class": "supply",
       "mark": "炉",
-      "medals": 46,
-      "progress": 46,
       "status": "补给链待放行",
-      "title": "灰炉后勤手",
-      "weekly": "+3",
-      "model": "gpt-4o-mini",
-      "load": "1 / 4",
       "successRate": "89%",
       "avgTokens": "8k",
-      "tags": [
-        "后勤",
-        "修复",
-        "超低成本"
-      ]
+      "spendBand": "超低耗"
     },
     {
       "name": "Vanta",
-      "role": "夜幕渗透 / 影蚀装具",
+      "grade": "A",
+      "skills": [
+        "潜猎",
+        "无痕布控",
+        "高价值渗透"
+      ],
       "class": "shadow",
       "mark": "影",
-      "medals": 73,
-      "progress": 73,
       "status": "高价值潜猎中",
-      "title": "夜烬潜猎手",
-      "weekly": "+4",
-      "model": "o3",
-      "load": "2 / 2",
       "successRate": "90%",
       "avgTokens": "41k",
-      "tags": [
-        "潜猎",
-        "布控",
-        "高成本高收益"
-      ]
+      "spendBand": "高耗"
     }
   ],
   "resources": {

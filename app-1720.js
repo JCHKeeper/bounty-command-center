@@ -116,35 +116,67 @@ function renderTaskBoard(items) {
   `).join('');
 }
 
+function getHunterGrade(h) {
+  if (h.grade) return h.grade;
+  const success = Number(String(h.successRate || '').replace('%', '')) || 0;
+  const avg = Number(String(h.avgTokens || '').toLowerCase().replace('k', '')) || 0;
+  if (success >= 95 && avg <= 25) return 'S';
+  if (success >= 90) return 'A';
+  if (success >= 86) return 'B';
+  if (success >= 80) return 'C';
+  return 'D';
+}
+
+function getSpendBand(value = '') {
+  const avg = Number(String(value).toLowerCase().replace('k', '')) || 0;
+  if (avg <= 10) return '超低耗';
+  if (avg <= 20) return '低耗';
+  if (avg <= 35) return '中耗';
+  return '高耗';
+}
+
+function getStatusTone(status = '') {
+  if (/空闲|可派|升级/.test(status)) return 'ready';
+  if (/执行|作战|潜猎|稳定/.test(status)) return 'active';
+  if (/等待|放行|上下文|补充/.test(status)) return 'waiting';
+  if (/满|高压|风险/.test(status)) return 'risk';
+  return 'neutral';
+}
+
 function renderHunters(items) {
-  return items.map(h => `
-    <article class="hunter-card dossier-card ${h.champion ? 'champion' : ''} ${h.readyUpgrade ? 'ready-upgrade' : ''}">
-      <div class="hunter-head">
+  return items.map(h => {
+    const grade = getHunterGrade(h);
+    const skills = (h.skills || h.tags || []).slice(0, 3);
+    const spendBand = h.spendBand || getSpendBand(h.avgTokens);
+    const statusTone = getStatusTone(h.status);
+    return `
+    <article class="hunter-card dossier-card grade-${escapeHtml(grade.toLowerCase())} ${h.champion ? 'champion' : ''} ${h.readyUpgrade ? 'ready-upgrade' : ''}">
+      <div class="hunter-head hunter-head-compact">
         <div class="hunter-ident">
           <span class="class-mark ${escapeHtml(h.class || '')}">${escapeHtml(h.mark || '')}</span>
-          <div>
-            <div class="hunter-name">${escapeHtml(h.name)}</div>
-            <div class="hunter-role">${escapeHtml(h.role)}</div>
+          <div class="hunter-title-wrap">
+            <div class="hunter-name-row">
+              <div class="hunter-name">${escapeHtml(h.name)}</div>
+              <span class="grade-badge grade-${escapeHtml(grade.toLowerCase())}">${escapeHtml(grade)}</span>
+            </div>
           </div>
         </div>
-        <div class="medal-count">${escapeHtml(h.medals)}</div>
       </div>
-      <div class="medal-track ${h.full ? 'full' : ''}"><span style="width:${Number(h.progress) || 0}%"></span></div>
-      <div class="hunter-foot">
-        <span>${escapeHtml(h.status)}</span>
-        <strong>${escapeHtml(h.title)}</strong>
+      <div class="hunter-status-row">
+        <span class="hunter-status-chip ${escapeHtml(statusTone)}">${escapeHtml(h.status)}</span>
       </div>
-      <div class="hunter-weekly">本周 ${escapeHtml(h.weekly)}</div>
-      <div class="dossier-metrics">
-        <span>模型：<strong>${escapeHtml(h.model)}</strong></span>
-        <span>当前承载：<strong>${escapeHtml(h.load)}</strong></span>
-        <span>成功率：<strong>${escapeHtml(h.successRate)}</strong></span>
-        <span>均耗：<strong>${escapeHtml(h.avgTokens)}</strong></span>
+      <div class="hunter-skill-block">
+        <span class="hunter-block-label">擅长技能</span>
+        <div class="hunter-skills">${skills.map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
       </div>
-      <div class="dossier-tags">${(h.tags || []).map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
+      <div class="dossier-metrics compact-dossier-metrics">
+        <span>成功率<strong>${escapeHtml(h.successRate)}</strong></span>
+        <span>均耗<strong>${escapeHtml(h.avgTokens)} · ${escapeHtml(spendBand)}</strong></span>
+      </div>
       <div class="dossier-actions"><a class="ghost-btn row-link" href="./hunter-detail.html?id=${encodeURIComponent(slugify(h.name))}">查看档案</a></div>
     </article>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function renderResourceKpis(items) {
