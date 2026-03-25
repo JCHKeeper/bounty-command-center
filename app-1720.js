@@ -155,8 +155,11 @@ function renderHunters(items) {
         <div class="hunter-ident hunter-ident-flat">
           <div class="hunter-title-wrap">
             <div class="hunter-name-row">
-              <div class="hunter-name">${escapeHtml(h.name)}</div>
-              <span class="grade-badge grade-${escapeHtml(grade.toLowerCase())}">${escapeHtml(grade)}</span>
+              <div class="hunter-name-inline">
+                <div class="hunter-name">${escapeHtml(h.name)}</div>
+                <span class="grade-badge grade-${escapeHtml(grade.toLowerCase())}">${escapeHtml(grade)}</span>
+              </div>
+              <a class="hunter-link-inline" href="./hunter-detail.html?id=${encodeURIComponent(slugify(h.name))}">查看档案</a>
             </div>
           </div>
         </div>
@@ -168,11 +171,10 @@ function renderHunters(items) {
         <span class="hunter-block-label">擅长技能</span>
         <div class="hunter-skills">${skills.map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
       </div>
-      <div class="dossier-metrics compact-dossier-metrics">
+      <div class="dossier-metrics compact-dossier-metrics compact-dossier-metrics-inline">
         <span>成功率<strong>${escapeHtml(h.successRate)}</strong></span>
         <span>均耗<strong>${escapeHtml(h.avgTokens)} · ${escapeHtml(spendBand)}</strong></span>
       </div>
-      <div class="dossier-actions"><a class="ghost-btn row-link" href="./hunter-detail.html?id=${encodeURIComponent(slugify(h.name))}">查看档案</a></div>
     </article>
   `;
   }).join('');
