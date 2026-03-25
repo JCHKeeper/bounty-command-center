@@ -463,18 +463,26 @@ h1, h2, h3, p { margin: 0; }
 .summary-pill strong { color: var(--gold-soft); }
 .dossier-panel-head { align-items: center; }
 .dossier-head-actions { display: flex; align-items: center; gap: 10px; }
-.recruit-btn {
-  padding: 10px 14px;
-  min-height: 0;
+.hunter-summary-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: stretch;
+  margin-bottom: 12px;
+}
+.recruit-inline-btn {
+  min-width: 124px;
   border-radius: 14px;
   font-size: 13px;
   font-weight: 800;
+  padding: 10px 14px;
+  align-self: stretch;
 }
 .hunter-summary-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 .hunter-summary-card {
   min-width: 0;
