@@ -152,8 +152,7 @@ function renderHunters(items) {
     return `
     <article class="hunter-card dossier-card grade-${escapeHtml(grade.toLowerCase())} ${h.champion ? 'champion' : ''} ${h.readyUpgrade ? 'ready-upgrade' : ''}">
       <div class="hunter-head hunter-head-compact">
-        <div class="hunter-ident">
-          <span class="class-mark ${escapeHtml(h.class || '')}">${escapeHtml(h.mark || '')}</span>
+        <div class="hunter-ident hunter-ident-flat">
           <div class="hunter-title-wrap">
             <div class="hunter-name-row">
               <div class="hunter-name">${escapeHtml(h.name)}</div>
