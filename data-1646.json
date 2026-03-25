@@ -497,12 +497,6 @@
       "variant": "success"
     },
     {
-      "label": "高性价比",
-      "value": "03",
-      "note": "低耗高完成",
-      "variant": "violet"
-    },
-    {
       "label": "待升级",
       "value": "01",
       "note": "建议安排冲阶",
