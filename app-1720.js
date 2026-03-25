@@ -164,12 +164,9 @@ function renderHunters(items) {
           </div>
         </div>
       </div>
-      <div class="hunter-status-row">
+      <div class="hunter-status-row hunter-status-skill-row">
         <span class="hunter-status-chip ${escapeHtml(statusTone)}">${escapeHtml(h.status)}</span>
-      </div>
-      <div class="hunter-skill-block">
-        <span class="hunter-block-label">擅长技能</span>
-        <div class="hunter-skills">${skills.map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
+        <div class="hunter-skills hunter-skills-inline">${skills.map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>
       </div>
       <div class="dossier-metrics compact-dossier-metrics compact-dossier-metrics-inline">
         <span>成功率<strong>${escapeHtml(h.successRate)}</strong></span>

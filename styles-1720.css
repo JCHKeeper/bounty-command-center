@@ -575,18 +575,27 @@ h1, h2, h3, p { margin: 0; }
 .grade-badge.grade-c { background: linear-gradient(135deg, #e5caa7, #9b6a40); color: #1d1107; }
 .grade-badge.grade-d { background: linear-gradient(135deg, #c79696, #6a4148); color: #fff1f1; }
 .hunter-status-row { display: flex; }
+.hunter-status-skill-row {
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
 .hunter-status-chip {
   display: inline-flex; align-items: center; gap: 6px; max-width: 100%; padding: 5px 10px; border-radius: 999px;
   font-size: 11px; font-weight: 700; border: 1px solid rgba(255,255,255,.08); line-height: 1.1;
+  flex: 0 0 auto;
 }
 .hunter-status-chip.ready { background: rgba(122,240,199,.12); color: #cffff1; border-color: rgba(122,240,199,.24); }
 .hunter-status-chip.active { background: rgba(140,231,255,.12); color: #def8ff; border-color: rgba(140,231,255,.24); }
 .hunter-status-chip.waiting { background: rgba(242,201,121,.12); color: #fff0c9; border-color: rgba(242,201,121,.24); }
 .hunter-status-chip.risk { background: rgba(255,126,134,.12); color: #ffe2e5; border-color: rgba(255,126,134,.24); }
 .hunter-status-chip.neutral { background: rgba(255,255,255,.06); color: #ede6d7; border-color: rgba(255,255,255,.1); }
-.hunter-skill-block { display: grid; gap: 6px; }
-.hunter-block-label { color: var(--muted); font-size: 11px; letter-spacing: .05em; }
 .hunter-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+.hunter-skills-inline {
+  flex: 1 1 auto;
+  min-width: 0;
+  align-items: center;
+}
 .hunter-skills span {
   padding: 5px 8px; border-radius: 999px; background: rgba(0,0,0,.16); border: 1px solid rgba(255,255,255,.05);
   color: #ece2cf; font-size: 11px; line-height: 1.1;
