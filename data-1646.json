@@ -485,27 +485,27 @@
   },
   "hunterSummary": [
     {
-      "label": "已注册猎人",
+      "label": "在册猎人",
       "value": "06",
       "note": "当前可调度",
       "variant": "current"
     },
     {
-      "label": "空闲可接单",
+      "label": "立即可派",
       "value": "02",
-      "note": "适合立即派单",
+      "note": "空闲可接单",
       "variant": "success"
     },
     {
       "label": "高性价比",
       "value": "03",
-      "note": "低均耗高完成",
+      "note": "低耗高完成",
       "variant": "violet"
     },
     {
-      "label": "待冲阶",
+      "label": "待升级",
       "value": "01",
-      "note": "建议安排升级",
+      "note": "建议安排冲阶",
       "variant": "warn"
     }
   ],

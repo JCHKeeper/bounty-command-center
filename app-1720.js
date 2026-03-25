@@ -69,10 +69,10 @@ function renderTimeline(items) {
 
 function renderSummaryStrip(items) {
   return items.map(item => `
-    <article class="summary-pill ${escapeHtml(item.variant || '')}">
-      <span>${escapeHtml(item.label)}</span>
-      <strong>${escapeHtml(item.value)}</strong>
-      ${item.note ? `<em>${escapeHtml(item.note)}</em>` : ''}
+    <article class="summary-pill hunter-summary-card ${escapeHtml(item.variant || '')}">
+      <span class="summary-label">${escapeHtml(item.label)}</span>
+      <strong class="summary-value">${escapeHtml(item.value)}</strong>
+      ${item.note ? `<em class="summary-note">${escapeHtml(item.note)}</em>` : ''}
     </article>
   `).join('');
 }

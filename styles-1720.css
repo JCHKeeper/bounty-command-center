@@ -461,6 +461,50 @@ h1, h2, h3, p { margin: 0; }
 }
 .summary-pill span { color: var(--muted); font-size: 13px; }
 .summary-pill strong { color: var(--gold-soft); }
+.dossier-panel-head { align-items: center; }
+.dossier-head-actions { display: flex; align-items: center; gap: 10px; }
+.recruit-btn {
+  padding: 10px 14px;
+  min-height: 0;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 800;
+}
+.hunter-summary-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.hunter-summary-card {
+  min-width: 0;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)),
+    linear-gradient(135deg, rgba(216,164,74,.05), rgba(140,231,255,.03));
+  border: 1px solid rgba(255,255,255,.06);
+  display: grid;
+  gap: 4px;
+  align-items: start;
+  justify-content: start;
+}
+.hunter-summary-card .summary-label {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.1;
+}
+.hunter-summary-card .summary-value {
+  color: var(--text);
+  font-size: 24px;
+  line-height: 1;
+}
+.hunter-summary-card .summary-note {
+  color: #ddd1bb;
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.2;
+}
 .roster-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .hunter-card {
   padding: 14px 14px 12px; border-radius: 16px;
