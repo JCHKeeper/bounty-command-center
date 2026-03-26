@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>指挥中心总览界面</title>
+  <link rel="stylesheet" href="./styles-1720.css?v=9360ab4-fix2" />
+</head>
+<body class="hunter-theme">
+  <div class="grid-bg"></div>
+  <div class="halo halo-a"></div>
+  <div class="halo halo-b"></div>
+  <div class="grain-overlay"></div>
+
+  <header class="topbar compact-topbar minimal-topbar guild-header-shell embedded-header">
+    <div class="guild-embed-trace" aria-hidden="true"></div>
+    <div class="guild-brand">
+      <div class="guild-logo-shell">
+        <img class="guild-logo" src="./assets/jieyu-guild-logo-placeholder.svg" alt="界域公会Logo" />
+      </div>
+      <div class="guild-brand-copy">
+        <div class="guild-name">界域</div>
+        <h1>指挥大厅</h1>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard simplified-dashboard hunter-dashboard mech-dashboard usage-ready-dashboard">
+    <section class="hero glass panel simplified-hero bounty-hero mech-hero armor-shell">
+      <div class="hero-frame hero-frame-left"></div>
+      <div class="hero-frame hero-frame-right"></div>
+      <div class="hero-copy mech-hero-copy hero-copy-minimal">
+        <div class="chip chip-live reactor-chip" id="hero-eyebrow">界域-核心</div>
+      </div>
+      <div class="kpi-row mech-kpis" id="kpi-row"></div>
+    </section>
+
+    <section class="panel glass action-panel compact-action-panel parchment-panel armor-shell armor-shell-wide">
+      <div class="panel-head">
+        <div>
+          <h3>猎人动作 / 调度日志</h3>
+          <p class="muted board-desc">只保留实时动作流，首页信息更集中，不再额外挂一块待拍板区。</p>
+        </div>
+        <span class="panel-tag">HUNTER ACTIONS</span>
+      </div>
+      <div class="timeline-list compact-timeline-list" id="timeline-list"></div>
+    </section>
+
+    <section class="panel glass task-bounty-panel armor-shell armor-shell-wide offset-shell">
+      <div class="panel-head list-head-with-tabs task-board-head">
+        <div>
+          <h3>任务悬赏榜</h3>
+        </div>
+      </div>
+      <div class="board-toolbar board-toolbar-top">
+        <div class="filter-tabs" id="task-tabs"></div>
+        <a class="primary-btn publish-task-btn" href="#">发布新任务</a>
+      </div>
+      <div class="view-note" id="task-view-note" style="display:none"></div>
+      <div class="bounty-list" id="task-board"></div>
+    </section>
+
+    <section class="panel glass dossier-panel armor-shell armor-shell-wide">
+      <div class="panel-head dossier-panel-head">
+        <div>
+          <h3>猎人名鉴</h3>
+        </div>
+        <div class="dossier-head-actions"></div>
+      </div>
+      <div class="hunter-summary-row">
+        <div class="summary-strip hunter-summary-strip" id="hunter-summary"></div>
+        <a class="ghost-btn recruit-inline-btn" href="#">添加猎人</a>
+      </div>
+      <div class="roster-grid" id="roster-grid"></div>
+    </section>
+
+    <section class="panel glass resource-panel parchment-panel armor-shell armor-shell-wide">
+      <div class="panel-head">
+        <div>
+          <h3>资源消耗</h3>
+        </div>
+      </div>
+      <div class="resource-kpis" id="resource-kpis"></div>
+      <div class="resource-grid">
+        <section class="resource-block">
+          <div class="resource-block-head">
+            <h4>模型消耗排行</h4>
+          </div>
+          <div class="model-bars" id="model-bars"></div>
+        </section>
+        <section class="resource-block">
+          <div class="resource-block-head">
+            <h4>异常消耗提醒</h4>
+          </div>
+          <div class="spend-alerts" id="spend-alerts"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app-1720.js?v=8664fe2-fixjs"></script>
+</body>
+</html>
