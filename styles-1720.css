@@ -517,7 +517,7 @@ h1, h2, h3, p { margin: 0; }
 .hunter-summary-card .summary-note {
   display: none;
 }
-.roster-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.roster-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .hunter-card {
   padding: 14px 14px 12px; border-radius: 16px;
   background:
@@ -1464,7 +1464,7 @@ set-shell { transform: none; }
 /* Hunter dossier final overrides */
 .dossier-panel .roster-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 .dossier-panel .hunter-card.dossier-card {
