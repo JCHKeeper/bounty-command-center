@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>发布任务</title>
+  <link rel="stylesheet" href="./styles-1720.css?v=forms-1" />
+</head>
+<body class="hunter-theme">
+  <main class="dashboard usage-ready-dashboard detail-page-shell simple-task-page">
+    <header class="panel glass detail-hero armor-shell">
+      <a class="ghost-btn" href="./overview.html">返回总览</a>
+      <div class="chip chip-live">TASK CREATE</div>
+      <h1>发布任务</h1>
+      <p class="muted">新任务会直接进入 Supabase，随后会出现在总览和详情页。</p>
+    </header>
+    <section class="panel glass armor-shell">
+      <form id="task-form" class="action-stack" style="display:grid;gap:12px;">
+        <input name="title" placeholder="任务标题" required />
+        <input name="badge" placeholder="等级，例如 S级 / A级" required />
+        <input name="status" placeholder="任务状态，例如 待审批 / 执行中" required />
+        <input name="hunter_label" placeholder="委托猎人" />
+        <input name="deadline_label" placeholder="截止时间" />
+        <input name="reward_label" placeholder="赏格" />
+        <input name="tokens_label" placeholder="预计 Token" />
+        <textarea name="summary" placeholder="任务摘要" rows="3"></textarea>
+        <textarea name="description" placeholder="任务说明" rows="5"></textarea>
+        <button class="primary-btn" type="submit">发布任务</button>
+        <div id="task-form-status" class="muted"></div>
+      </form>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./supabase-browser.js?v=1"></script>
+  <script src="./new-task.js?v=1"></script>
+</body>
+</html>
