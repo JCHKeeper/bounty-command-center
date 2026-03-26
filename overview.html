@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>指挥中心总览界面</title>
-  <link rel="stylesheet" href="./styles-1720.css?v=9360ab4-fix2" />
+  <link rel="stylesheet" href="./styles-1720.css?v=auth-2" />
 </head>
 <body class="hunter-theme">
   <div class="grid-bg"></div>
@@ -31,6 +31,7 @@
       <div class="hero-frame hero-frame-right"></div>
       <div class="hero-copy mech-hero-copy hero-copy-minimal">
         <div class="chip chip-live reactor-chip" id="hero-eyebrow">界域-核心</div>
+        <div id="auth-widget" style="margin-top:10px;max-width:360px;"></div>
       </div>
       <div class="kpi-row mech-kpis" id="kpi-row"></div>
     </section>
@@ -48,13 +49,11 @@
 
     <section class="panel glass task-bounty-panel armor-shell armor-shell-wide offset-shell">
       <div class="panel-head list-head-with-tabs task-board-head">
-        <div>
-          <h3>任务悬赏榜</h3>
-        </div>
+        <div><h3>任务悬赏榜</h3></div>
       </div>
       <div class="board-toolbar board-toolbar-top">
         <div class="filter-tabs" id="task-tabs"></div>
-        <a class="primary-btn publish-task-btn" href="#">发布新任务</a>
+        <a class="primary-btn publish-task-btn" href="./new-task.html" id="publish-task-link">发布新任务</a>
       </div>
       <div class="view-note" id="task-view-note" style="display:none"></div>
       <div class="bounty-list" id="task-board"></div>
@@ -62,48 +61,38 @@
 
     <section class="panel glass dossier-panel armor-shell armor-shell-wide">
       <div class="panel-head dossier-panel-head">
-        <div>
-          <h3>猎人名鉴</h3>
-        </div>
+        <div><h3>猎人名鉴</h3></div>
         <div class="dossier-head-actions"></div>
       </div>
       <div class="hunter-summary-row">
         <div class="summary-strip hunter-summary-strip" id="hunter-summary"></div>
-        <a class="ghost-btn recruit-inline-btn" href="./new-hunter.html">添加猎人</a>
+        <a class="ghost-btn recruit-inline-btn" href="./new-hunter.html" id="new-hunter-link">添加猎人</a>
       </div>
       <div class="roster-grid" id="roster-grid"></div>
     </section>
 
     <section class="panel glass resource-panel parchment-panel armor-shell armor-shell-wide">
       <div class="panel-head">
-        <div>
-          <h3>资源消耗</h3>
-        </div>
+        <div><h3>资源消耗</h3></div>
       </div>
       <div class="resource-kpis" id="resource-kpis"></div>
       <div class="resource-grid">
         <section class="resource-block">
-          <div class="resource-block-head">
-            <h4>模型消耗排行</h4>
-          </div>
+          <div class="resource-block-head"><h4>模型消耗排行</h4></div>
           <div class="model-bars" id="model-bars"></div>
         </section>
         <section class="resource-block">
-          <div class="resource-block-head">
-            <h4>异常消耗提醒</h4>
-          </div>
+          <div class="resource-block-head"><h4>异常消耗提醒</h4></div>
           <div class="spend-alerts" id="spend-alerts"></div>
         </section>
       </div>
     </section>
   </main>
 
-  <script src="./app-1720.js?v=8664fe2-fixjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./supabase-browser.js?v=auth-2"></script>
+  <script src="./auth.js?v=auth-2"></script>
+  <script src="./auth-widget.js?v=auth-2"></script>
+  <script src="./app-1720.js?v=auth-2"></script>
 </body>
 </html>
-ml>
-="./supabase-browser.js?v=2"></script>
-  <script src="./app-1720.js?v=formal-2"></script>
-</body>
-</html>
-ml>

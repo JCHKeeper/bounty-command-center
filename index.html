@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>指挥中心登录</title>
-  <link rel="stylesheet" href="./styles.css?v=20260318-1513" />
+  <title>指挥中心入口</title>
+  <link rel="stylesheet" href="./styles-1720.css?v=auth-2" />
 </head>
 <body class="login-body">
   <div class="grid-bg"></div>
@@ -12,64 +12,61 @@
     <section class="login-card glass">
       <div class="eyebrow">GUILD ASCENSION / ACCESS GATE</div>
       <h1>未来猎人公会 · 修炼指挥台</h1>
-      <p class="muted">现在这已经不是纯效果图了。你可以从这里进入总览、发布任务、添加猎人，跨电脑也能直接打开使用。</p>
+      <p class="muted">现在这已经不是纯效果图了。你可以从这里进入总览、发布任务、添加猎人；默认只读，登录 owner 后可写。</p>
 
       <div class="status-inline">
         <span class="dot"></span>
-        <span>灵脉节点在线 · 7</span>
-        <span>未结悬赏 · 31</span>
-        <span>待晋升队员 · 2</span>
+        <span>Supabase 在线</span>
+        <span>跨电脑可访问</span>
+        <span>默认只读</span>
       </div>
 
-      <form class="login-form" action="./overview.html">
+      <div class="login-form">
         <label>
-          <span>账号</span>
-          <input type="text" placeholder="commander@guild.local" value="commander@guild.local" />
+          <span>系统状态</span>
+          <input type="text" value="Owner 登录后可写 / 其他情况只读" disabled />
         </label>
         <label>
-          <span>口令</span>
-          <input type="password" placeholder="••••••••" value="hunter-2049" />
+          <span>当前阶段</span>
+          <input type="text" value="正式版收口中：Auth + 权限控制" disabled />
         </label>
-        <label>
-          <span>访问级别</span>
-          <select>
-            <option>总指挥 / Commander</option>
-            <option>情报分析 / Intel</option>
-            <option>调度专员 / Dispatch</option>
-          </select>
-        </label>
-
+        <div id="auth-widget"></div>
         <div class="login-actions">
-          <button type="submit" class="primary-btn">进入指挥中心</button>
-          <a class="ghost-btn" href="./overview.html">跳过登录查看原型</a>
+          <a class="primary-btn" href="./overview.html">进入指挥中心</a>
+          <a class="ghost-btn" href="./new-task.html">发布任务</a>
+          <a class="ghost-btn" href="./new-hunter.html">添加猎人</a>
         </div>
-      </form>
+      </div>
 
       <div class="demo-tip">
-        <strong>演示说明：</strong> 当前为静态页，输入任意内容都不会校验；点击按钮即进入总览页。
+        <strong>当前说明：</strong> 现在已经支持查看、登录识别权限、发布任务、添加猎人、编辑详情页核心字段；但只有 owner 能真正写入。
       </div>
     </section>
 
     <aside class="login-side glass">
       <div class="side-block">
-        <div class="side-title">气质关键词</div>
+        <div class="side-title">权限原则</div>
         <ul>
-          <li>未来猎人公会</li>
-          <li>灵能修炼终端</li>
-          <li>悬赏委托板</li>
-          <li>轻微呼吸式动态</li>
+          <li>未登录：只读</li>
+          <li>非 owner：只读</li>
+          <li>owner：可写</li>
+          <li>AI 代写需你的明确授权</li>
         </ul>
       </div>
       <div class="side-block">
-        <div class="side-title">这版重点</div>
+        <div class="side-title">当前入口</div>
         <ul>
-          <li>更有世界观的主视觉</li>
-          <li>更灵动的面板层次</li>
-          <li>任务与成长并存</li>
-          <li>公会而非企业后台</li>
+          <li>总览</li>
+          <li>任务详情与更新</li>
+          <li>猎人详情与编辑</li>
+          <li>发布任务 / 添加猎人</li>
         </ul>
       </div>
     </aside>
   </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./supabase-browser.js?v=auth-2"></script>
+  <script src="./auth.js?v=auth-2"></script>
+  <script src="./auth-widget.js?v=auth-2"></script>
 </body>
 </html>

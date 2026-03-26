@@ -1429,6 +1429,17 @@ h1, h2, h3, p { margin: 0; }
   resize: vertical;
   min-height: 110px;
 }
+.auth-widget-card {
+  display: grid;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(7,11,18,.66);
+  border: 1px solid rgba(216,164,74,.14);
+}
+.auth-widget-form {
+  margin-top: 6px;
+}
 
 @media (max-width: 1180px) {
   .usage-ready-dashboard {
