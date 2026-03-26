@@ -34,17 +34,38 @@ function renderTimeline(items = []) {
 }
 
 function renderActions(items = []) {
-  return items.map(item => `<button type="button">${escapeHtml(item.label || item)}</button>`).join('');
+  return items.map(item => `<button type="button" data-action-label="${escapeHtml(item.label || item)}">${escapeHtml(item.label || item)}</button>`).join('');
 }
 
-async function initTaskPage() {
-  const id = getParam('id');
-  const { data: task } = await supabase.from('tasks').select('*').eq('slug', id).maybeSingle();
-  if (!task) return;
-  const [{ data: logs }, { data: actions }] = await Promise.all([
-    supabase.from('task_logs').select('*').eq('task_id', task.id).order('created_at'),
-    supabase.from('task_actions').select('*').eq('task_id', task.id).order('sort_order')
+function mapStatusKey(status = '') {
+  if (/审批/.test(status)) return 'approval';
+  if (/执行|进行|作战|潜猎/.test(status)) return 'doing';
+  if (/完成/.test(status)) return 'done';
+  if (/停滞|阻塞|卡住/.test(status)) return 'blocked';
+  return 'queued';
+}
+
+async function loadTask(taskId) {
+  const [{ data: task }, { data: logs }, { data: actions }] = await Promise.all([
+    supabase.from('tasks').select('*').eq('id', taskId).maybeSingle(),
+    supabase.from('task_logs').select('*').eq('task_id', taskId).order('created_at'),
+    supabase.from('task_actions').select('*').eq('task_id', taskId).order('sort_order')
   ]);
+  return { task, logs: logs || [], actions: actions || [] };
+}
+
+function fillTaskForm(task) {
+  const statusInput = byId('task-status-input');
+  const hunterInput = byId('task-hunter-input');
+  const progressInput = byId('task-progress-input');
+  const latestInput = byId('task-latest-progress-input');
+  if (statusInput) statusInput.value = task.status || '';
+  if (hunterInput) hunterInput.value = task.hunter_label || '';
+  if (progressInput) progressInput.value = task.progress ?? 0;
+  if (latestInput) latestInput.value = task.latest_progress || '';
+}
+
+function renderTaskPage(task, logs, actions) {
   byId('detail-title').textContent = task.title;
   byId('detail-subtitle').textContent = task.meta || '';
   byId('detail-chip').textContent = `${task.badge || ''} / ${task.status || ''}`;
@@ -65,12 +86,88 @@ async function initTaskPage() {
   ]);
   byId('detail-log').innerHTML = renderTimeline(logs || []);
   byId('detail-actions').innerHTML = renderActions(actions || []);
+  fillTaskForm(task);
 }
 
-async function initHunterPage() {
-  const id = getParam('id');
-  const { data: hunter } = await supabase.from('hunters').select('*').eq('slug', id).maybeSingle();
-  if (!hunter) return;
+async function initTaskPage() {
+  const slug = getParam('id');
+  const { data: task } = await supabase.from('tasks').select('*').eq('slug', slug).maybeSingle();
+  if (!task) return;
+
+  async function refresh() {
+    const loaded = await loadTask(task.id);
+    renderTaskPage(loaded.task, loaded.logs, loaded.actions);
+    bindActionButtons(loaded.task);
+  }
+
+  function bindActionButtons(currentTask) {
+    document.querySelectorAll('[data-action-label]').forEach(btn => {
+      btn.onclick = async () => {
+        const label = btn.getAttribute('data-action-label') || '';
+        let nextStatus = currentTask.status;
+        if (/完成/.test(label)) nextStatus = '已完成';
+        else if (/停滞/.test(label)) nextStatus = '停滞中';
+        else if (/审批/.test(label)) nextStatus = '待审批';
+        const { error } = await supabase.from('tasks').update({ status: nextStatus, status_key: mapStatusKey(nextStatus), updated_at_label: '刚刚' }).eq('id', currentTask.id);
+        if (!error) {
+          await supabase.from('task_logs').insert({ task_id: currentTask.id, happened_at_label: '刚刚', title: `操作：${label}`, text: `任务状态已更新为 ${nextStatus}。`, level: 'info' });
+          await refresh();
+        }
+      };
+    });
+  }
+
+  byId('task-update-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const statusEl = byId('task-update-status');
+    statusEl.textContent = '正在保存...';
+    const nextStatus = byId('task-status-input').value.trim();
+    const hunterLabel = byId('task-hunter-input').value.trim();
+    const progress = Number(byId('task-progress-input').value || 0);
+    const latestProgress = byId('task-latest-progress-input').value.trim();
+    const { error } = await supabase.from('tasks').update({
+      status: nextStatus,
+      status_key: mapStatusKey(nextStatus),
+      hunter_label: hunterLabel,
+      progress,
+      latest_progress: latestProgress,
+      updated_at_label: '刚刚'
+    }).eq('id', task.id);
+    if (error) {
+      statusEl.textContent = `保存失败：${error.message}`;
+      return;
+    }
+    await supabase.from('task_logs').insert({ task_id: task.id, happened_at_label: '刚刚', title: '任务已更新', text: latestProgress || `状态改为 ${nextStatus}`, level: 'info' });
+    statusEl.textContent = '保存成功';
+    await refresh();
+  });
+
+  byId('task-log-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const statusEl = byId('task-log-status');
+    statusEl.textContent = '正在写入...';
+    const form = new FormData(e.currentTarget);
+    const payload = {
+      task_id: task.id,
+      happened_at_label: '刚刚',
+      title: String(form.get('title') || '').trim(),
+      text: String(form.get('text') || '').trim(),
+      level: String(form.get('level') || 'info').trim() || 'info'
+    };
+    const { error } = await supabase.from('task_logs').insert(payload);
+    if (error) {
+      statusEl.textContent = `写入失败：${error.message}`;
+      return;
+    }
+    e.currentTarget.reset();
+    statusEl.textContent = '日志已写入';
+    await refresh();
+  });
+
+  await refresh();
+}
+
+function renderHunterPage(hunter) {
   byId('detail-title').textContent = hunter.name;
   byId('detail-subtitle').textContent = hunter.role || '';
   byId('detail-chip').textContent = hunter.title || '猎人名鉴';
@@ -84,6 +181,46 @@ async function initHunterPage() {
     { label: '状态', value: hunter.status || '-' }
   ]);
   byId('detail-side').innerHTML = renderPairs((hunter.tags || []).map(tag => ({ label: '专长标签', value: tag })));
+  if (byId('hunter-status-input')) byId('hunter-status-input').value = hunter.status || '';
+  if (byId('hunter-model-input')) byId('hunter-model-input').value = hunter.model || '';
+  if (byId('hunter-load-input')) byId('hunter-load-input').value = hunter.load || '';
+  if (byId('hunter-success-rate-input')) byId('hunter-success-rate-input').value = Number(hunter.success_rate || 0);
+  if (byId('hunter-avg-tokens-input')) byId('hunter-avg-tokens-input').value = Number(hunter.avg_tokens || 0);
+  if (byId('hunter-tags-input')) byId('hunter-tags-input').value = (hunter.tags || []).join(', ');
+}
+
+async function initHunterPage() {
+  const slug = getParam('id');
+  const { data: hunter } = await supabase.from('hunters').select('*').eq('slug', slug).maybeSingle();
+  if (!hunter) return;
+
+  async function refresh() {
+    const { data: fresh } = await supabase.from('hunters').select('*').eq('id', hunter.id).maybeSingle();
+    if (fresh) renderHunterPage(fresh);
+  }
+
+  byId('hunter-update-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const statusEl = byId('hunter-update-status');
+    statusEl.textContent = '正在保存...';
+    const tags = byId('hunter-tags-input').value.split(',').map(s => s.trim()).filter(Boolean);
+    const { error } = await supabase.from('hunters').update({
+      status: byId('hunter-status-input').value.trim(),
+      model: byId('hunter-model-input').value.trim(),
+      load: byId('hunter-load-input').value.trim(),
+      success_rate: Number(byId('hunter-success-rate-input').value || 0),
+      avg_tokens: Number(byId('hunter-avg-tokens-input').value || 0),
+      tags
+    }).eq('id', hunter.id);
+    if (error) {
+      statusEl.textContent = `保存失败：${error.message}`;
+      return;
+    }
+    statusEl.textContent = '保存成功';
+    await refresh();
+  });
+
+  renderHunterPage(hunter);
 }
 
 async function initResourcePage() {

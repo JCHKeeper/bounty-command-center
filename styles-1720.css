@@ -57,7 +57,7 @@ body.login-body::after {
 }
 
 a { color: inherit; text-decoration: none; }
-button, input, select { font: inherit; }
+button, input, select, textarea { font: inherit; }
 
 .grid-bg {
   position: fixed; inset: 0;
@@ -1394,6 +1394,40 @@ h1, h2, h3, p { margin: 0; }
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+.console-form {
+  display: grid;
+  gap: 12px;
+}
+.console-form label {
+  display: grid;
+  gap: 8px;
+}
+.console-form label span {
+  color: #eadfcb;
+  font-size: 14px;
+}
+.console-form input,
+.console-form textarea,
+.console-form select {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(216,164,74,.14);
+  background: rgba(7,11,18,.84);
+  color: var(--text);
+  padding: 14px 16px;
+  outline: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+}
+.console-form input:focus,
+.console-form textarea:focus,
+.console-form select:focus {
+  border-color: rgba(244,215,164,.48);
+  box-shadow: 0 0 0 3px rgba(216,164,74,.12);
+}
+.console-form textarea {
+  resize: vertical;
+  min-height: 110px;
 }
 
 @media (max-width: 1180px) {
