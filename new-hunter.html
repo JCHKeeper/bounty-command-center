@@ -16,22 +16,45 @@
     </header>
     <section class="panel glass armor-shell">
       <form id="hunter-form" class="action-stack" style="display:grid;gap:12px;">
-        <input name="name" placeholder="猎人名称" required />
-        <input name="role" placeholder="职责 / 定位" required />
-        <input name="title" placeholder="称号" />
-        <input name="status" placeholder="当前状态" required />
-        <input name="model" placeholder="使用模型" />
-        <input name="load" placeholder="当前承载，例如 1 / 3" />
-        <input name="success_rate" placeholder="成功率，例如 92" type="number" min="0" max="100" />
-        <input name="avg_tokens" placeholder="平均消耗，例如 24000" type="number" min="0" />
-        <input name="tags" placeholder="专长标签，逗号分隔" />
-        <button class="primary-btn" type="submit">保存猎人</button>
+        <label>
+          <span class="muted">猎人名称</span>
+          <input name="name" placeholder="输入猎人名称" required />
+        </label>
+        <label>
+          <span class="muted">来源</span>
+          <select name="source" required>
+            <option value="">请选择来源</option>
+            <option value="手动创建">手动创建</option>
+            <option value="任务发现">任务发现</option>
+            <option value="外部导入">外部导入</option>
+            <option value="内部转化">内部转化</option>
+            <option value="其他">其他</option>
+          </select>
+        </label>
+        <label>
+          <span class="muted">一句备注</span>
+          <textarea name="note" rows="3" maxlength="100" placeholder="补一句当前最关键的背景信息（选填）"></textarea>
+        </label>
+        <label>
+          <span class="muted">初始标签</span>
+          <select name="initial_tags" multiple size="6">
+            <option value="待验证">待验证</option>
+            <option value="高优先">高优先</option>
+            <option value="特殊来源">特殊来源</option>
+            <option value="观察样本">观察样本</option>
+            <option value="重点跟进">重点跟进</option>
+            <option value="暂缓使用">暂缓使用</option>
+          </select>
+        </label>
+        <p class="muted">状态、承载、成功率、平均消耗、职责画像等信息将在后续任务与观察中由后台自动生成。</p>
+        <button class="primary-btn" type="submit">创建并进入观察池</button>
         <div id="hunter-form-status" class="muted"></div>
       </form>
     </section>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="./supabase-browser.js?v=1"></script>
-  <script src="./new-hunter.js?v=1"></script>
+  <script src="./supabase-browser.js?v=auth-2"></script>
+  <script src="./auth.js?v=auth-2"></script>
+  <script src="./new-hunter.js?v=auth-2"></script>
 </body>
 </html>

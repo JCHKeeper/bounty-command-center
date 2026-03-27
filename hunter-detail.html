@@ -29,12 +29,39 @@
         <section class="panel glass armor-shell">
           <div class="panel-head"><h3>编辑猎人</h3><span class="panel-tag">EDIT</span></div>
           <form id="hunter-update-form" class="console-form">
-            <label><span>当前状态</span><input id="hunter-status-input" name="status" placeholder="例如：空闲可接单" /></label>
-            <label><span>使用模型</span><input id="hunter-model-input" name="model" placeholder="例如：gpt-5.4" /></label>
-            <label><span>当前承载</span><input id="hunter-load-input" name="load" placeholder="例如：1 / 3" /></label>
-            <label><span>成功率</span><input id="hunter-success-rate-input" name="success_rate" type="number" min="0" max="100" /></label>
-            <label><span>平均消耗</span><input id="hunter-avg-tokens-input" name="avg_tokens" type="number" min="0" placeholder="例如：24000" /></label>
-            <label><span>专长标签</span><textarea id="hunter-tags-input" name="tags" rows="4" placeholder="逗号分隔"></textarea></label>
+            <label>
+              <span>当前状态</span>
+              <select id="hunter-status-input" name="status">
+                <option value="观察中">观察中</option>
+                <option value="可调度">可调度</option>
+                <option value="重点跟进">重点跟进</option>
+                <option value="暂缓使用">暂缓使用</option>
+                <option value="已归档">已归档</option>
+              </select>
+            </label>
+            <label>
+              <span>来源</span>
+              <select id="hunter-source-input" name="source">
+                <option value="手动创建">手动创建</option>
+                <option value="任务发现">任务发现</option>
+                <option value="外部导入">外部导入</option>
+                <option value="内部转化">内部转化</option>
+                <option value="其他">其他</option>
+              </select>
+            </label>
+            <label><span>一句备注</span><textarea id="hunter-note-input" name="note" rows="3" maxlength="100" placeholder="补一句当前最关键的背景信息"></textarea></label>
+            <label>
+              <span>初始标签</span>
+              <select id="hunter-tags-input" name="tags" multiple size="6">
+                <option value="待验证">待验证</option>
+                <option value="高优先">高优先</option>
+                <option value="特殊来源">特殊来源</option>
+                <option value="观察样本">观察样本</option>
+                <option value="重点跟进">重点跟进</option>
+                <option value="暂缓使用">暂缓使用</option>
+              </select>
+            </label>
+            <p class="muted">承载、成功率、平均消耗、画像定位等动态信息由后台根据任务记录自动生成，这里不再手动填写。</p>
             <button class="primary-btn" type="submit">保存猎人资料</button>
             <div class="muted" id="hunter-update-status"></div>
           </form>
