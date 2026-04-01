@@ -5,187 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>房地产推广需求表</title>
   <style>
-    :root {
-      --bg: #07111f;
-      --panel: rgba(12, 22, 38, 0.88);
-      --line: rgba(125, 211, 252, 0.22);
-      --text: #e8f3ff;
-      --muted: #8ea8c7;
-      --accent: #6ee7ff;
-      --accent2: #8b5cf6;
-      --ok: #34d399;
-      --warn: #fbbf24;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Microsoft YaHei", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top, rgba(14, 165, 233, 0.12), transparent 34%),
-        linear-gradient(180deg, #030712, #07111f 45%, #081525);
-      min-height: 100vh;
-    }
-    .wrap {
-      width: min(1080px, calc(100vw - 32px));
-      margin: 0 auto;
-      padding: 32px 0 56px;
-    }
-    .hero, .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      box-shadow: 0 18px 60px rgba(0,0,0,0.28);
-      backdrop-filter: blur(18px);
-    }
-    .hero {
-      padding: 28px;
-      margin-bottom: 20px;
-    }
-    .eyebrow {
-      font-size: 12px;
-      letter-spacing: .24em;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.05;
-    }
-    .sub {
-      color: var(--muted);
-      line-height: 1.7;
-      margin: 0;
-      max-width: 820px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap: 20px;
-    }
-    .card { padding: 24px; }
-    .section-title {
-      font-size: 18px;
-      margin: 0 0 16px;
-    }
-    .help {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-      margin-top: -4px;
-      margin-bottom: 16px;
-    }
-    .field-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .field-grid.single { grid-template-columns: 1fr; }
-    label {
-      display: block;
-      font-size: 13px;
-      color: #dbeafe;
-      margin-bottom: 8px;
-    }
-    input, textarea, select {
-      width: 100%;
-      border-radius: 14px;
-      border: 1px solid rgba(148, 163, 184, 0.22);
-      background: rgba(2, 6, 23, 0.58);
-      color: var(--text);
-      padding: 13px 14px;
-      font: inherit;
-      outline: none;
-    }
-    input:focus, textarea:focus, select:focus {
-      border-color: rgba(110, 231, 255, 0.8);
-      box-shadow: 0 0 0 3px rgba(110, 231, 255, 0.12);
-    }
-    textarea { min-height: 110px; resize: vertical; }
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 6px;
-    }
-    .chips span {
-      border: 1px solid rgba(110, 231, 255, 0.18);
-      color: #bfefff;
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      background: rgba(8, 15, 28, 0.65);
-    }
-    .actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-    button, .ghost-link {
-      border: 0;
-      cursor: pointer;
-      border-radius: 14px;
-      padding: 13px 18px;
-      font: inherit;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .primary { background: linear-gradient(135deg, var(--accent), #38bdf8); color: #032032; }
-    .secondary { background: linear-gradient(135deg, #8b5cf6, #6366f1); color: white; }
-    .ghost { background: rgba(15, 23, 42, 0.75); color: var(--text); border: 1px solid rgba(148,163,184,0.18); }
-    .note {
-      margin-top: 14px;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-    .status {
-      margin-top: 14px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: rgba(15, 23, 42, 0.72);
-      border: 1px solid rgba(148,163,184,0.16);
-      color: #dbeafe;
-      min-height: 46px;
-    }
-    .status.ok { border-color: rgba(52, 211, 153, 0.25); color: #bbf7d0; }
-    .status.warn { border-color: rgba(251, 191, 36, 0.25); color: #fde68a; }
-    .preview {
-      white-space: pre-wrap;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 13px;
-      line-height: 1.7;
-      color: #dbeafe;
-      background: rgba(2, 6, 23, 0.55);
-      border: 1px solid rgba(148, 163, 184, 0.16);
-      border-radius: 16px;
-      padding: 18px;
-      min-height: 360px;
-      max-height: 920px;
-      overflow: auto;
-    }
-    .list {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 14px;
-    }
-    .mini-title {
-      margin: 20px 0 10px;
-      font-size: 14px;
-      color: #dbeafe;
-    }
-    @media (max-width: 900px) {
-      .grid { grid-template-columns: 1fr; }
-      .field-grid { grid-template-columns: 1fr; }
-    }
+    :root { --bg:#07111f; --panel:rgba(12,22,38,.88); --line:rgba(125,211,252,.22); --text:#e8f3ff; --muted:#8ea8c7; --accent:#6ee7ff; --ok:#34d399; --warn:#fbbf24; }
+    *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);background:radial-gradient(circle at top, rgba(14,165,233,.12), transparent 34%),linear-gradient(180deg,#030712,#07111f 45%,#081525);min-height:100vh}
+    .wrap{width:min(1080px,calc(100vw - 32px));margin:0 auto;padding:32px 0 56px}.hero,.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;box-shadow:0 18px 60px rgba(0,0,0,.28);backdrop-filter:blur(18px)}
+    .hero{padding:28px;margin-bottom:20px}.eyebrow{font-size:12px;letter-spacing:.24em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}h1{margin:0 0 10px;font-size:clamp(28px,4vw,44px);line-height:1.05}.sub{color:var(--muted);line-height:1.7;margin:0;max-width:820px}
+    .grid{display:grid;grid-template-columns:1.3fr .7fr;gap:20px}.card{padding:24px}.section-title{font-size:18px;margin:0 0 16px}.help{color:var(--muted);font-size:13px;line-height:1.7;margin-top:-4px;margin-bottom:16px}
+    .field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field-grid.single{grid-template-columns:1fr}label{display:block;font-size:13px;color:#dbeafe;margin-bottom:8px}
+    input,textarea,select{width:100%;border-radius:14px;border:1px solid rgba(148,163,184,.22);background:rgba(2,6,23,.58);color:var(--text);padding:13px 14px;font:inherit;outline:none} input:focus,textarea:focus,select:focus{border-color:rgba(110,231,255,.8);box-shadow:0 0 0 3px rgba(110,231,255,.12)} textarea{min-height:110px;resize:vertical}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.chips span{border:1px solid rgba(110,231,255,.18);color:#bfefff;padding:7px 10px;border-radius:999px;font-size:12px;background:rgba(8,15,28,.65)}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}button{border:0;cursor:pointer;border-radius:14px;padding:13px 18px;font:inherit;font-weight:700;display:inline-flex;align-items:center;justify-content:center}.primary{background:linear-gradient(135deg,var(--accent),#38bdf8);color:#032032}.secondary{background:linear-gradient(135deg,#8b5cf6,#6366f1);color:white}.ghost{background:rgba(15,23,42,.75);color:var(--text);border:1px solid rgba(148,163,184,.18)}
+    .status{margin-top:14px;padding:12px 14px;border-radius:14px;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.16);color:#dbeafe;min-height:46px}.status.ok{border-color:rgba(52,211,153,.25);color:#bbf7d0}.status.warn{border-color:rgba(251,191,36,.25);color:#fde68a}
+    .preview{white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.7;color:#dbeafe;background:rgba(2,6,23,.55);border:1px solid rgba(148,163,184,.16);border-radius:16px;padding:18px;min-height:360px;max-height:920px;overflow:auto}
+    .list{margin:0;padding-left:18px;color:var(--muted);line-height:1.8;font-size:14px}.mini-title{margin:20px 0 10px;font-size:14px;color:#dbeafe}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}.field-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -193,226 +25,63 @@
     <section class="hero">
       <div class="eyebrow">Real Estate Marketing Intake</div>
       <h1>房地产推广需求表</h1>
-      <p class="sub">你以后直接在这里填资料。我会按统一结构接收项目、渠道、风格和交付要求。当前这版会先帮你把需求整理成一份标准请求，适合直接发给我立刻出稿。</p>
+      <p class="sub">这版已经接入指挥中心任务库。你填完后，如果已用 owner 邮箱登录，就可以直接提交入库；我后续处理这类推广需求时，会按这套统一结构走。</p>
     </section>
-
     <section class="grid">
-      <form class="card" id="intakeForm">
+      <form class="card" id="marketing-intake-form">
         <h2 class="section-title">填写需求</h2>
-        <p class="help">不用每项都填满，但越完整，我出稿越快越准。</p>
-
+        <p class="help">登录 owner 后可直接提交入库；不登录也可以照常填写、复制、下载。</p>
         <div class="field-grid">
-          <div>
-            <label for="projectName">项目名称</label>
-            <input id="projectName" name="projectName" placeholder="例如：Harbour Vista" />
-          </div>
-          <div>
-            <label for="location">项目位置</label>
-            <input id="location" name="location" placeholder="例如：Rhodes, Sydney" />
-          </div>
-          <div>
-            <label for="propertyType">物业类型</label>
-            <input id="propertyType" name="propertyType" placeholder="例如：公寓 / 联排 / 别墅" />
-          </div>
-          <div>
-            <label for="priceRange">价格区间</label>
-            <input id="priceRange" name="priceRange" placeholder="例如：$1.05M 起" />
-          </div>
-          <div>
-            <label for="developer">开发商 / 品牌</label>
-            <input id="developer" name="developer" placeholder="可选" />
-          </div>
-          <div>
-            <label for="handover">交房 / 现房情况</label>
-            <input id="handover" name="handover" placeholder="可选" />
-          </div>
+          <div><label for="projectName">项目名称</label><input id="projectName" name="projectName" placeholder="例如：Harbour Vista" /></div>
+          <div><label for="location">项目位置</label><input id="location" name="location" placeholder="例如：Rhodes, Sydney" /></div>
+          <div><label for="propertyType">物业类型</label><input id="propertyType" name="propertyType" placeholder="例如：公寓 / 联排 / 别墅" /></div>
+          <div><label for="priceRange">价格区间</label><input id="priceRange" name="priceRange" placeholder="例如：$1.05M 起" /></div>
+          <div><label for="developer">开发商 / 品牌</label><input id="developer" name="developer" placeholder="可选" /></div>
+          <div><label for="handover">交房 / 现房情况</label><input id="handover" name="handover" placeholder="可选" /></div>
         </div>
-
         <div class="field-grid single" style="margin-top:14px;">
-          <div>
-            <label for="sellingPoints">核心卖点</label>
-            <textarea id="sellingPoints" name="sellingPoints" placeholder="每行一个点，例如：\n- 近火车站\n- 水景\n- 适合投资\n- 总价门槛相对友好"></textarea>
-          </div>
-          <div>
-            <label for="mustEmphasize">必须强调的点</label>
-            <textarea id="mustEmphasize" name="mustEmphasize" placeholder="例如：学区、地铁、品牌开发商、海景等"></textarea>
-          </div>
-          <div>
-            <label for="avoidClaims">不能乱写 / 不能碰的点</label>
-            <textarea id="avoidClaims" name="avoidClaims" placeholder="例如：不要写保证升值、不要写官方未确认信息"></textarea>
-          </div>
+          <div><label for="sellingPoints">核心卖点</label><textarea id="sellingPoints" name="sellingPoints" placeholder="每行一个点"></textarea></div>
+          <div><label for="mustEmphasize">必须强调的点</label><textarea id="mustEmphasize" name="mustEmphasize" placeholder="例如：学区、地铁、品牌开发商、海景等"></textarea></div>
+          <div><label for="avoidClaims">不能乱写 / 不能碰的点</label><textarea id="avoidClaims" name="avoidClaims" placeholder="例如：不要写保证升值、不要写官方未确认信息"></textarea></div>
         </div>
-
         <div class="field-grid" style="margin-top:14px;">
-          <div>
-            <label for="targetAudience">目标客户</label>
-            <input id="targetAudience" name="targetAudience" placeholder="例如：华人家庭 + 投资客户" />
-          </div>
-          <div>
-            <label for="customerFocus">客户最在意什么</label>
-            <input id="customerFocus" name="customerFocus" placeholder="例如：预算、回报、学区、地段" />
-          </div>
-          <div>
-            <label for="channel">发布渠道</label>
-            <input id="channel" name="channel" placeholder="例如：朋友圈 / 小红书 / 网站 / EDM" />
-          </div>
-          <div>
-            <label for="deliverableType">要我做什么</label>
-            <input id="deliverableType" name="deliverableType" placeholder="例如：朋友圈文案3版 + 小红书标题8个" />
-          </div>
-          <div>
-            <label for="style">风格要求</label>
-            <input id="style" name="style" placeholder="例如：高级、可信、不要太像硬广" />
-          </div>
-          <div>
-            <label for="deadline">截止时间</label>
-            <input id="deadline" name="deadline" placeholder="例如：今晚 8 点前" />
-          </div>
+          <div><label for="targetAudience">目标客户</label><input id="targetAudience" name="targetAudience" placeholder="例如：华人家庭 + 投资客户" /></div>
+          <div><label for="customerFocus">客户最在意什么</label><input id="customerFocus" name="customerFocus" placeholder="例如：预算、回报、学区、地段" /></div>
+          <div><label for="channel">发布渠道</label><input id="channel" name="channel" placeholder="例如：朋友圈 / 小红书 / 网站 / EDM" /></div>
+          <div><label for="deliverableType">要我做什么</label><input id="deliverableType" name="deliverableType" placeholder="例如：朋友圈文案3版 + 小红书标题8个" /></div>
+          <div><label for="style">风格要求</label><input id="style" name="style" placeholder="例如：高级、可信、不要太像硬广" /></div>
+          <div><label for="deadline">截止时间</label><input id="deadline" name="deadline" placeholder="例如：今晚 8 点前" /></div>
         </div>
-
         <div class="field-grid single" style="margin-top:14px;">
-          <div>
-            <label for="links">链接 / PDF / 图片 / 补充材料</label>
-            <textarea id="links" name="links" placeholder="可贴项目链接、网盘链接、图片说明、PDF 摘要等"></textarea>
-          </div>
-          <div>
-            <label for="extraNotes">补充说明</label>
-            <textarea id="extraNotes" name="extraNotes" placeholder="比如竞品参考、想要避开的表达、指定客户顾虑等"></textarea>
-          </div>
+          <div><label for="links">链接 / PDF / 图片 / 补充材料</label><textarea id="links" name="links" placeholder="可贴项目链接、网盘链接、图片说明、PDF 摘要等"></textarea></div>
+          <div><label for="extraNotes">补充说明</label><textarea id="extraNotes" name="extraNotes" placeholder="比如竞品参考、想要避开的表达、指定客户顾虑等"></textarea></div>
         </div>
-
         <div class="actions">
-          <button type="button" class="primary" id="copyBtn">复制标准需求</button>
-          <button type="button" class="secondary" id="downloadBtn">下载需求文件</button>
+          <button type="button" class="primary" id="submitBtn">提交到指挥中心</button>
+          <button type="button" class="secondary" id="copyBtn">复制标准需求</button>
+          <button type="button" class="ghost" id="downloadBtn">下载需求文件</button>
           <button type="reset" class="ghost">清空重填</button>
         </div>
-        <div class="status warn" id="statusBox">当前说明：这版已经能把需求整理成标准格式并一键复制/下载。要做到“你点提交后我自动收到并直接开写”，还需要再接一个接收后端。</div>
+        <div class="status warn" id="statusBox">当前说明：owner 登录后可直接提交入库；未登录时仍可复制给我处理。</div>
       </form>
-
       <aside class="card">
         <h2 class="section-title">标准请求预览</h2>
         <div class="preview" id="preview"></div>
-
-        <div class="mini-title">建议填写重点</div>
-        <div class="chips">
-          <span>项目名</span>
-          <span>位置</span>
-          <span>价格</span>
-          <span>核心卖点</span>
-          <span>目标客户</span>
-          <span>渠道</span>
-          <span>要我做什么</span>
-          <span>风格</span>
-        </div>
-
-        <div class="mini-title">现在这版能做什么</div>
+        <div class="mini-title">现在这版的工作方式</div>
         <ul class="list">
-          <li>把你的推广需求整理成统一格式</li>
-          <li>一键复制，直接发给我就能出稿</li>
-          <li>下载成文本文件，方便留档或转发给团队</li>
-          <li>后续可以继续升级成“表单提交即入库”版本</li>
+          <li>填写后可直接提交进现有任务库</li>
+          <li>提交成功后会生成一条“房地产推广”任务</li>
+          <li>也保留复制 / 下载能力，方便你随手发我</li>
+          <li>owner 登录是为了防止陌生人乱写入</li>
         </ul>
+        <div class="mini-title">建议填写重点</div>
+        <div class="chips"><span>项目名</span><span>位置</span><span>价格</span><span>核心卖点</span><span>目标客户</span><span>渠道</span><span>要我做什么</span><span>风格</span></div>
       </aside>
     </section>
   </main>
-
-  <script>
-    const fields = [
-      'projectName','location','propertyType','priceRange','developer','handover',
-      'sellingPoints','mustEmphasize','avoidClaims','targetAudience','customerFocus',
-      'channel','deliverableType','style','deadline','links','extraNotes'
-    ];
-
-    const labels = {
-      projectName: '项目名称',
-      location: '项目位置',
-      propertyType: '物业类型',
-      priceRange: '价格区间',
-      developer: '开发商 / 品牌',
-      handover: '交房 / 现房情况',
-      sellingPoints: '核心卖点',
-      mustEmphasize: '必须强调的点',
-      avoidClaims: '不能乱写 / 不能碰的点',
-      targetAudience: '目标客户',
-      customerFocus: '客户最在意什么',
-      channel: '发布渠道',
-      deliverableType: '要我做什么',
-      style: '风格要求',
-      deadline: '截止时间',
-      links: '链接 / PDF / 图片 / 补充材料',
-      extraNotes: '补充说明'
-    };
-
-    function value(id) {
-      return (document.getElementById(id)?.value || '').trim();
-    }
-
-    function buildRequest() {
-      const lines = [];
-      lines.push('请按下面这份房地产推广需求直接出稿。');
-      lines.push('');
-      for (const id of fields) {
-        const val = value(id);
-        if (!val) continue;
-        lines.push(`【${labels[id]}】`);
-        lines.push(val);
-        lines.push('');
-      }
-      lines.push('【执行要求】');
-      lines.push('1. 先理解项目和目标客户');
-      lines.push('2. 按发布渠道和风格要求出稿');
-      lines.push('3. 直接给可发布版本');
-      lines.push('4. 如果信息不足，先列出最关键缺口，再给可先用版本');
-      return lines.join('\n').trim();
-    }
-
-    function updatePreview() {
-      document.getElementById('preview').textContent = buildRequest();
-    }
-
-    function setStatus(text, klass = '') {
-      const box = document.getElementById('statusBox');
-      box.className = 'status ' + klass;
-      box.textContent = text;
-    }
-
-    fields.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.addEventListener('input', updatePreview);
-    });
-
-    document.getElementById('copyBtn').addEventListener('click', async () => {
-      const text = buildRequest();
-      try {
-        await navigator.clipboard.writeText(text);
-        setStatus('已复制标准需求。你现在直接把它发给我，我就能按这个格式出稿。', 'ok');
-      } catch (err) {
-        setStatus('复制失败了。你可以手动选中右侧预览内容再复制。', 'warn');
-      }
-    });
-
-    document.getElementById('downloadBtn').addEventListener('click', () => {
-      const text = buildRequest();
-      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      const project = value('projectName') || 'marketing-request';
-      const safe = project.replace(/[^a-zA-Z0-9\u4e00-\u9fa5_-]+/g, '-');
-      a.href = url;
-      a.download = `${safe}-推广需求.txt`;
-      a.click();
-      URL.revokeObjectURL(url);
-      setStatus('需求文件已下载。你可以留档，或直接把右侧标准需求发给我。', 'ok');
-    });
-
-    document.getElementById('intakeForm').addEventListener('reset', () => {
-      setTimeout(() => {
-        updatePreview();
-        setStatus('已清空。重新填好后复制给我即可。', 'warn');
-      }, 0);
-    });
-
-    updatePreview();
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./supabase-browser.js?v=auth-2"></script>
+  <script src="./auth.js?v=auth-2"></script>
+  <script src="./marketing-intake.js?v=auto-1"></script>
 </body>
 </html>
